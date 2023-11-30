@@ -1,0 +1,128 @@
+#! /usr/bin/env python3
+
+import time
+import serial
+
+from mogi_haptic_device.thread_wrapper import periodic
+
+import rospy
+from std_msgs.msg import String, UInt8, UInt8MultiArray, Float32, Float32MultiArray
+
+class HapticNode:
+    def __init__(self):
+        self.angles = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        self.feedback = 0
+        self.lastFeedback = 0
+        self.commandQueue = []
+        self.angles_to_send = Float32MultiArray()
+        self.controlled_arm = ""
+
+                    
+    def main(self):                      
+        self.anglePub = rospy.Publisher('/mogi_haptic/joint_angles', Float32MultiArray, queue_size = 1)
+                                        
+        rospy.init_node('mogi_haptic_driver')
+        self.nodeName = rospy.get_name()
+        rospy.loginfo("{0} started".format(self.nodeName))
+
+        rospy.Subscriber("/mogi_haptic/feedback_request", UInt8, self.feedbackCallback)
+
+        self.serialPort = rospy.get_param('~serial_port', '/dev/ttyACM0')
+        self.publishRate = float(rospy.get_param('~publish_rate', 100.0)) # in Hz
+        self.serialRate = float(rospy.get_param('~serial_rate', 100.0))    # in Hz
+
+        self.ser = serial.Serial(
+            port = self.serialPort,
+            baudrate = 115200,
+            parity = serial.PARITY_NONE,
+            stopbits = serial.STOPBITS_ONE,
+            bytesize = serial.EIGHTBITS
+        )
+
+        self.ser.close()
+        self.ser.open()
+
+        # there is a 0.01 wait time in USB comm thread
+        self.commThread = periodic(self.robotCommThread, (1.0 / self.serialRate) - 0.01, "Comm")
+        self.commThread.start()
+
+        rate = rospy.Rate(self.publishRate)
+        while not rospy.is_shutdown():
+            self.publish()
+            try:
+                rate.sleep()
+            except:
+                print("Ctrl+C occured")
+
+        print("Stopped")
+
+        self.commThread.exit()
+        self.ser.close()
+
+
+    def publish(self):
+        self.angles_to_send.data = self.angles
+        self.anglePub.publish(self.angles_to_send)
+
+
+    def feedbackCallback(self, data):
+        self.feedback = data.data
+        #print(self.feedback)
+        if self.lastFeedback != self.feedback:
+            self.commandQueue.append("SFB")
+            self.lastFeedback = self.feedback
+
+    def robotCommThread(self):
+        try:
+            if len(self.commandQueue) == 0:
+                self.commandQueue.append("RDS")
+
+            command = self.commandQueue.pop(0)
+            if command == "SFB":
+                command = "SFB%03d" % (self.feedback)
+
+            self.ser.write(b"%s\r\n" % command.encode('ascii','ignore'))
+
+            
+            out = b''
+            time.sleep(0.008)
+            out=self.ser.read_until()
+
+            if out != '':
+                #print(">> %s" % out)
+                out_splitted = str(out).split(";")
+                if out_splitted[0] == "b'OK":
+                    #print(out_splitted)
+                    command = out_splitted[1].split('\\r')[0]
+                    if command == "RDS":
+                        self.angles[0] = int(out_splitted[2]) / 100.0 * 3.14 / 180.0 # convert to rad
+                        self.angles[1] = int(out_splitted[3]) / 100.0 * 3.14 / 180.0
+                        self.angles[2] = int(out_splitted[4]) / 100.0 * 3.14 / 180.0
+                        self.angles[3] = int(out_splitted[5]) / 100.0 * 3.14 / 180.0
+                        self.angles[4] = int(out_splitted[6]) / 100.0 * 3.14 / 180.0
+                        self.angles[5] = int(out_splitted[7]) / 100.0 * 3.14 / 180.0
+                        self.angles[6] = int(out_splitted[8]) / 100.0 * 3.14 / 180.0
+                        #print(">> %s" % self.angles)
+                    elif command == "SFB":
+                        pass
+                    else:
+                        print(">>INVALID COMMAND: %s" % out)
+                else:
+                    pass
+                    # rospy.loginfo("NOT GOOD")
+                    # rospy.loginfo(str(self.ser.is_open))
+
+        except:
+            print("exception")
+
+if __name__ == '__main__':
+    try:
+        node = HapticNode()
+        node.main()
+    except rospy.ROSInterruptException:
+        pass
+
+
+
+    
+    
