@@ -1,0 +1,428 @@
+2023-11-26 01:02:00,011 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,450x435,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-26 01:02:05,544 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:05,544 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:05,544 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:13,424 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:13,424 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:13,424 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:36,973 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:36,973 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:36,973 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:36,973 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:36,973 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:36,973 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:47,005 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:47,005 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:47,005 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:48,920 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:48,920 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:02:48,920 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:10:35,998 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,450x237,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-26 01:12:15,034 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-26 01:12:20,437 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,450x237,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-26 01:19:01,783 [WARN] MainPanel:272 - <html><b><center>Warning: This peripheral has no parameters to be configured<br></b></html>
+2023-11-26 01:19:01,808 [WARN] MainPanel:272 - <html><b><center>Warning: This peripheral has no parameters to be configured<br></b></html>
+2023-11-26 01:19:12,031 [WARN] MainPanel:272 - <html><b><center>Warning: This peripheral has no parameters to be configured<br></b></html>
+2023-11-26 01:19:56,038 [ERROR] RtosPanel:558 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2023-11-26 01:20:08,554 [WARN] MainPanel:272 - <html><b><center>Warning: This peripheral has no parameters to be configured<br></b></html>
+2023-11-26 01:20:08,579 [WARN] MainPanel:272 - <html><b><center>Warning: This peripheral has no parameters to be configured<br></b></html>
+2023-11-26 01:36:28,304 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:36:28,304 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:36:28,304 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:36:28,320 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:36:28,320 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:36:28,320 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:36:28,320 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:36:28,321 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:36:28,321 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:36:28,370 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:36:28,370 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:36:28,370 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:36:28,370 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:36:28,370 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:36:28,370 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:37:02,242 [ERROR] RtosPanel:558 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2023-11-26 01:37:15,400 [INFO] TasksAndQueuesTab:757 - Dynamic
+2023-11-26 01:37:15,400 [WARN] TasksAndQueuesTab:763 - 128 128
+2023-11-26 01:37:15,400 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2023-11-26 01:37:15,400 [INFO] TasksAndQueuesTab:757 - Dynamic
+2023-11-26 01:37:15,400 [WARN] TasksAndQueuesTab:763 - 256 128
+2023-11-26 01:37:15,400 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2023-11-26 01:37:15,400 [INFO] TasksAndQueuesTab:757 - Dynamic
+2023-11-26 01:37:15,400 [WARN] TasksAndQueuesTab:763 - 128 128
+2023-11-26 01:37:15,400 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2023-11-26 01:37:15,400 [INFO] TasksAndQueuesTab:757 - Dynamic
+2023-11-26 01:37:15,400 [WARN] TasksAndQueuesTab:763 - 128 128
+2023-11-26 01:37:15,400 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2023-11-26 01:37:17,994 [INFO] TasksAndQueuesTab:757 - Dynamic
+2023-11-26 01:37:17,994 [WARN] TasksAndQueuesTab:763 - 128 128
+2023-11-26 01:37:17,994 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2023-11-26 01:37:17,994 [INFO] TasksAndQueuesTab:757 - Dynamic
+2023-11-26 01:37:17,994 [WARN] TasksAndQueuesTab:763 - 256 128
+2023-11-26 01:37:17,994 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2023-11-26 01:37:17,994 [INFO] TasksAndQueuesTab:757 - Dynamic
+2023-11-26 01:37:17,994 [WARN] TasksAndQueuesTab:763 - 128 128
+2023-11-26 01:37:17,994 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2023-11-26 01:37:17,994 [INFO] TasksAndQueuesTab:757 - Dynamic
+2023-11-26 01:37:17,994 [WARN] TasksAndQueuesTab:763 - 128 128
+2023-11-26 01:37:17,994 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2023-11-26 01:44:43,713 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:44:43,713 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:44:43,713 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:44:43,714 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:44:43,714 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:44:43,714 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:46:08,420 [INFO] Gpio:273 - dependency for GPIO [RCC, SPI1, SYS, TIM1, USB_OTG_FS]
+2023-11-26 01:54:10,942 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:54:10,942 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:54:10,942 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:54:10,942 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:54:10,942 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:54:10,942 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:54:27,100 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 940999512 Bytes (1073741824)
+2023-11-26 01:54:28,751 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 654606440 Bytes (1073741824)
+2023-11-26 01:54:28,910 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SPI
+2023-11-26 01:54:28,910 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_FS
+2023-11-26 01:54:28,910 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-11-26 01:54:28,910 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: FREERTOS
+2023-11-26 01:54:28,910 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-11-26 01:54:28,910 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2023-11-26 01:54:28,910 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_DEVICE
+2023-11-26 01:54:28,910 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-11-26 01:54:28,910 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-11-26 01:54:28,910 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-11-26 01:54:28,911 [INFO] CodeGenerator:799 - code generatio: config db path: H:\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.9.2.202309101412\\db\
+2023-11-26 01:54:28,921 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:54:28,921 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:54:28,921 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 01:54:29,015 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\license.tmp_save
+2023-11-26 01:54:29,096 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\license.tmp
+2023-11-26 01:54:29,151 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\gpio.tmp_save
+2023-11-26 01:54:29,232 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\gpio.tmp
+2023-11-26 01:54:29,267 [WARN] IPConfigManager:2937 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2023-11-26 01:54:29,272 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2023-11-26 01:54:29,338 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_vars.tmp
+2023-11-26 01:54:29,340 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2023-11-26 01:54:29,384 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_inc.tmp
+2023-11-26 01:54:29,386 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2023-11-26 01:54:29,456 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2023-11-26 01:54:29,457 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2023-11-26 01:54:29,528 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_Msp.tmp
+2023-11-26 01:54:29,643 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-26 01:54:29,646 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_inc.tmp_save
+2023-11-26 01:54:29,718 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_inc.tmp
+2023-11-26 01:54:29,720 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_vars.tmp_save
+2023-11-26 01:54:29,772 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_vars.tmp
+2023-11-26 01:54:29,774 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_pfp.tmp_save
+2023-11-26 01:54:29,820 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_pfp.tmp
+2023-11-26 01:54:29,822 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_obj_creat.tmp_save
+2023-11-26 01:54:29,870 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_obj_creat.tmp
+2023-11-26 01:54:29,872 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_kernelStart.tmp_save
+2023-11-26 01:54:29,914 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_kernelStart.tmp
+2023-11-26 01:54:29,916 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_default_thread.tmp_save
+2023-11-26 01:54:29,964 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_default_thread.tmp
+2023-11-26 01:54:29,966 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_threads.tmp_save
+2023-11-26 01:54:30,017 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_threads.tmp
+2023-11-26 01:54:30,021 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-26 01:54:30,024 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-26 01:54:30,028 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_inc.tmp_save
+2023-11-26 01:54:30,087 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_inc.tmp
+2023-11-26 01:54:30,089 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_vars.tmp_save
+2023-11-26 01:54:30,130 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_vars.tmp
+2023-11-26 01:54:30,132 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_pfp.tmp_save
+2023-11-26 01:54:30,172 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_pfp.tmp
+2023-11-26 01:54:30,181 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_obj_creat.tmp_save
+2023-11-26 01:54:30,223 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_obj_creat.tmp
+2023-11-26 01:54:30,225 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_kernelStart.tmp_save
+2023-11-26 01:54:30,266 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_kernelStart.tmp
+2023-11-26 01:54:30,269 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_default_thread.tmp_save
+2023-11-26 01:54:30,310 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_default_thread.tmp
+2023-11-26 01:54:30,312 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_threads.tmp_save
+2023-11-26 01:54:30,352 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_threads.tmp
+2023-11-26 01:54:30,365 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Inc\FreeRTOSConfig.h_save
+2023-11-26 01:54:30,443 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Inc\FreeRTOSConfig.h
+2023-11-26 01:54:30,452 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Src\freertos.c_save
+2023-11-26 01:54:30,511 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Src\freertos.c
+2023-11-26 01:54:30,517 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-26 01:54:30,528 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usb_device.c_save
+2023-11-26 01:54:30,591 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usb_device.c
+2023-11-26 01:54:30,601 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usb_device.h_save
+2023-11-26 01:54:30,651 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usb_device.h
+2023-11-26 01:54:30,654 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\Target\usbd_conf.h_save
+2023-11-26 01:54:30,720 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\Target\usbd_conf.h
+2023-11-26 01:54:30,730 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\Target\usbd_conf.c_save
+2023-11-26 01:54:30,819 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\Target\usbd_conf.c
+2023-11-26 01:54:30,822 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_desc.h_save
+2023-11-26 01:54:30,870 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_desc.h
+2023-11-26 01:54:30,881 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_desc.c_save
+2023-11-26 01:54:30,949 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_desc.c
+2023-11-26 01:54:30,952 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_cdc_if.h_save
+2023-11-26 01:54:31,013 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_cdc_if.h
+2023-11-26 01:54:31,023 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_cdc_if.c_save
+2023-11-26 01:54:31,088 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_cdc_if.c
+2023-11-26 01:54:31,101 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_it.c_save
+2023-11-26 01:54:31,228 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_it.c
+2023-11-26 01:54:31,237 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Inc\stm32f4xx_it.h_save
+2023-11-26 01:54:31,283 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Inc\stm32f4xx_it.h
+2023-11-26 01:54:31,298 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_hal_msp.c_save
+2023-11-26 01:54:31,383 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_hal_msp.c
+2023-11-26 01:54:31,385 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\system.tmp_save
+2023-11-26 01:54:31,430 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\system.tmp
+2023-11-26 01:54:31,439 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2023-11-26 01:54:31,498 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_hal_timebase_tim.c
+2023-11-26 01:54:31,509 [INFO] CodeEngine:311 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Inc\stm32f4xx_hal_conf.h_save
+2023-11-26 01:54:31,585 [INFO] CodeEngine:335 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Inc\stm32f4xx_hal_conf.h
+2023-11-26 01:54:31,608 [WARN] IPConfigManager:3431 - IP not found : TIM
+2023-11-26 01:54:31,609 [WARN] CodeGenerator:3764 - IP not found : null
+2023-11-26 01:54:31,618 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Inc\main.h_save
+2023-11-26 01:54:31,694 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Inc\main.h
+2023-11-26 01:54:31,704 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Src\main.c_save
+2023-11-26 01:54:31,810 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Src\main.c
+2023-11-26 01:54:32,293 [INFO] ProjectBuilder:3064 - Time for Copy HAL[1] : 224mS.
+2023-11-26 01:54:32,297 [INFO] ProjectBuilder:4404 - Project Generator version: 4.1.0
+2023-11-26 01:54:32,462 [INFO] ConfigFileManager:1457 - The Die is : DIE433
+2023-11-26 01:54:33,488 [INFO] ProjectBuilder:4626 - Time for Generating toolchain IDE Files: 1191mS.
+2023-11-26 01:54:33,488 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
+2023-11-26 01:54:33,500 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
+2023-11-26 02:04:31,298 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:04:31,298 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:04:31,298 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:04:31,299 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:04:31,299 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:04:31,299 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:04:37,922 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:04:37,922 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:04:37,922 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:10:49,513 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:10:49,513 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:10:49,513 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:17:55,623 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:17:55,623 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:17:55,623 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:17:55,624 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:17:55,624 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:17:55,624 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:18:08,142 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 789213416 Bytes (1073741824)
+2023-11-26 02:18:09,393 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 896168168 Bytes (1073741824)
+2023-11-26 02:18:09,540 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SPI
+2023-11-26 02:18:09,540 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_FS
+2023-11-26 02:18:09,540 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-11-26 02:18:09,540 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: FREERTOS
+2023-11-26 02:18:09,540 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-11-26 02:18:09,540 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2023-11-26 02:18:09,540 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_DEVICE
+2023-11-26 02:18:09,540 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-11-26 02:18:09,540 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-11-26 02:18:09,540 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-11-26 02:18:09,541 [INFO] CodeGenerator:799 - code generatio: config db path: H:\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.9.2.202309101412\\db\
+2023-11-26 02:18:09,551 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:18:09,551 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:18:09,551 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:18:09,637 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\license.tmp_save
+2023-11-26 02:18:09,707 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\license.tmp
+2023-11-26 02:18:09,722 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\gpio.tmp_save
+2023-11-26 02:18:09,806 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\gpio.tmp
+2023-11-26 02:18:09,827 [WARN] IPConfigManager:2937 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2023-11-26 02:18:09,831 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2023-11-26 02:18:09,900 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_vars.tmp
+2023-11-26 02:18:09,901 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2023-11-26 02:18:09,947 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_inc.tmp
+2023-11-26 02:18:09,949 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2023-11-26 02:18:10,041 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2023-11-26 02:18:10,043 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2023-11-26 02:18:10,122 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_Msp.tmp
+2023-11-26 02:18:10,210 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-26 02:18:10,213 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_inc.tmp_save
+2023-11-26 02:18:10,280 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_inc.tmp
+2023-11-26 02:18:10,285 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_vars.tmp_save
+2023-11-26 02:18:10,326 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_vars.tmp
+2023-11-26 02:18:10,327 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_pfp.tmp_save
+2023-11-26 02:18:10,372 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_pfp.tmp
+2023-11-26 02:18:10,373 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_obj_creat.tmp_save
+2023-11-26 02:18:10,421 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_obj_creat.tmp
+2023-11-26 02:18:10,427 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_kernelStart.tmp_save
+2023-11-26 02:18:10,466 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_kernelStart.tmp
+2023-11-26 02:18:10,468 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_default_thread.tmp_save
+2023-11-26 02:18:10,524 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_default_thread.tmp
+2023-11-26 02:18:10,525 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_threads.tmp_save
+2023-11-26 02:18:10,575 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_threads.tmp
+2023-11-26 02:18:10,579 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-26 02:18:10,583 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-26 02:18:10,587 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_inc.tmp_save
+2023-11-26 02:18:10,650 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_inc.tmp
+2023-11-26 02:18:10,654 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_vars.tmp_save
+2023-11-26 02:18:10,700 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_vars.tmp
+2023-11-26 02:18:10,702 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_pfp.tmp_save
+2023-11-26 02:18:10,745 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_pfp.tmp
+2023-11-26 02:18:10,755 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_obj_creat.tmp_save
+2023-11-26 02:18:10,799 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_obj_creat.tmp
+2023-11-26 02:18:10,801 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_kernelStart.tmp_save
+2023-11-26 02:18:10,843 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_kernelStart.tmp
+2023-11-26 02:18:10,846 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_default_thread.tmp_save
+2023-11-26 02:18:10,899 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_default_thread.tmp
+2023-11-26 02:18:10,902 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_threads.tmp_save
+2023-11-26 02:18:10,942 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_threads.tmp
+2023-11-26 02:18:10,952 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Inc\FreeRTOSConfig.h_save
+2023-11-26 02:18:11,011 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Inc\FreeRTOSConfig.h
+2023-11-26 02:18:11,021 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Src\freertos.c_save
+2023-11-26 02:18:11,071 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Src\freertos.c
+2023-11-26 02:18:11,076 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-26 02:18:11,086 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usb_device.c_save
+2023-11-26 02:18:11,141 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usb_device.c
+2023-11-26 02:18:11,144 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usb_device.h_save
+2023-11-26 02:18:11,192 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usb_device.h
+2023-11-26 02:18:11,195 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\Target\usbd_conf.h_save
+2023-11-26 02:18:11,237 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\Target\usbd_conf.h
+2023-11-26 02:18:11,246 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\Target\usbd_conf.c_save
+2023-11-26 02:18:11,315 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\Target\usbd_conf.c
+2023-11-26 02:18:11,318 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_desc.h_save
+2023-11-26 02:18:11,365 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_desc.h
+2023-11-26 02:18:11,374 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_desc.c_save
+2023-11-26 02:18:11,440 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_desc.c
+2023-11-26 02:18:11,443 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_cdc_if.h_save
+2023-11-26 02:18:11,489 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_cdc_if.h
+2023-11-26 02:18:11,498 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_cdc_if.c_save
+2023-11-26 02:18:11,565 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_cdc_if.c
+2023-11-26 02:18:11,577 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_it.c_save
+2023-11-26 02:18:11,689 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_it.c
+2023-11-26 02:18:11,699 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Inc\stm32f4xx_it.h_save
+2023-11-26 02:18:11,740 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Inc\stm32f4xx_it.h
+2023-11-26 02:18:11,752 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_hal_msp.c_save
+2023-11-26 02:18:11,810 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_hal_msp.c
+2023-11-26 02:18:11,812 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\system.tmp_save
+2023-11-26 02:18:11,858 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\system.tmp
+2023-11-26 02:18:11,866 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2023-11-26 02:18:11,916 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_hal_timebase_tim.c
+2023-11-26 02:18:11,927 [INFO] CodeEngine:311 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Inc\stm32f4xx_hal_conf.h_save
+2023-11-26 02:18:12,002 [INFO] CodeEngine:335 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Inc\stm32f4xx_hal_conf.h
+2023-11-26 02:18:12,020 [WARN] IPConfigManager:3431 - IP not found : TIM
+2023-11-26 02:18:12,020 [WARN] CodeGenerator:3764 - IP not found : null
+2023-11-26 02:18:12,030 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Inc\main.h_save
+2023-11-26 02:18:12,094 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Inc\main.h
+2023-11-26 02:18:12,103 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Src\main.c_save
+2023-11-26 02:18:12,216 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Src\main.c
+2023-11-26 02:18:12,635 [INFO] ProjectBuilder:3064 - Time for Copy HAL[1] : 164mS.
+2023-11-26 02:18:12,639 [INFO] ProjectBuilder:4404 - Project Generator version: 4.1.0
+2023-11-26 02:18:12,799 [INFO] ConfigFileManager:1457 - The Die is : DIE433
+2023-11-26 02:18:13,746 [INFO] ProjectBuilder:4626 - Time for Generating toolchain IDE Files: 1107mS.
+2023-11-26 02:18:13,746 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
+2023-11-26 02:18:13,749 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
+2023-11-26 02:21:06,316 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:21:06,316 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:21:06,316 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:21:14,721 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,497x264,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-26 02:21:19,724 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-26 02:21:19,765 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-26 02:21:19,787 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:21:19,787 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:21:19,787 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:21:19,787 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:21:19,787 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:21:19,787 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:21:19,817 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-26 02:21:21,847 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 775461000 Bytes (1073741824)
+2023-11-26 02:21:23,727 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 815637600 Bytes (1073741824)
+2023-11-26 02:21:23,870 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SPI
+2023-11-26 02:21:23,870 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_OTG_FS
+2023-11-26 02:21:23,871 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2023-11-26 02:21:23,871 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: FREERTOS
+2023-11-26 02:21:23,871 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2023-11-26 02:21:23,871 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: TIM1_8
+2023-11-26 02:21:23,871 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USB_DEVICE
+2023-11-26 02:21:23,871 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2023-11-26 02:21:23,871 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2023-11-26 02:21:23,871 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2023-11-26 02:21:23,871 [INFO] CodeGenerator:799 - code generatio: config db path: H:\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.9.2.202309101412\\db\
+2023-11-26 02:21:23,882 [WARN] IP:2114 - DEVICE_SERIAL0_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:21:23,882 [WARN] IP:2114 - DEVICE_SERIAL1_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:21:23,882 [WARN] IP:2114 - DEVICE_SERIAL2_CDC_FS not found: check if there is a RefParameter without a condition.
+2023-11-26 02:21:23,970 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\license.tmp_save
+2023-11-26 02:21:24,040 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\license.tmp
+2023-11-26 02:21:24,055 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\gpio.tmp_save
+2023-11-26 02:21:24,125 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\gpio.tmp
+2023-11-26 02:21:24,151 [WARN] IPConfigManager:2937 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2023-11-26 02:21:24,155 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2023-11-26 02:21:24,223 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_vars.tmp
+2023-11-26 02:21:24,229 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2023-11-26 02:21:24,274 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_inc.tmp
+2023-11-26 02:21:24,275 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2023-11-26 02:21:24,338 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2023-11-26 02:21:24,339 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2023-11-26 02:21:24,421 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\usb_otg_fs_Msp.tmp
+2023-11-26 02:21:24,525 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-26 02:21:24,528 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_inc.tmp_save
+2023-11-26 02:21:24,594 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_inc.tmp
+2023-11-26 02:21:24,596 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_vars.tmp_save
+2023-11-26 02:21:24,637 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_vars.tmp
+2023-11-26 02:21:24,638 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_pfp.tmp_save
+2023-11-26 02:21:24,678 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_pfp.tmp
+2023-11-26 02:21:24,679 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_obj_creat.tmp_save
+2023-11-26 02:21:24,726 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_obj_creat.tmp
+2023-11-26 02:21:24,728 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_kernelStart.tmp_save
+2023-11-26 02:21:24,767 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_kernelStart.tmp
+2023-11-26 02:21:24,769 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_default_thread.tmp_save
+2023-11-26 02:21:24,810 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_default_thread.tmp
+2023-11-26 02:21:24,811 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_threads.tmp_save
+2023-11-26 02:21:24,857 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_threads.tmp
+2023-11-26 02:21:24,861 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-26 02:21:24,864 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-26 02:21:24,867 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_inc.tmp_save
+2023-11-26 02:21:24,928 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_inc.tmp
+2023-11-26 02:21:24,930 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_vars.tmp_save
+2023-11-26 02:21:24,971 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_vars.tmp
+2023-11-26 02:21:24,973 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_pfp.tmp_save
+2023-11-26 02:21:25,013 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_pfp.tmp
+2023-11-26 02:21:25,021 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_obj_creat.tmp_save
+2023-11-26 02:21:25,078 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_obj_creat.tmp
+2023-11-26 02:21:25,081 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_kernelStart.tmp_save
+2023-11-26 02:21:25,122 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_kernelStart.tmp
+2023-11-26 02:21:25,124 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_default_thread.tmp_save
+2023-11-26 02:21:25,167 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_default_thread.tmp
+2023-11-26 02:21:25,169 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_threads.tmp_save
+2023-11-26 02:21:25,212 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\rtos_threads.tmp
+2023-11-26 02:21:25,221 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Inc\FreeRTOSConfig.h_save
+2023-11-26 02:21:25,282 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Inc\FreeRTOSConfig.h
+2023-11-26 02:21:25,293 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Src\freertos.c_save
+2023-11-26 02:21:25,340 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Src\freertos.c
+2023-11-26 02:21:25,346 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2023-11-26 02:21:25,356 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usb_device.c_save
+2023-11-26 02:21:25,426 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usb_device.c
+2023-11-26 02:21:25,428 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usb_device.h_save
+2023-11-26 02:21:25,469 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usb_device.h
+2023-11-26 02:21:25,472 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\Target\usbd_conf.h_save
+2023-11-26 02:21:25,514 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\Target\usbd_conf.h
+2023-11-26 02:21:25,524 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\Target\usbd_conf.c_save
+2023-11-26 02:21:25,593 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\Target\usbd_conf.c
+2023-11-26 02:21:25,595 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_desc.h_save
+2023-11-26 02:21:25,637 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_desc.h
+2023-11-26 02:21:25,646 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_desc.c_save
+2023-11-26 02:21:25,713 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_desc.c
+2023-11-26 02:21:25,722 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_cdc_if.h_save
+2023-11-26 02:21:25,775 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_cdc_if.h
+2023-11-26 02:21:25,786 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_cdc_if.c_save
+2023-11-26 02:21:25,854 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\USB_DEVICE\App\usbd_cdc_if.c
+2023-11-26 02:21:25,866 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_it.c_save
+2023-11-26 02:21:25,923 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_it.c
+2023-11-26 02:21:25,932 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Inc\stm32f4xx_it.h_save
+2023-11-26 02:21:25,973 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Inc\stm32f4xx_it.h
+2023-11-26 02:21:25,985 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_hal_msp.c_save
+2023-11-26 02:21:26,074 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_hal_msp.c
+2023-11-26 02:21:26,076 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\MXTmpFiles\system.tmp_save
+2023-11-26 02:21:26,121 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\MXTmpFiles\system.tmp
+2023-11-26 02:21:26,130 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2023-11-26 02:21:26,180 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Src\stm32f4xx_hal_timebase_tim.c
+2023-11-26 02:21:26,190 [INFO] CodeEngine:311 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Inc\stm32f4xx_hal_conf.h_save
+2023-11-26 02:21:26,268 [INFO] CodeEngine:335 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Inc\stm32f4xx_hal_conf.h
+2023-11-26 02:21:26,300 [WARN] IPConfigManager:3431 - IP not found : TIM
+2023-11-26 02:21:26,300 [WARN] CodeGenerator:3764 - IP not found : null
+2023-11-26 02:21:26,311 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Inc\main.h_save
+2023-11-26 02:21:26,373 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Inc\main.h
+2023-11-26 02:21:26,383 [INFO] CodeEngine:255 - oldGeneratedFile, H:\WS\Telemanipulator_2023\v1\Core\Src\main.c_save
+2023-11-26 02:21:26,484 [INFO] CodeEngine:279 - Generated code: H:\WS\Telemanipulator_2023\v1\Core\Src\main.c
+2023-11-26 02:21:26,891 [INFO] ProjectBuilder:3064 - Time for Copy HAL[1] : 154mS.
+2023-11-26 02:21:26,895 [INFO] ProjectBuilder:4404 - Project Generator version: 4.1.0
+2023-11-26 02:21:27,070 [INFO] ConfigFileManager:1457 - The Die is : DIE433
+2023-11-26 02:21:28,003 [INFO] ProjectBuilder:4626 - Time for Generating toolchain IDE Files: 1108mS.
+2023-11-26 02:21:28,003 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
+2023-11-26 02:21:28,006 [INFO] ProjectBuilder:2935 - Time for Copy CMSIS : 0mS.
+2023-11-26 02:27:21,748 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,497x264,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]

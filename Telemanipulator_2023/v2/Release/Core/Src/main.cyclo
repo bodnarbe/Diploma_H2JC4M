@@ -1,0 +1,8 @@
+../Core/Src/main.c:458:6:StartCommTask	1
+../Core/Src/main.c:436:6:StartDefaultTask	1
+../Core/Src/main.c:476:6:StartSensorTask	15
+../Core/Src/main.c:213:6:SystemClock_Config	3
+../Core/Src/main.c:130:5:main	6
+../Core/Src/main.c:416:10:SizeofCharArray	2
+../Core/Src/main.c:632:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:649:6:Error_Handler	1
