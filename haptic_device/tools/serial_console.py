@@ -5,7 +5,7 @@ import serial
 import sys
 
 def usage():
-    return "%s [serial_port (e.g. ttyACM0)]"%sys.argv[0]
+    return "%s [serial_port (e.g. ttyACM1)]"%sys.argv[0]
 
 if __name__ == "__main__":
 
