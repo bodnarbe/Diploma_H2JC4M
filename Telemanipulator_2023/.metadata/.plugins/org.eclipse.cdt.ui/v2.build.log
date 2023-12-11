@@ -1,17 +1,17 @@
-02:05:26 **** Incremental Build of configuration Debug for project v2 ****
+18:07:15 **** Incremental Build of configuration Debug for project v2 ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "v2.elf" @"objects.list"   -mcpu=cortex-m4 -T"H:\WS\Telemanipulator_2023\v2\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="v2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+arm-none-eabi-gcc -o "v2.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\WS\Diploma\Telemanipulator_2023\v2\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="v2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: v2.elf
  
-arm-none-eabi-size   v2.elf 
-arm-none-eabi-objdump -h -S  v2.elf  > "v2.list"
+arm-none-eabi-size  v2.elf 
+arm-none-eabi-objdump -h -S v2.elf  > "v2.list"
    text	   data	    bss	    dec	    hex	filename
-  53372	    408	  22512	  76292	  12a04	v2.elf
+  53404	    408	  22512	  76324	  12a24	v2.elf
 Finished building: default.size.stdout
  
 Finished building: v2.list
  
 
-02:05:27 Build Finished. 0 errors, 0 warnings. (took 1s.123ms)
+18:07:16 Build Finished. 0 errors, 0 warnings. (took 1s.330ms)
 

@@ -7,5 +7,5 @@
 ../Core/Src/main.c:436:6:StartDefaultTask	1
 ../Core/Src/main.c:458:6:StartCommTask	18
 ../Core/Src/main.c:514:6:StartSensorTask	22
-../Core/Src/main.c:670:6:HAL_TIM_PeriodElapsedCallback	2
-../Core/Src/main.c:687:6:Error_Handler	1
+../Core/Src/main.c:671:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:688:6:Error_Handler	1

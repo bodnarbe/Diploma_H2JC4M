@@ -68,8 +68,8 @@ all: main-build
 main-build: v2.elf secondary-outputs
 
 # Tool invocations
-v2.elf v2.map: $(OBJS) $(USER_OBJS) H:\WS\Telemanipulator_2023\v2\STM32F401RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "v2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"H:\WS\Telemanipulator_2023\v2\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="v2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+v2.elf v2.map: $(OBJS) $(USER_OBJS) C:\WS\Diploma\Telemanipulator_2023\v2\STM32F401RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "v2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\WS\Diploma\Telemanipulator_2023\v2\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="v2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

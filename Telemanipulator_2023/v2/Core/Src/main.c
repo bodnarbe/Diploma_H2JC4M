@@ -89,8 +89,8 @@ static double angle7 = 0.0;
 
 static double offset1 = -104.25;//0.0;
 static double offset2 = 32.37;//0.0;
-static double offset3 = 111.05;//0.0;
-static double offset4 = 11.1;//0.0;
+static double offset3 = 177.52;//0.0;
+static double offset4 = -138.13;//0.0;
 static double offset5 = -176.17;//0.0;
 static double offset6 = 95.75;//0.0;
 static double offset7 = 0.0;
@@ -614,12 +614,13 @@ void StartSensorTask(void const * argument)
     }
 
 // PROBLÉMA
-    angle3_temp = angle3_raw;
+
+    angle3_temp = -1 * (angle3_raw - offset3);
     if (angle3_temp >= 0){
-    	angle3 = angle3_temp - offset3;
+    	angle3 = angle3_temp;
     }
     else{
-    	angle3 = angle3_temp + offset3;
+    	angle3 = -1 * (360 - (360 + angle3_temp));
     }
 // PROBLÉMA
 

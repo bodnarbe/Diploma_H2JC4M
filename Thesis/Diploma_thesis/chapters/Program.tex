@@ -1,0 +1,40 @@
+\chapter{Telemanipulátor programja}
+\label{sec:LatexTools}
+
+Az telemanipulátor jelfeldolgozó rendszerének fizikai összeállítása után a szenzorok által küldött jelek szoftveres feldolgozását és használatát mutatom be. A fejezet során hasonlóan mint korábban a szenzoroktól kezdem a szoftveres komponensek bemutatását és haladok a tényleges robot mozgatásra szolgáló rendszerekig.
+
+%----------------------------------------------------------------------------
+\section{Szenzor kommunikációs protokollja}
+%----------------------------------------------------------------------------
+A GMR szenzor a mikrovezérlővel az úgy nevezett Synchronous Serial Communication \footnot{magyarul Szinkron Szériás Kommunikációs} röviden SSC protokolt használ. Ez a  protokoll egy olyan kommunikációs rendszer, amely során a küldő és a fogadó eszközök szorosan szinkronizáltak egymással a közös órajel alapján. Az SSC azon alapul, hogy mindkét eszköz előre rögzített órajelet használ a bekapcsolás pillanatától, hogy a rendszer használat teljes ideje alatt szinkronban maradjanak.
+
+A protokoll közös órajele biztosítja, hogy a adat transzferálás esetén az órajel biztosítja, hogy mindkét eszköz azonos sebességgel és időzítéssel küldje és fogadja az üzenetet. Ez az információ küldés során bitek sorozataként továbbítódik, és a kommunikáló fogadó és küldő egységek egyeztetik az adatok kezdőpontját és végpontját az órajelet használva. Ennek következtében mindkét eszköz tudja, hogy mikortól kell és meddig értelmeznie az érkező biteket.
+
+%TODO kép a GMR bitekről
+
+A protokoll lehetővé teszi a teljes és a fél-duplex kommunikációt. Teljes-duplex esetén mindkét eszköz képes egyszerre küldeni és fogadni adatokat, míg fél-duplex esetén a kommunikáció váltakozva történik, azaz egyik eszköz küld, majd vált, és a másik eszköz fogad.
+
+Az SSC gyakran használt alkalmazása az I2C (Inter-Integrated Circuit) és a SPI (Serial Peripheral Interface) kommunikációs protokollok. Az I2C esetén a kommunikáció két vezetéken, adatazon és órajelező vonalon történik, míg az SPI esetén több vezetéket használnak, például MISO (Master In Slave Out), MOSI (Master Out Slave In), órajeladóval és választóvonal.
+
+A SSC protokoll széles körben alkalmazható az elektronikában és beágyazott rendszerekben, ahol szükség van a gyors, megbízható és szinkronizált adatkommunikációra a különböző eszközök között.
+
+A telemanipulátor esetében half-duplex kommunikációs módot használok a GMR szenzor dokumentációjában meghatározott értéken (XYZ hivatkozás) állítottam be. Minden szenzorhoz tartozóan chipválasztó pineket is deklarálnom kellett. A kommunikációs protokoll kezeléséhez egy előre elkészített könyvtárat használtam, ami megtalálható a (XYZ melléklet) mellékletben.
+
+
+\section{Mikrovezérlő program}
+%----------------------------------------------------------------------------
+
+A mikrovezérlő program a diploma dolgozathoz képest kisebb módosításokkal lett kiegészítve, de igazán nagy fejlesztést nem igényelt a program.
+
+A konzulensem hasonló projektjének(Hivatkozás XYZ) a mikrovezérlő programját használtam fel, ami szintúgy STM32-es rendszerre készített. A mikrovezérlő az én általam használt telemanipulátor esetében 7 szenzor adatot gyűjt össze, dolgoz fel és továbbít a további rendszereknek.
+
+A programnak megkellett felelnie annak az elvárásnak, hogy 
+
+\section{Haptikus interfész}
+%----------------------------------------------------------------------------
+\section{Universal Robot kontroller}
+%----------------------------------------------------------------------------
+\section{Gazebo szimuláció}
+%----------------------------------------------------------------------------
+\section{Valósrobot vezérlése}
+%----------------------------------------------------------------------------
