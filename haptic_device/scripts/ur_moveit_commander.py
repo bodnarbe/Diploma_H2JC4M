@@ -101,7 +101,7 @@ class Forward_kinematics:
         beta = math.atan2(-1 * R_09[2][0], math.sqrt(pow(R_09[0][0], 2) + pow(R_09[1][0], 2))) #*180/math.pi
         alpha = math.atan2(R_09[1][0]/math.cos(beta), R_09[0][0]/math.cos(beta)) #*180/math.pi
         gamma = math.atan2(R_09[2][1]/math.cos(beta), R_09[2][2]/math.cos(beta)) #*180/math.pi
-        #print(t_0_TCP[0][0], t_0_TCP[1][0], t_0_TCP[2][0], gamma, beta, alpha )
+        # print(t_0_TCP[0][0], t_0_TCP[1][0], t_0_TCP[2][0], gamma, beta, alpha )
         return t_0_TCP[0][0], t_0_TCP[1][0], t_0_TCP[2][0], gamma, beta, alpha
  
  
@@ -209,6 +209,7 @@ class MoveitCommander:
     def callback(self, msg):
         jointangles = msg.data
         pos_TCP = self.fwd.forward_kinematics(jointangles[0:7], [0,0,0,1])
+        print(jointangles[0:7])
         self.moveit_commander.go_to_pose(
             pos_TCP[0] + self.shift_x,
             pos_TCP[1] + self.shift_y,
@@ -221,8 +222,8 @@ class MoveitCommander:
  
 def main():
   try:
-    print("START")
-    cmd = MoveitCommander( 0.2, 0.0, 0.4)
+    print("started..")
+    cmd = MoveitCommander( 0.15, 0.0, 0.3)
     time.sleep(2)
  
     jointSub = rospy.Subscriber('/mogi_haptic/joint_angles', Float32MultiArray, cmd.callback, queue_size = 1)

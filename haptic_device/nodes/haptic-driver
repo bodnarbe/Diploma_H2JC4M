@@ -27,7 +27,7 @@ class HapticNode:
 
         rospy.Subscriber("/mogi_haptic/feedback_request", UInt8, self.feedbackCallback)
 
-        self.serialPort = rospy.get_param('~serial_port', '/dev/ttyACM0')
+        self.serialPort = rospy.get_param('~serial_port', '/dev/ttyACM1')
         self.publishRate = float(rospy.get_param('~publish_rate', 100.0)) # in Hz
         self.serialRate = float(rospy.get_param('~serial_rate', 100.0))    # in Hz
 
@@ -102,14 +102,14 @@ class HapticNode:
                         self.angles[4] = int(out_splitted[6]) / 100.0 * 3.14 / 180.0
                         self.angles[5] = int(out_splitted[7]) / 100.0 * 3.14 / 180.0
                         self.angles[6] = int(out_splitted[8]) / 100.0 * 3.14 / 180.0
-                        #print(">> %s" % self.angles)
+                        # print(">> %s" % self.angles)
                     elif command == "SFB":
                         pass
                     else:
                         print(">>INVALID COMMAND: %s" % out)
                 else:
                     pass
-                    # rospy.loginfo("NOT GOOD")
+                    rospy.loginfo("NOT GOOD")
                     # rospy.loginfo(str(self.ser.is_open))
 
         except:

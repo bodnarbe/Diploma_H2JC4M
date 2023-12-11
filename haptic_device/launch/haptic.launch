@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-  <arg name="serial_port" value="/dev/ttyACM0" />
+  <arg name="serial_port" value="/dev/ttyACM1" />
 
   <node name="haptic_driver" pkg="mogi_haptic_device" type="haptic-driver" output="screen">
     <rosparam subst_value="true">
