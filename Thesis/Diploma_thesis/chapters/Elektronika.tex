@@ -1,0 +1,131 @@
+\chapter{Telemanipulátor jelfeldolgozó rendszere}
+\label{sec:LatexTools}
+
+A bemutatott fizikai rendszerhez tartozó jelfeldolgozó rendszer hardveres elemei nem sokban térnek el a szakdolgozatomban használt rendszertől, mégis jelentősen összetettebbé vált az elmúlt két évben azáltal, hogy mennyi mindent sajátítottam el a képzés végére. Kiegészítettem néhány biztonsági és jelminőség javító megoldással. Ebben a fejezetben igyekszem részletesen bemutatni a telemanipulátor aktuális pozíciójának meghatározására kiválasztott szenzorokat és a mikrovezérlőt.
+
+%----------------------------------------------------------------------------
+\section{Rendszer koncepciója}
+
+A komponensek bemutatása előtt a szögérésre felépített rendszer felépítését szeretném bemutatni. A rendszernek hasonlóan a fizikai vázhoz a tervezés során meghatározott elvárásoknak kell megfelelnie. Ugyan a XYZ fejezetben felsorolt elvárások száma lényegesen kisebb mint a vázzal vagy a programmal szemben támasztottak, viszont legalább annyira lényegesek. Komolyabb teljesítmény elektronikát nem kellett tervezzek a rendszerhez, mert a kiválasztott mikrovezérlő DC kimenete bőven képes előállítani a szenzorok feltáplálásához szükséges áramot. Amit viszont a már a fizikai rendszer tervezésénél figyelembe kellett vennem, hogy a kábelezés ne legyen túl nehézkes, hogy a kommunikációban a szenzor-mikorvezérlő távolságból származó ellenállás ne okozzon problémát. A szenzorok tesztelésénél foglalkoztam a maximálisan használható drót hossz megállapításával. A rendszert a lehető legegyszerűbben a lehető legkevesebb egyedi alkatrész felhasználásával készítettem el. A teljesítmény elektronika tervezés felmerült, de végül nem volt szükséges. A hangsúlyt a XYZ fejezetben bemutatásra kerülő mikorvezérlő kiválasztására fektettem. Nem volt szükség méret vagy egy fizikai korlát használatára, így igyekeztem a lehető legnagyobb teljesítményű és legtöbb potenciális tovább fejlesztést lehetővé tévő megoldást választani. A következőkben a már megépített rendszert és lehetséges tovább fejlesztési lehetőségeit bemutatni.
+
+%----------------------------------------------------------------------------
+\section{Rendszer összeállítása}
+
+A jelfeldolgozó rendszer elektronikai oldalról minimális mérnöki ismeretekkel is könnyen megérhető és a bemutatás is igen egyszerű. A összeállítást a csuklóban érzékelt szögtől indulva mutatom be lépésről lépésre. Egy adott csuklóból induló két kar egymással bezárt szögének mérésére GMR(Giant magnetoresistance) szenzort használtam. A szenzor összeállítás magából a szenzorból és a szenzorlapjával párhuzamba állított mágnesből áll. Ezzel a szenzor összeállítással a "jeladó" és a jelvevő között fizikai kontaktus nélkül tudok szöget mérni és ami még lényegesebb nincs végállása a szenzornak. Így a váz tervezése során csak azt kellett figyelembe vennem, hogy szenzor és a mágnes középtengelye egybe essen és a távolságuk ne legyen nagyobb mint $XYZ[mm]$. A szenzorhoz saját magam által tervezett és gyártott NyÁK lapot terveztem, mivel a szenzor SMD\footnote{•} kivitelű ezért szükséges volt megoldani a szenzor chip lábai és a drót közötti kapcsolatot.
+
+%TODO RENDSZER ÁBRA
+
+A következő fontos komponens a bypass kondenzátor. Ennek a kondenzátornak a célja a teljesítmény ingadozás kiküszöbölése ezzel a szenzor működése egyenletesebbé tehető. Ezt a javaslatot a bypass kondenzátor használatára még a szakdolgozatom bírálatánál kaptam, mint lehetséges teljesítmény javító komponens.
+
+Tovább folytatva a bemutatás kicsit részletesebben szeretném bemutatni a drótok csatlakozóit, ugyanis a szakdolgozatban elkészített telemanipulátor szenzoraihoz tartozó drótok a nem voltak megbonthatóak az összeállítás teljes hosszában. Ez a későbbi tovább fejlesztési lehetőséget akadályozta meg. Ebben a dolgozatban bemutatott eszköznél már a váz fizikai paramétereinek megadásánál figyeltem, hogy csatlakozókat tudjak a szenzoroknál elhelyezni. A végső változatban a szenzor utána $30-40[mm]$-re helyeztem el minden bontó csatlakozót, hogy a tengelyeket a mozgásban ne akadályozza, de bármilyen probléma esetén könnyen hozzáférhető legyen. Ez az extra elem a későbbiekben a leghasznosabb fejlesztésnek bizonyult, ugyanis a szenzorok működésbe helyezése alatt a hiba keresést leegyszerűsítette, hogy nem kellett a mikrovezérlő bekötéseit megbontanom ahhoz, hogy külön leellenőrizhessem a működést.
+
+A megfelelő drót kiválasztására nem kritikus, de érdemes oda figyelni. Két hardver szempontjából lényegesebb és két szerelési kritériumot támasztottam ezzel szemben. Ezek a következőek voltak:
+\begin{itemize}
+  \item A drótoknak a minimális fordulási sugarának alacsonynak kellett lennie. Ez azért fontos, mert a szakdolgozatnál készített manipulátor esetében ezt nem vettem figyelembe és a drótok használat közbeni deformációja szélsőséges esetben akadályozták a mozgatást
+  \item A drót egységnyi hosszon mért ellenállása ne akadályozza a szenzorok működését. Kevésbé fenyegető probléma, azonban érdemesnek tartottam figyelembe venni, ugyanis a hatodik szenzor és a mikrovezérlő távolsága megközelíti $1000[mm]$-t. Ez a későbbiekben bekövetkező tovább fejlesztést akadályozhatja meg.
+  \item Szerelési kritériumként figyelembe vettem a drótok maximális átmérőjét. Több esetben 2-3 szenzorhoz tartozó kábelezés lép át egy adott csuklóban egyik karban futó csatornából a másikba. A probléma leküzdését két oldalról közelítettem meg. Egyrészt a maximális drót számhoz tartozó átmérőnek a $400$ \%-át vettem minimum keresztmetszetnek minden csuklóban. Másodsorban szignifikánsan nagyobb csapágyakat választottam mint a szakdolgozatomban, így gyakorlatilag akár 20-30 szenzor elvezetése is lehetséges lenne a csukló tengelyeknél.
+  \item Szerelési megkönnyítésére nagyon fontos és egyszerű hibakeresésnél lényeges, hogy minden szenzorhoz tartozó a szenzorválasztójelét továbbító drót jól megkülönböztethető legyen. Röviden megfogalmazva a drótból, amit választok legalább $11$ féle szín legyen elérhető. Ez a a szakdolgozatban épített telemanipulátor újra indításánál jelentkezett, mind gond. Rengeteg időt vett el a szenzorok újra beazonosítása.
+\end{itemize}
+Ezek a meghatározott kritériumok egy része kényelmi és inkább magasabb bekerülési költséget eredményeznek, de a teljes rendszer finanszírozhatóságával késöbb szeretnék foglalkozni.
+
+A következő komponensek már lényegesen összetettebbek. Logikai sorrendben a mikrovezérlő(MCU\footnote{•}) következik. Az MCU végzi a szenzorok áramellátását, velük való kommunkikációt, az adatok feldolgozását és ezek továbbítását. Az MCU program leírását a XYZ fejezetben részletesebben is megteszem. A mikrovezérlő USB kommunikációs porton csatlakozik a számítógépre, míg a saját bootloaderével\footnote{•} a program felügyeletét lehet végezni.
+
+%----------------------------------------------------------------------------
+\section{Elektronikai rendszer komponensei}
+
+Az komponensek kiválasztása egyes esetekben más és más szempontok alapján történtek. Az egyik oka, hogy költsége elemezést végeztem a telemanipulátorral kapcsolatban dolgozatom végén (XYZ fejezet), hogy egy átfogóképet készítsek arról, hogy jelenleg egy ilyen végletekig leegyszerűsített prototípus, körül belül mekkora előállítási költséggel jár. A komponensek kiválasztási szempontjaiban az elérhetőséget és a későbbi tovább fejleszthetőséget tartottam szem előtt. Az alkatrészek bemutatásánál nem térek ki a a szerelvények minden elemére, mert például az USB kábel minőségének kiválasztására nem feltettem energiát.
+
+%----------------------------------------------------------------------------
+\subsubsection{GMR szenzor}
+
+Csakúgy mint a rendszer koncepciós bemutatásánál szenzortól haladva a nagyobb egységekig fogom bemutatni az elemeket részletesebben. A csukló szög megállapításához használt szenzor összeállításban a mágneses állását mértem egy mágneses térorientációt mérni képes szenzorral. A Giant Magnetoresistance (GMR) szenzor egy olyan érzékelő, amely az elektromágneses tulajdonságok változását méri egy mágneses mező hatására. Ez a technológia a mágneses rezisztivitás változását használja ki, amikor egy mágneses tér hatására a szenzorban levő részecskék mágneses állapota változik. A szenzor működése röviden úgy foglalható össze, hogy a szenzorok több réteg vékony filmrétegből állnak, amelyek között ferromágneses és nem-ferromágneses rétegek váltakoznak. A ferromágneses rétegek mágneses polarizációjukat megváltoztathatják a külső mágneses tér hatására, és ezáltal befolyásolják az elektromos ellenállást az érzékelőben. Ennek a változásnak a szenzorba mérő rendszer képes a mágneses pólusok orientációját megadni a szenzor tengelyeihez képest.
+
+%TODO képek
+
+Az általam használt szenzor a Infineon TLE5012B jelzésű GMr szenzorja. Ez a szenzor egy $360[^\circ]$-os szögérzékelő. Ezt az érzékelést monolitikusan integrált\footnote{A monolitikus integrált áramkörben az áramkör valamennyi aktív és passzív elemét, valamint a hozzájuk tartozó összekötéseket egyetlen chip-ben alakítják ki. Ezt a kialakítást szokás félvezető alapú integrált áramkörnek is nevezni.} Giant Magneto Resistance (iGMR) elemekkel mérik, melyek a szinusz és koszinusz szögkomponenseit érzékelik. Ezeket a nyers jeleket belsőleg digitálisan feldolgozzák a mágneses tér orientációjának kiszámításához. Ami nagyon fontos, hogy ez az érzékelő egy előre-kalibrált érzékelő. A kalibrációs paramétereket belsőleg tárolják. A bekapcsoláskor ezekhez viszonyítva adja meg a szögértékeket. A szögmérés pontosságát egy opcionális belső automatikus kalibrációs algoritmussal lehet javítani a széles hőmérséklettartományban és hosszú élettartamban. Én ezt a funkciót nem használtam, de a mikrovezérlő programjába integráltam ennek a lehetőségét, de erről majd a programozási fejezetben(fejezet XYZ). Az adatkommunikációt egy kétirányú Szinkron Soros Kommunikációval \footnote{•} (SSC) valósítják meg, amely SPI-kompatibilis. A szenzor konfigurációja regiszterekben tárolódik, amelyek elérhetők az SSC interfésszel. Emellett négy másik interfész is rendelkezésre áll a TLE5012B-vel: Impulzus-Szélesség-Moduláció (PWM) Protokoll, Rövid PWM Kód (SPC) Protokoll, Hall Kapcsoló Mód (HSM) és Inkrementális Interfész (IIF). Ezeket az interfészeket az SSC-vel együtt vagy önállóan lehet használni. Előre konfigurált érzékelő változatok elérhetők különböző interfészbeállításokkal, de a telemanipulátornál én, csak a SSC kommunikációs megvalósítást használtam. Ez a legegyszerűbb és az általam használt könyvtár is erre volt optimalizálva. Néhány fontosabb jellemzőt még felsorolok a szenzorról, amik fontosabbak:
+
+\begin{itemize}
+	\item Egy chipben van minden. Nincs szükség további komponensre a szenzor működtetéséhez. A bypass kondenzátor is inkább, csak teljesítmény növelő kiegészítő
+	\item $360[^\circ]$-os szögmérés fordulatszámlálóval és szögsebesség méréssel. Ugyan nem használom ki szögsebesség mérést, de mint lehetőség későbbiekben a gravitácós erő kikompenzálásában még szerepe lehet. A $360[^\circ]$-os mérés pedig külön előny, hogy nem kell foglalkozni az összeszerelésnél az orientációval. Offszeteléssel be lehet könnyedén állítani.
+	\item 15 bites szögérték megadás a kimeneten, aminek pontossága $0,01[^\circ]$. Ez kellően nagy felbontás ahhoz, hogy a telemanipulátor end-effektor-ának pozícióját meghatározzam
+	\item 16 bit-en értelmezett szinusz / coszinusz érték az interfészen
+	\item Maximum $1[^\circ]$ hiba gyártó által garantálva szenzor élettartalma és környezeti hőmérséklet függvényében
+	\item Két irányú SSC kommunikációs protokol az interfészen, ami $8[\frac{Mbit}{s}]$-ig emelhető. A szenzor mérés szögmérésének periódus ideje minim $0m001366[ms]$, ami bőven a $4[ms]$-os cél érték alatt van.
+	\item Számos egy komunikációs protokol \textbf{SSC}, PWM, IIF, HSM, SPC
+	\item A chip választó pin több féle képpen konfigurálható. (push-pull vagy open-drain)
+ 	\item Magas hőmérséklet tűrés határ: $-40[^\circ C]-tól~150[^\circ C]-ig$
+	\item Nem tartalmaz halogént
+\end{itemize}
+
+Ez a szenzor kellő megbízhatóságú a tapasztalataim alapján, kézi forrasztás közben jól kezelhető és nem érzékeny a magas forrasztási hőmérsékletre. Kifejezetten pontos és rendkívül gyors számítással rendelkezik ezért ideális a telemanipulátorhoz tartozó karok szögértékének mérésére. A dolgozatomban még kitérek a szenzorok tesztelésére.
+
+%----------------------------------------------------------------------------
+\subsection{Bypass kondenzátor}
+A szakdolgozatom bírálásában kaptam javaslatként, hogy egészítsem ki a szenzor NyÁK-ot egy bypass kondenzátorral, valamint a képzésem további szakaszában részletesebben tanultunk is erről a típusú alkalmazási lehetőségről. A bypass kondenzátorok olyan elektromos komponensek, amelyeket általában abból a célból alkalmaznak, hogy a stabilitást, zajszűrést és teljesítményjavulást érjenek el. Ezek a kondenzátorok képesek "bypass"-olni, azaz át vagy elvezetni az áramot bizonyos alkatrészek mellett, kiváltva fontos szerepet játszanak a működési biztonság, stabilitás és zajszűrés terén. Kicsit részletesebben bemutatnám a kondenzátor működését és azt, hogy mely jellemzőket kihasználva lehet ezt bypass hatást elérni. A kondenzátorok alapvetően két vezető lemez között elhelyezkedő dielektromos anyagból állnak. Amikor az elektromos feszültség megváltozik, a kondenzátorban tárolt elektromos töltés is változik. Ennek eredményeként a kondenzátor karakterisztika függvényében felhalmozzák majd átengedi az áramot. Ha ez periodikusan megtörténik akkor az áramot bizonyos frekvenciákon, akár a zajt vagy pusztán teljesítmény stabilitást adhat a rendszernek. Utóbbi jelenséget használjuk ki bypass kondenzátor esetében. Ezek a kondenzátor használati módot gyakran alkalmaznak a már felsorolt esetekben:
+\begin{itemize}
+	\item Zajszűrésre, különösen érzékeny elektronikai eszközök, például erősítők vagy analóg- digitális átalakítók környezetében. Ezek a kondenzátorok képesek alacsony frekvenciájú zajokat szűrni, javítva ezzel a jelerősséget.
+	\item Stabilitás javítására,, például mikroprocesszorok vagy más integrált áramkörök esetében a kondenzátorok segítenek kiegyenlíteni a feszültség-ingadozásokat.
+\end{itemize}
+
+
+%TODO képek
+
+A bypass kondenzátor elhelyezése kritikus az hatékony zajszűrés és kellő stabilitás szempontjából. A kondenzátort a szenzort tápláló lábak közvetlen közelébe kell elhelyezni. A képen is jól látható módon én a szenzor $3V3$-as lábának helye mellett helyeztem el a furatot, ennél közelebb nemigen tudtam volna fúrni. A $GND$ azaz föld a kondenzátor másik lába esetében annyira már nem fontos. A megfelelő bypass kondenzátor kiválasztása fontos a kívánt teljesítmény eléréséhez. A kondenzátor értéke és típusa is nagy mértékben befolyásolja a hatékonyságot. Az általam választott kondenzátor $100[NF]$-os $50-[V]$-os nyitó feszültséggel rendelkező kerámia kondenzátor. Ez a típus kondenzátorok kiválóan teljesítenek magas frekvenciás alkalmazásokban, amelyekhez gyakran használják őket bypass kondenzátorként. Rendkívül jól használhatóak stabilitás és zajszűrés célból. Kis méretűek és alacsony induktanciájúak, ami különösen fontos az eszköz kompakt méretének egyéb zavaró jelek kiszűrése céljából. Ezek mellett a kerámia kondenzátorok elérhetők különböző kapacitásértékekkel míg a méretük meglehetősen kicsi, így jól használhatóak kis méretű szenzorok esetében is, amint amilyenre nekem is szükségem van. A későbbiekben is kifogok még rá térni, de ezek kondenzátorok általában gazdaságosak. Ez hozzájárul a bekerülési költségek csökkentéséhez.
+
+A kondenzátornak a paraméterei bőven túlméretezettek\footnote{Ennek a nyitó feszültség értéknek a fele is elegendő lenne a rendszer stabilitásának biztosítása érdekében}, mérete kellőképpen kicsi, olcsó és majdnem minden kiskereskedelmi egységben beszerezhető.
+
+%----------------------------------------------------------------------------
+\subsection{Csatlakozók}
+
+Korábban említettem és a kritériumok közt is szerepelt, hogy minél flexibilisebbre szerettem volna a rendszert megtervezni. Ennek céljából külön odafigyeltem a csatlakozókra, hogy milyet használjak. A legkézenfekvőbbnek a MOLEX gyártó által elérhető csatlakozók bizonyultak. Ezek széles körben használt elektromos csatlakozók, és számos előnyt kínálnak, amelyek miatt népszerűek az elektronikai és ipari alkalmazásokban. Legnagyobb előny csatlakozók moduláris kialakításúak, hogy kialakíthassunk velük egyszerű vagy összetett csatlakozási rendszereket az adott alkalmazáshoz. Ez a típus gyorsan és könnyen csatlakoztathatók és bontható. Ez gyors telepítést és karbantartást tesz lehetővé, ami különösen előnyös összeszerelési, hibakeresési vagy fejlesztési esetekben. A széles körben alkalmazhatók különböző területeken, ennek eredményeként viszonylag egyszerű beszerezni. A Molex a minőségi termékeiről ismert, és csatlakozói megfelelnek a szigorú minőségi szabványoknak. Ennek eredményeként a csatlakozók megbízhatóak és hosszú élettartamúak. Átfogó termékválasztékkal rendelkezik, beleértve különböző típusú csatlakozókat, vezetékeket, illetve kiegészítő termékeket. A telemanipulátor esetében 6 pin-es csatlakozókat választottam azért, hogy minden szenzornak saját vezeték párjai legyenek. Ezeken a csatlakozókon magas teljesítményű és nagy sebességű adatátvitelre alkalmasak, ami fontos volt a eszköz szempontjából. Ezeken felül a csatlakozók kis eséllyel kontaktosak\footnote{Rövid pillanatszerű vagy mozgásra vagy rezgésre megjelenő folytonosság hiba}. Illetve az élettartalom se utolsó, mivel ezt a rendszer a lehető leggazdaságosabban a legtovább működtetni.
+
+%TODO képek
+
+\subsection{Mikrovezérlő}
+
+Elérkeztünk a mikrovezérlőig, mivel strukturálisan a vezetéken megérkező jeleket érzékelni tudjuk és a mikrovezérlőre csatlakoztatva az ezen futó programmal fel is tudjuk dolgozni. A szakdolgozatomban összeállított telemanipulátorhoz képest itt egy nagyobb komplexitású mikrovezérlőt választottam, ennek azaz oka, hogy a korábban használt eszközben nincs beépített bootloader, a pinek száma lényegesen kisebb és az eszköz memóriája túl kicsi a továbbfejlesztéshez. Ezek alapján döntöttem úgy, hogy a STMicroelectronics által gyártott Nucleo típusú fejlesztő board-ot választom. Az előnye úgy általában a fejlesztő board-oknak, hogy a gyártó által összeállított tesztelt eszközök. Túlságosan nagy a felhasználhatóságuk, így könnyen pazarló vagy felesleges funkciókat is vásárolhatunk, de a prototípus gyártás elengedhetetlen elemei.
+
+%TODO képek
+
+Az STM32 Nucleo boardok ezek alapján olyan fejlesztői platformok, amelyek kifejezetten az STMicroelectronics által gyártott STM32 mikroprocesszorokkal való alkalmazásfejlesztés támogatására szolgálnak. A board moduláris felépítésű, lehetővé téve a könnyű kibővítést és testreszabhatóságot. Érdekes előnyük, hogy a diákok körében elterjedt számtalan Arduino Uno és ST Morpho csatlakozók révén a felhasználók könnyen integrálhatnak kiegészítő modulokat, érzékelőket és egyéb hardvereszközöket az adott projekthez. Az STM32 Nucleo boardokat a STM32CubeIDE fejlesztői környezet támogatja, amely egyszerű és hatékony eszköztár a szoftverfejlesztéshez. A STM32CubeMX grafikus konfigurációs eszköz segítségével könnyedén konfigurálhatók és beállíthatók a perifériák illetve a CubeMonitornak köszönhetően a grafikusan megjeleníthetőek a szenzor adatokhoz tartozó változók. Ennek az eszköznek nagy haszna volt amikor aszenzorok kalibrációját és tesztelését végeztem. A board beépített perifériákkal rendelkezik, mint például érzékelők, LED-ek és gombok, amelyek segítik a prototípusfejlesztést és a beágyazott rendszerek gyors tesztelését. AZ én esetben használt mikorvezérlő esetében $3[db]$ SPI (XYZ fejezet) kommunikációs port is található, amivel így a tovább fejlesztési lehetőségek száma nagyon megugrik. Az STM32 boardok nagyon jó minőségű és nagy terjedelmű dokumentációval rendelkeznek, beleértve az útmutatókat, példaprogramokat, fórumokat és alkalmazási jegyzeteket. Ennek a hasznosságát nem lehet kellőképpen nyomatékosítani, úgyanis pont a nagy terület lefedés miatt a boradoknál nagyon sok mindenre kell figyelni, hogy a lehető legjobb eredményt érjük el. Az utolsó általános szempont amivel a STM32 Nucleo boardat vizsgálni lehet, hogy könnyen elérhetők a piacon, számos konfugurációban és a bekerülési költségük összevetve egy cél eszköz gyártásával is elég alacsony.
+
+Az én általam használt STM32 Nucleo board pontos típusa STM32F401RE. A mikrovezérlő az egyik legújabb jelenleg és a háttértára kellő mértékben nagy, ahhoz hogy akár még kijelző vezérlésre is alkalmas legyen amellett, hogy a szenzorokat ugyan azzal a hatásfokkal kezelje, ami a $4[ms]$-os ciklusidő kritériumhoz kell. Az eszköz adatlapja elérhető a mellékletekben (XYZ fejezet) és a részletes specifikáció ismertetése helyett inkább a előző eszközzel való összehasonlítására helyezném a hangsúlyt. A szakdolgozatom során egy STM32F103C8-as típusú mikrovezérlőt használtam. A könnyebb beazonosíthatóság érdekében a processzor típusa helyett a közismertebb nevét használom, ami a Bluepill.
+
+A Bluepill típusú mikrovezérlők kompakt kisméretű, de tág fejlesztési határokat megengedő eszköz. Kis mérete, alacsony bekerülési költsége és alacsonyabb fogyasztása miatt használják. Jellemző felhasználási területe az IoT\footnote{Az Internet of Things az a koncepció, amely szerint különböző eszközök és egységek képesek kommunikálni az interneten, vagy felhőszolgáltatásokon keresztül. Jellemzően adatokat gyűjtésére és megosztására használják. Illetve szoros összefüggésben van a "okos"/intelligens funkciók kialakításában.} (Internet of Things), kisebb autonóm rendszerek és adatgyűjtő berendezések. A diploma dolgozatomban bemutatott telemanipulátorhoz használt nucleo-hoz képest, a Bluepill memóriája lényegesen kisebb, illetve a felhasználható perifériák száma is alacsonyabb. Azonban ez még nem tette szükségessé a lecserélését, inkább a jövőbeli fejlesztési lehetőségek számát korlátozná a következő táblázatban (XYZ táblázat) összegyűjtöttem azt a néhány funkciót, ami miatt a mikrovezérlő cserére döntöttem.
+
+\begin{table}[!h]
+\begin{center}
+    \begin{tabular}{|c c c|} 
+        \hline
+        Tulajdonság & STM32 F103C8 & STM32 F401RE  \\ 
+        \hline
+        Processzor típusa     &  Arm Cortex-M3  &  Arm Cortex-M4  \\
+        Flashmemória          & $64[kB]$        & $512[kB]$       \\
+        RAM mérete            & $20[kB]$    	& $96[kB]$        \\
+        Beépített bootloader  & nincs           & van             \\
+        SPI portok száma      & 2               & 3               \\
+        \hline
+    \end{tabular}
+    \caption{STM32-es mikrovezérlő összehasonlítása}
+\end{center}
+\end{table}
+
+A felsorolt különbségek száma nem sok, de a fejleszthetőséget nagy mértékben megkönnyíti. A elkészült telemanipulátor jelfeldolgozó rendszer teljesítménye és a tesztelésközben tapasztalt könnyebbségek, illetve a mérete miatt abszolút előrelépésnek, jó döntésnek és sikeres fejlesztésnek állapítom meg a mikrovezérlő cserét.
+
+
+%----------------------------------------------------------------------------
+\section{Összeállított rendszer tesztelése}
+
+A bemutatott komponensekből összeállított rendszer jelen fejlesztési státuszban $7[db]$ GMR szenzorból, $2[db]$ USB csatlakozóból és a STM32-es Nucleo boardból áll. A két USB csatlakozó közül az egyik a STM32-es board táplásáért és a mikrovezérlő program felügyeletéért, a másik pedig a adatok továbbításáért felel. A szenzorok a PCB forasztással lettek rögzítve, csakúgy ahogy a bypass kondenzátor is. A vezetékek a PCB-hez furatokba szintúgy forrasztással lettek bekötve. A MOLEX csatlakozókba a vezetékek alakkal zárással lettek rögzítve, illetve a mikrovezérlőre a SSC kommunikációs protokolhoz (XYZ fejezet) tartozó $SCK$ és $DATA$ vezeték a szenzortápok pozitív és negatív pólusával egyetemben funkciónként közösítve lettek. Minden a mikrovezérlőre közvetlenül csatlakozó vezeték dupont\footnote{Fejlesztésnél előszeretettel használt pin-re könnyen rögzíthető akárcsak 1-1 vezeték rögzítésére alkalmas csatlakozó.} csatlakozóval lett a megfelelő helyre kötve.
+
+%TODO képek
+
+\subsection{GMR szenzorok tesztelése}
+
+\subsection{Vezeték ellenállás mérése}
+
+A vezeték hosszának figyelembe vételével azért szerettem volna foglalkozni, mert az egyik tovább fejlesztési lehetőség amit szeretnék megvalósítani vezeték nélkül kötné össze a telemanipulátort a robot vezérlővel (XYZ fejezet). A vezeték nélküli kommunikáció, ugyan a mikrovezérlő után valósulna meg és nem a szenzor és a közte. Úgy vélem meggyőződni, hogy mekkora lehet a maximális vezeték amit használatok a telemanipulátoron mindenképpen fontos, mert így a impedanciák és interferenciákból fakadó hibákat, illetve továbbfejlesztés esetében figyelembe tudom venni.
+
+
+%----------------------------------------------------------------------------
+%----------------------------------------------------------------------------

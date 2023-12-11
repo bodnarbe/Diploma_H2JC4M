@@ -1,0 +1,176 @@
+%--------------------------------------------------------------------------------------
+% Dokumentum formátuma [Document format]
+%--------------------------------------------------------------------------------------
+
+\documentclass[12pt,a4paper,oneside]{report}             % Egyoldalas [Single-side]
+%\documentclass[12pt,a4paper,twoside,openright]{report}  % Kétoldalas [Duplex]
+
+
+%--------------------------------------------------------------------------------------
+% Csomagok inicializálása [Initializing packages]
+%--------------------------------------------------------------------------------------
+\input{include/packages}
+
+
+%--------------------------------------------------------------------------------------
+% Dokumentum nyelve [Language]
+%--------------------------------------------------------------------------------------
+
+\input{include/language-setup-hu} % Beállítások magyar nyelvű dolgozathoz
+
+% Megjegyzés: 
+%         Ez a beállítás az automatikusan létrehozott címek, hivatkozások
+%         nyelvét adja meg, valamint a nyelvre jellemző behúzási távolságot
+%         használja a bekezdések elején.
+%
+% Note: 
+%         This setting controls the language of generated titles and citations,
+%         moreover the paragraph indentation.
+
+
+%--------------------------------------------------------------------------------------
+% Preambulum (LaTeX beállítások, makrók) [Preamble (LaTeX settings)]
+%--------------------------------------------------------------------------------------
+\input{include/preamble}
+
+
+%--------------------------------------------------------------------------------------
+% Munkatípus [Thesis type]
+%--------------------------------------------------------------------------------------
+
+\selectmsc   % Diplomaterv [Master's]
+
+
+%--------------------------------------------------------------------------------------
+% Változók beállítása [Setting variables]
+%--------------------------------------------------------------------------------------
+
+%TODO Állítsd be az alábbi változókat [Set these variables]
+
+% Szerző [Author]
+\def\authorFamilyName{Bodnár}
+\def\authorGivenName{Bence Tibor}
+\def\neptun{H2JC4M}
+
+% Konzulens 1 [Consulent 1]
+\def\consulentATitle{}
+\def\consulentAFamilyName{Dudás}
+\def\consulentAGivenName{Dávid}
+\def\consulentARank{óraadó}
+
+% Konzulens 2 [Consulent 2], ha nincs hagyd üresen
+\def\consulentBTitle{}
+\def\consulentBFamilyName{}
+\def\consulentBGivenName{}
+\def\consulentBRank{}
+
+% Konzulens 3 [Consulent 3], ha nincs hagyd üresen 
+\def\consulentCTitle{}
+\def\consulentCFamilyName{}
+\def\consulentCGivenName{}
+\def\consulentCRank{}
+
+% Témavezető
+\def\supervisorTitle{dr.~}
+\def\supervisorFamilyName{Budai}
+\def\supervisorGivenName{Csaba}
+\def\supervisorRank{adjunktus}
+
+% Dolgozat címe [Thesis title]
+\def\thesisTitle{Hat szabadsági fokú telemanipulátor fejlesztése sebészeti eszközök számára}
+
+% Kulcsszavak (a PDF-be) [Keywords (to PDF)]
+\def\keywords{mechatronika, szabályozástechnika, robotika, 5G, ipar 4.0}
+
+% Tanszék [Department]
+\def\department{\bmemogi}
+
+%TODO Cseréld le a figures/tanszek_logo.pdf képet a tanszéked logójára!
+%     [Replace figures/tanszek_logo.pdf with the logo of your department]
+
+% Elzártan kezelendő dolgozat [Restricted access]
+%TODO Töltsd ki a korlátozás lejártának dátumát! 
+%     [Fill in the end date of the restriction]
+\def\endOfRestrictedAccess{... év ... hónap ... nap}
+
+
+% Változók beállítása a PDF fájlhoz [Apply variables for the PDF file]
+\applyvariables
+
+
+%--------------------------------------------------------------------------------------
+% Dokumentum törzse [Document body]
+%--------------------------------------------------------------------------------------
+
+\begin{document}
+
+\pagenumbering{gobble}
+\selectthesislanguage
+
+% Címoldal [Titlepage]
+\include{include/titlepage-thesis}  % Szakdolgozat/Diplomaterv címlap [Thesis]
+
+\include{include/copyrightpage}               % Nyílt kezelésű [Open access]
+
+
+
+% Feladatkiírás [Project page]
+%TODO A nyomtatott verzóban ne szerepeljen! [Remove before printing]
+\include{chapters/project}
+
+
+% Nyilatkozatok [Declarations]
+\include{include/declaration}
+
+\selectthesislanguage
+% Tartalomjegyzék [Table of Contents]
+\setcounter{tocdepth}{3}  % Tartalomjegyzék mélysége [ToC depth]
+\tableofcontents\vfill
+
+
+% Ábrák és táblázatok jegyzéke [List of Figures, Tables]
+%TODO Kommenteld ki, ha használni szeretnéd. [Uncomment to use]
+%\listoffigures\addcontentsline{toc}{chapter}{\listfigurename}   % Ábrák jegyzéke - opcionális
+%\listoftables\addcontentsline{toc}{chapter}{\listtablename}     % Táblázatok jegyzéke - opcionális
+
+
+% Előszó [Preface]
+\include{chapters/preface}
+
+
+% Jelölések jegyzéke [Table of Symbols]
+\include{chapters/symbols}
+
+
+% Főszöveg [The main part of the thesis]
+\cleardoublepage
+\pagenumbering{arabic}
+%TODO Importáld a saját fejezeteidet [Import your own content]
+\include{chapters/introduction}      % Bevezetés
+\include{chapters/tools}
+\include{chapters/Telemanipulatorok} % 2. fejezet
+\include{chapters/Ujratervezes}      % 3. fejezet
+\include{chapters/Elektronika}       % 4. fejezet
+\include{chapters/summary}           % Összefoglalás
+
+
+% Bibliográfia [Bibliography]
+\addcontentsline{toc}{chapter}{\bibname}
+{
+    \footnotesize  % Kisebb betűméret [Smaller font size]
+    \bibliography{bib/mybib}
+}
+
+
+% Idegen nyelvű (angol) összefoglaló [Foreign language summary]
+\include{chapters/summary-foreign}
+
+
+% Függelék és mellékletek [Appendices]
+%\excludeFromLocAndLot % A következő ábrákat és a táblázatokat hagyja ki a jegyzékből
+                      % [Exclude following figures and tables from List Of Figures/Tables]
+
+\include{chapters/appendices}        % Függelék - opcionális
+\include{chapters/annexes}           % Mellékletek
+
+\end{document}

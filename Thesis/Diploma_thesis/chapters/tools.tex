@@ -1,0 +1,77 @@
+%----------------------------------------------------------------------------
+\chapter{Munkám során használt eszközök}
+\label{sec:LatexTools}
+%----------------------------------------------------------------------------
+\section{Direkt kinematika}
+%----------------------------------------------------------------------------
+A direkt kinematika és a Khali-féle Denavit-Hartenberg (DH) módszer a robotika területén alkalmazott módszerek, amelyek lehetővé teszik a robotkarok és manipulátorok mozgásterének és pozíciójának meghatározását. Az alábbiakban bemutatom ezeket a módszereket és azok fő jellemzőit.
+
+A direkt kinematika a robotkarok mozgásterének és végpontjainak pozíciójának meghatározását vizsgálja. Célja, hogy a robotkar ízületeinek állapotából vagy koordináta rendszeréből kiindulva meghatározza a végpont vagy a szerszám pozícióját a világkoordináta rendszerben. Ez a módszer matematikai modelleket és transzformációkat használ a kar szegmenseinek és ízületeinek geometriájának leírására és kapcsolatának meghatározására.
+
+A Khali-féle DH módszer a direkt kinematika egyik legelterjedtebb módszere, amelyet a Denavit-Hartenberg (DH) paraméterek felhasználásával végeznek. Ez a módszer egy koordináta rendszer hierarchikus láncolását használja a robotkar szegmensei közötti kapcsolat leírására. A DH módszerben a kar szegmenseinek geometriáját és relatív helyzetét négy paraméter segítségével írják le: az alfa, a, d és theta paraméterek.
+
+Az alfa paraméter az aktuális ízület tengelyének elfordulását jelenti a szomszédos szegmens tengelyéhez képest. Az a paraméter a szegmens hosszát vagy az ízület távolságát jelenti az előző szegmenstől. A d paraméter a szegmens központjának távolságát jelenti az előző szegmenstől a közös tengely mentén. A theta paraméter pedig az aktuális ízület elfordulását jelenti.
+
+A DH módszerben minden szegmenst leíró paramétert és transzformációs mátrixot alkalmaznak, amelyek segítségével a végpont pozícióját határozzák meg. A módszer iteratív módon alkalmazható, a végponttól visszafelé haladva az egyes ízületek állapotának és pozíciójának meghatározására.
+
+A direkt kinematika és a DH módszer széles körben alkalmazott eszközök a robotika területén. Segítségükkel lehetőség nyílik a robotkarok mozgásának tervezésére, szimulációjára és vezérlésére. Ezen módszerek alkalmazásával pontosan meghatározható a robotkar végpontjának helyzete és orientációja a világkoordináta rendszerben, ami fontos információ lehet a munkafolyamatok tervezésében és végrehajtásában.
+
+Összességében a direkt kinematika és a Khali-féle DH módszer lehetővé teszik a robotkarok mozgásterének és pozíciójának meghatározását. Ezek a módszerek alapvetőek a robotika területén, és fontos szerepet játszanak a robotkarok tervezésében, szimulációjában és vezérlésében. A direkt kinematika és a DH módszer segítségével precízen modellezhetők és kontrollálhatók a robotkarok mozgásai, amelyek számos ipari és egyéb alkalmazásban hasznosak lehetnek.
+
+\section{Inverz kinematika}
+%----------------------------------------------------------------------------
+Az inverz kinematika a robotika területén használt módszer, amely lehetővé teszi a robotkarok számára, hogy meghatározzák az ízületeik állapotát és pozícióját a kívánt végpont vagy TCP (tool center point) eléréséhez. Ez a módszer a direkt kinematika ellentéte, mivel itt nem a végpont pozícióját kell meghatározni az ízületek ismert állapota alapján, hanem éppen fordítva: az ízületek állapotát kell meghatározni a kívánt végpont pozíciója alapján.
+
+Az inverz kinematika alkalmazása során a robotkar rendszerének geometriáját és ízületeinek korlátait figyelembe véve meg kell határozni az ízületek szögét vagy állapotát, amelyekkel a TCP a kívánt pozícióba kerül. Ez egy matematikai probléma, amelyet általában numerikus vagy analitikus megoldó algoritmusok segítségével oldanak meg.
+
+Az inverz kinematika számos alkalmazási területtel rendelkezik a robotikában. Például a gyártósorokon, ahol a robotkaroknak pontosan kell pozícionálniuk a szerszámokat vagy alkatrészeket, az inverz kinematika segítségével a kívánt végpont pozíció alapján meg lehet határozni az ízületek állapotát. Ez lehetővé teszi a robotkarok pontos és ismételhető mozgását a gyártási feladatok hatékony végrehajtása érdekében.
+
+A Khali-féle DH módszer a robotkarok leírására és az inverz kinematika alkalmazására is használt módszer. Ennek során a robotkar ízületeinek és szegmenseinek geometriáját és kapcsolatát a Denavit-Hartenberg (DH) paraméterek segítségével írják le. Ezek a paraméterek az alfa, a, d és theta értékekből állnak, amelyek meghatározzák az ízületek elfordulását és a szegmensek geometriáját.
+
+A DH paraméterekkel leírt robotkar geometriáját felhasználva a Khali-féle DH módszerrel meghatározható az inverz kinematika. Az algoritmus segítségével a kívánt végpont vagy TCP pozíciója alapján a szükséges ízületi szög vagy állapot meghatározható. Az így kapott eredményeket a robotvezérlő egység továbbítja a robotkar motorjainak, hogy a megfelelő pozícióba mozgassa a TCP-t.
+
+Az inverz kinematika és a Khali-féle DH módszer együttműködve lehetővé teszik a robotkarok számára, hogy a kívánt végpont vagy TCP pozíciókba helyezkedjenek el. Ez kulcsfontosságú a precíz munkavégzéshez és a különböző feladatok hatékony végrehajtásához a robotika számos alkalmazási területén, például az ipari automatizációban, a gyártásban, a logisztikában és a sebészeti beavatkozásokban. Az inverz kinematika és a Khali-féle DH módszer jelentős fejlődést hozott a robotkarok irányításában és pozícionálásában, és további lehetőségeket teremt a robotika területén.
+
+\section{ROS}
+%----------------------------------------------------------------------------
+A Robot Operating System, röviden ROS, egy nyílt forráskódú, rugalmas és elosztott szoftverrendszer, amelyet a robotok fejlesztéséhez és irányításához használnak. Az alábbiakban összefoglalom a ROS rendszert, kitérve a node-okra, a topic-okra és a robotrendszerekben történő alkalmazásukra.
+
+A ROS egy gráfalapú rendszer, amelyben a különböző komponenseket, úgynevezett node-okat, összekapcsolják egymással, hogy információt és parancsokat cseréljenek. A node-ok önálló folyamatok, amelyek futnak és kommunikálnak egymással. Minden node specifikus feladatokat lát el, például szenzoradatok gyűjtése, adatfeldolgozás, irányítás vagy más műveletek végzése.
+
+A node-ok közötti kommunikáció a topic-okon keresztül történik. A topic egy adatcsatorna, amely lehetővé teszi a node-ok közötti aszinkron adatátvitelt. Egy node publikálhat adatokat egy topic-ra, és más node-ok feliratkozhatnak erre a topic-ra, hogy megkapják az adatokat. Ez a központi kommunikációs mechanizmus a ROS rendszerben. Például egy szenzor node adatokat publikálhat egy "lidar" nevű topic-ra, és egy navigációs node feliratkozhat erre a topic-ra, hogy megkapja a szenzoradatokat és használhassa őket a robot navigációjához.
+
+A ROS rendszer különösen népszerű a robotrendszerek fejlesztésében és irányításában. A robotok általában több szenzorral rendelkeznek, amelyek adatokat gyűjtenek a környezetről, például távolság, helyzet, kép vagy hanginformációk. Ezeket a szenzoradatokat a ROS node-ok gyűjtik és feldolgozzák. Emellett a robotoknak vezérlési parancsokat kell fogadniuk és végrehajtaniuk. A ROS lehetővé teszi a vezérlő node-ok létrehozását, amelyek az irányítást végzik, például a robot mozgását vagy más műveleteit vezérlik.
+
+A ROS rendszerben a node-ok és topic-ok rugalmasan konfigurálhatók és összekapcsolhatók, ami lehetővé teszi a fejlesztők számára a moduláris és újrafelhasználható szoftverkomponensek létrehozását a robotalkalmazásokhoz. Ez a moduláris szerkezet elősegíti a fejlesztés hatékonyságát, és lehetővé teszi a különböző csapatok számára, hogy párhuzamosan dolgozhassanak az egyes részegységeken.
+
+Összességében a ROS egy erőteljes és rugalmas szoftverrendszer, amely lehetővé teszi a fejlesztők számára a robotrendszerek fejlesztését és irányítását. A node-ok és topic-ok használata lehetővé teszi az adatok gyűjtését, feldolgozását és megosztását a rendszer komponensei között, ezáltal segítve a robotok működését és irányítását különböző feladatok végrehajtása során.
+
+\section{STM32 nucleo}
+%----------------------------------------------------------------------------
+A Cortex-M4 egy ARM architektúrájú processzormag, amelyet beágyazott rendszerekhez terveztek. A Cortex-M4 processzormagok nagy teljesítményt és alacsony energiafogyasztást kínálnak, és széles körben elterjedtek az ipari, gyártási és beágyazott alkalmazások területén.
+
+Az STM32 fejlesztőeszközök a Cortex-M4 processzormaggal rendelkező STM32 mikrovezérlők családjára épülnek. Az STM32 mikrovezérlők az STMicroelectronics által gyártott nagyon népszerű és széles körben használt beágyazott rendszerekre szánt eszközök. Az STM32 fejlesztőeszközök kiváló minőségű hardvereket és szoftvereszközöket kínálnak a fejlesztőknek a STM32 mikrovezérlők programozásához és teszteléséhez.
+
+A NUCLEO-F411RE board egy konkrét példa az STM32 fejlesztőeszközök közül. Ez a fejlesztői platform az STM32F411RE mikrovezérlőre épül, amely egy Cortex-M4 processzormaggal rendelkező mikrovezérlő. A NUCLEO-F411RE board kiváló választás azok számára, akik be szeretnének vezetődni az STM32 világába és megismerkedni az ARM Cortex-M4 alapú fejlesztéssel.
+
+A NUCLEO-F411RE board számos funkcióval és interfésszel rendelkezik, ideértve digitális és analóg bemeneteket, PWM kimeneteket, UART, I2C, SPI és USB interfészeket, valamint egy ST-Link programozó/debugger egységet. Ez a board könnyen használható és támogatja a fejlesztőket az alkalmazásaik prototípusolásában, fejlesztésében és tesztelésében.
+
+Az STM32 fejlesztőeszközökön általában kényelmesen használható fejlesztői környezet, például az STM32CubeIDE vagy az STM32CubeMX áll rendelkezésre. Ezek az eszközök számos fejlesztői funkciót és eszközt biztosítanak, például kódszerkesztőt, kódgenerátort, szimulációs lehetőségeket és debugger eszközöket, hogy segítsék a fejlesztőket a hatékony és könnyű fejlesztésben.
+
+Összefoglalva, a Cortex-M4 alapú rendszerek, mint az STM32 mikrovezérlők és az ehhez kapcsolódó fejlesztőeszközök, kiváló választásnak számítanak beágyazott rendszerek tervezéséhez és fejlesztéséhez. Az STM32 fejlesztőeszközök, például a NUCLEO-F411RE board, rugalmas és hatékony platformot kínálnak a Cortex-M4 alapú alkalmazások prototípusolásához és teszteléséhez, valamint a fejlesztői folyamat megkönnyítéséhez.
+
+\section{GMR szenzor}
+%----------------------------------------------------------------------------
+A GMR (giant magnetoresistance) szenzorok olyan érzékelők, amelyeket tengelyszög elfordulásának mérésére használnak. Ezek a szenzorok a GMR technológiára támaszkodnak, amely kihasználja a mágneses mező érzékelését és lehetővé teszi a precíz és megbízható tengelyszög mérését. Ebben a kontextusban bemutatjuk a TLE5012 szenzort, amely egy népszerű és megbízható GMR szenzor a tengelyszög elfordulás mérésére.
+
+A TLE5012 egy 2D-GMR szenzor, amely két tengelyre (X és Y) érzékeny. Ez a szenzor nagyon kicsi, integrált kivitelű és digitális interfésszel rendelkezik, amely lehetővé teszi a könnyű integrációt a különböző alkalmazásokban. A TLE5012 szenzor nagy felbontással és nagy pontossággal rendelkezik, és képes a tengelyszög elfordulásának pontos érzékelésére a mágneses mező változásán keresztül.
+
+A TLE5012 szenzor működése az óriásmágneses ellenállás jelenségen alapul. A szenzor egy mágneses mező hatására változtatja meg az elektromos ellenállását, és ezáltal méri a tengelyszög elfordulását. A szenzor beépített ADC (Analog-to-Digital Converter) segítségével digitalizálja az érzékelt jelet, és digitális adatként továbbítja a rendszer számára. A TLE5012 szenzor nagyon gyors működést tesz lehetővé, ami ideális a valós idejű alkalmazásokhoz.
+
+A TLE5012 szenzor nagyon sokoldalú, és számos alkalmazási területen használható. Az autóiparban gyakran alkalmazzák a kormányzás elfordulásának érzékelésére és a kormányzás rendszerének vezérlésére. Ez lehetővé teszi a jármű pontos irányítását és a vezetésbiztonság javítását. Emellett a TLE5012 szenzort gyakran alkalmazzák robotika, ipari automatizálás és egyéb beágyazott rendszerekben is, ahol a tengelyszög elfordulásának pontos mérése szükséges.
+
+A TLE5012 szenzor könnyen integrálható a rendszerbe, és számos előnyös tulajdonsággal rendelkezik. Például a szenzor hibrid működésű lehet, ami lehetővé teszi a redundancia beépítését a megbízhatóság növelése érdekében. Emellett a TLE5012 szenzor alacsony energiafogyasztással rendelkezik, ami fontos tényező a hordozható vagy akkumulátoros eszközök esetében.
+
+A TLE5012 szenzor rendelkezik továbbá kiterjedt konfigurációs és kalibrációs lehetőségekkel, amelyek lehetővé teszik a szenzor beállítását a konkrét alkalmazás igényei szerint. A szenzorhoz általában fejlesztői környezet és dokumentáció is tartozik, amelyek segítenek a rendszerbe történő integrációban és a megfelelő működés beállításában.
+
+Összességében a GMR szenzorok, például a TLE5012, nagyszerű lehetőséget nyújtanak a tengelyszög elfordulásának érzékelésére. A GMR technológia kiemelkedő érzékenységet, precizitást és gyors működést kínál, amely lehetővé teszi a pontos tengelyszög mérését a különböző alkalmazásokban. A TLE5012 szenzor konkrétan számos előnyös tulajdonsággal rendelkezik, és széles körben alkalmazható az autóipartól a robotikáig és az ipari automatizálásig.

@@ -1,0 +1,72 @@
+\hypersetup{pageanchor=false}
+
+%--------------------------------------------------------------------------------------
+% Szennycímoldal [Cover title page]
+%--------------------------------------------------------------------------------------
+
+\clearpage
+\begin{center}
+\MakeUppercase{\authorName}\\[0.1cm]
+\MakeUppercase{\gpkmunkatipus}\\[0.1cm]
+\end{center}
+\thispagestyle{empty}
+
+%--------------------------------------------------------------------------------------
+% Sorozatcímoldal [Series title page]
+%--------------------------------------------------------------------------------------
+\clearpage
+\begin{center}
+
+\includegraphics[width=60mm,keepaspectratio]{figures/bme_logo.pdf}\\
+\vspace{0.3cm}
+\MakeUppercase{\textbf{\bme}}\\[0.1cm]
+\MakeUppercase{\textmd{\gpk}}\\[0.1cm]
+\MakeUppercase{\textmd{\department}}\\[0.8cm]
+
+\includegraphics[height=40mm,keepaspectratio]{figures/tanszek_logo}\\[0.5cm]
+\MakeUppercase{\gpkmunkatipusok}
+
+\end{center}
+\thispagestyle{empty}
+
+%--------------------------------------------------------------------------------------
+% Címoldal [Title page]
+%--------------------------------------------------------------------------------------
+\begin{titlepage}
+\begin{center}
+\includegraphics[width=60mm,keepaspectratio]{figures/bme_logo.pdf}\\
+\vspace{0.3cm}
+\MakeUppercase{\textbf{\bme}}\\[0.1cm]
+\MakeUppercase{\textmd{\gpk}}\\[0.1cm]
+\MakeUppercase{\textmd{\department}}
+
+\vspace{4.0cm}
+{\huge \textsc{\authorName}}\\[0.8cm]
+{\huge \MakeUppercase{\gpkmunkatipus}}\\[0.8cm]
+{\Large \thesisTitle}
+
+\vspace{3.0cm}
+
+{
+	\renewcommand{\arraystretch}{0.85}
+	\begin{tabular}{ll}
+	 \makebox[7cm][l]{\konzulens:} & \makebox[7cm][l]{\temavezeto:} \\
+	 \noalign{\smallskip}
+	 \makebox[7cm][l]{\hspace{1cm}\emph{\consulentA}} & \makebox[7cm][l]{\hspace{1cm}\emph{\supervisor}} \\
+	 \makebox[7cm][l]{\hspace{1cm}\consulentARank} & \makebox[7cm][l]{\hspace{1cm}\supervisorRank} \\
+	 \\
+	 \makebox[7cm][l]{\hspace{1cm}\emph{\consulentB}} & \\
+	 \makebox[7cm][l]{\hspace{1cm}\consulentBRank} & \\
+	 \\
+	 \makebox[7cm][l]{\hspace{1cm}\emph{\consulentC}} & \\
+	 \makebox[7cm][l]{\hspace{1cm}\consulentCRank} & \\
+	 
+	\end{tabular}
+}
+
+\vfill
+{\Large Budapest, \the\year.}
+\end{center}
+\end{titlepage}
+\hypersetup{pageanchor=false}
+\thispagestyle{empty}

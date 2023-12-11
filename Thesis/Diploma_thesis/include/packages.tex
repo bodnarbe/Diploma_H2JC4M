@@ -1,0 +1,42 @@
+\usepackage{ifthen} % Used in macros
+
+\usepackage[english,magyar]{babel} % Language support
+\usepackage{geometry}
+\usepackage{amsfonts,amsmath,amssymb} % Mathematical symbols
+\usepackage{microtype} % Imrovements to typesetting
+\usepackage{setspace} % For setting line spacing
+\usepackage{cmap} % Enables more advenced text copying from the PDF document 
+\usepackage{sectsty} % Section heading styling
+
+\usepackage[unicode]{hyperref} % For hyperlinks in the generated document
+\usepackage{booktabs} % For publication quality tables for LaTeX
+\usepackage{graphicx} % For figure sizing
+\usepackage[hang]{caption}
+\usepackage{xcolor} % For code coloring in listings
+\usepackage{listings} % For source code snippets
+\usepackage[amsmath,thmmarks]{ntheorem} % Theorem-like environments
+
+\usepackage[numbers]{natbib} % Bibliography
+
+%\usepackage{fancyhdr} % For easy to use headers and footers
+
+% thanks to http://tex.stackexchange.com/a/47579/71109
+\usepackage{ifxetex}
+\usepackage{ifluatex}
+\newif\ifxetexorluatex % a new conditional starts as false
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi>0
+   \xetexorluatextrue
+\fi
+
+\ifxetexorluatex
+  \usepackage{fontspec}
+  % Palatino clone font (Tex Gyre Pagella) for text and math
+  \usepackage{newpxmath}
+  \setmainfont[Ligatures=TeX]{TeX Gyre Pagella}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  %\usepackage[lighttt]{lmodern} % Advanced version of the Computer Modern font
+  % Palatino clone font (Tex Gyre Pagella) for text and math
+  \usepackage{tgpagella, newpxmath}
+\fi
