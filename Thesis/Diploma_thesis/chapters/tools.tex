@@ -60,6 +60,13 @@ Az STM32 fejlesztőeszközökön általában kényelmesen használható fejleszt
 
 Összefoglalva, a Cortex-M4 alapú rendszerek, mint az STM32 mikrovezérlők és az ehhez kapcsolódó fejlesztőeszközök, kiváló választásnak számítanak beágyazott rendszerek tervezéséhez és fejlesztéséhez. Az STM32 fejlesztőeszközök, például a NUCLEO-F411RE board, rugalmas és hatékony platformot kínálnak a Cortex-M4 alapú alkalmazások prototípusolásához és teszteléséhez, valamint a fejlesztői folyamat megkönnyítéséhez.
 
+\subsection{UART port}
+Az "UART" rövidítés a "Universal Asynchronous Receiver/Transmitter" kifejezést takarja. Az UART egy soros kommunikációs protokoll, amely a digitális adatok átvitelét teszi lehetővé két eszköz között. Ez a protokoll olyan eszközök közötti soros kommunikációt biztosít, amelyek között nincs központi órajel (asynchronous), tehát az adatküldés és -fogadás időzítése a két eszköz között előre nem megállapodott.
+
+Az UART általában két vezetéken keresztül történik: TX (Transmitter) és RX (Receiver). Az adatok a TX vezetéken keresztül mennek egyik eszköztől a másikig, és a RX vezetéken keresztül az ellenkező irányban. A kommunikációt start és stop bitek, valamint adatbitek alkotják.
+
+A UART port vagy interfész tehát a hardver vagy a vezérlő, amely lehetővé teszi az UART protokollt támogató eszközök közötti kommunikációt. Az UART portok széles körben alkalmazottak például számítógépek, mikrovezérlők, beágyazott rendszerek és egyéb eszközök kapcsolódási pontjaiként. Az UART segítségével a különböző eszközök adatokat küldhetnek és fogadhatnak egymástól, amely lehetővé teszi a sokféle elektronikai eszköz közötti egyszerű és megbízható kommunikációt.
+
 \section{GMR szenzor}
 %----------------------------------------------------------------------------
 A GMR (giant magnetoresistance) szenzorok olyan érzékelők, amelyeket tengelyszög elfordulásának mérésére használnak. Ezek a szenzorok a GMR technológiára támaszkodnak, amely kihasználja a mágneses mező érzékelését és lehetővé teszi a precíz és megbízható tengelyszög mérését. Ebben a kontextusban bemutatjuk a TLE5012 szenzort, amely egy népszerű és megbízható GMR szenzor a tengelyszög elfordulás mérésére.

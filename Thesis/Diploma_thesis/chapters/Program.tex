@@ -6,7 +6,7 @@ Az telemanipulátor jelfeldolgozó rendszerének fizikai összeállítása után
 %----------------------------------------------------------------------------
 \section{Szenzor kommunikációs protokollja}
 %----------------------------------------------------------------------------
-A GMR szenzor a mikrovezérlővel az úgy nevezett Synchronous Serial Communication \footnot{magyarul Szinkron Szériás Kommunikációs} röviden SSC protokolt használ. Ez a  protokoll egy olyan kommunikációs rendszer, amely során a küldő és a fogadó eszközök szorosan szinkronizáltak egymással a közös órajel alapján. Az SSC azon alapul, hogy mindkét eszköz előre rögzített órajelet használ a bekapcsolás pillanatától, hogy a rendszer használat teljes ideje alatt szinkronban maradjanak.
+A GMR szenzor a mikrovezérlővel az úgy nevezett Synchronous Serial Communication \footnote{magyarul Szinkron Szériás Kommunikációs} röviden SSC protokolt használ. Ez a  protokoll egy olyan kommunikációs rendszer, amely során a küldő és a fogadó eszközök szorosan szinkronizáltak egymással a közös órajel alapján. Az SSC azon alapul, hogy mindkét eszköz előre rögzített órajelet használ a bekapcsolás pillanatától, hogy a rendszer használat teljes ideje alatt szinkronban maradjanak.
 
 A protokoll közös órajele biztosítja, hogy a adat transzferálás esetén az órajel biztosítja, hogy mindkét eszköz azonos sebességgel és időzítéssel küldje és fogadja az üzenetet. Ez az információ küldés során bitek sorozataként továbbítódik, és a kommunikáló fogadó és küldő egységek egyeztetik az adatok kezdőpontját és végpontját az órajelet használva. Ennek következtében mindkét eszköz tudja, hogy mikortól kell és meddig értelmeznie az érkező biteket.
 
@@ -24,14 +24,72 @@ A telemanipulátor esetében half-duplex kommunikációs módot használok a GMR
 \section{Mikrovezérlő program}
 %----------------------------------------------------------------------------
 
-A mikrovezérlő program a diploma dolgozathoz képest kisebb módosításokkal lett kiegészítve, de igazán nagy fejlesztést nem igényelt a program.
+A mikrovezérlő program a diploma dolgozathoz képest kisebb módosításokkal lett kiegészítve, de igazán nagy fejlesztést nem igényelt a program. A elvárásoknál támasztott elvárásoknak megfelelt. Kellően gyors és könnyen módosítható lett. (Fejezet hivatkozás XYZ)
 
-A konzulensem hasonló projektjének(Hivatkozás XYZ) a mikrovezérlő programját használtam fel, ami szintúgy STM32-es rendszerre készített. A mikrovezérlő az én általam használt telemanipulátor esetében 7 szenzor adatot gyűjt össze, dolgoz fel és továbbít a további rendszereknek.
+A telemnanipulátornál használt program a konzulensem által készített hasonlóelven működő haptikus vezérlőjének(Hivatkozás XYZ) a mikrovezérlő programját vettem alapul. A programot gyorsan a saját eszközömhöz szükséges módosításokkal eltudtam látni, mivel ez az is STM32-es rendszerre lett készített.
 
-A programnak megkellett felelnie annak az elvárásnak, hogy 
+Főkülönbségek, hogy a mikrovezérlő az én általam használt telemanipulátor esetében 7 szenzor adatait gyűjti össze, dolgozza fel és továbbítja a további rendszereknek.
+
+A mikrovezérlő programba implementált funkciók a következők:
+
+\begin{itemize}
+\item Szögérték kiolvasás
+\item Szögérték offszetelés
+\item Szögérték Kinemtaikailag felvett forgás tengelyre igazítása
+\item Szögértékek tömbértékek összegyűjtése
+\item Kommunikáció a mikrovezérlőhöz csatlakoztatott számítógéppel
+\end{itemize}
+
+A szögértékeket szekvenciálisan az $1.$ csukló szenzortól a $7.$ csukló szenzorig egymásután olvassa ki. A szenzor kommunikáció már a bemutatott SSC kommunikáción történik és minden szenzor saját chipselect pin-jének a jelváltozására\footnote{A TLE 5012B GMR szenzor esetében alacsony jelről magas jelre vált a kommunikáció alatt} történik. A kiolvasott szögérték a szenzor meghatározott egyik tengelye és a mágnes kétpólusa által megadott póluspárok egymással bezárt szöge.
+
+%TODO Kép a szenzor szögről.
+
+Az a megkapott szögérték a $-180^\circ$ és $180^\circ$ közötti lehet. Ezt az értéket én át konvertáltam $0^\circ$ és $360^\circ$ fokos skálára ugyan is így sokkal könnyebben beállítható az offset és a forgás irány is egyértelműbb számomra. Az offszet paraméterek beállítása a program indulása után is változtatható, de alap paraméterek be vannak égetve. AZ oka ennek, így nem kellett minden tesztelési ciklus elején offszetelnem. A offszet értékeket a következő képpen állapítottam meg.
+
+\begin{enumerate}
+  \item Minden csuklón van egy jelző egyenes, ami a két tengely koordináta rendszereinek a párhuzamosságát jelenti abban az állásban
+  \item A kinematikai felírásban vett koordináta rendszer szerinti nullába mozgattam a megfelelő csuklót
+  \item Kiolvastam a szenzor adott pontú értékét
+  \item Ha pozitív előjelű volt akkor kivontam, ha pedig negatív akkor hozzáadtam a kiolvasott értékhez az offszetet
+\end{enumerate}
+
+Az így megkapott szögértékek elfordulására kell még figyelni. Ugyanis a szenzor és mágnes elhelyezkedése a tengelyen befolyásolja, hogy a szögéréték a tengely körüli elfordulással melyik irányba pozitív. Ha a forgatási irány eltér egyszerűen a szögérték mínusz egyszeresét kell venni. 
+
+Ezt követően, ha mindenszögértéket továbbítja a mikrovezérlő, ha igény van rá. Az igényt az interface támasztja a számítógépről még pedig, az UART porton küldött üzenettel. A jelenleg implementált parancsok:
+
+\begin{itemize}
+\item $RDS$ - Read from sensor - Szenzor értékek kiolvasás 
+\item $KA$ - Keep Alive - Kapcsolat fenntartására vonatkozó parancs
+\item $REC$ - Read Error Counter - Hibás kiolvasások darabszámának kiolvasása
+\item $CEC$ - Clear Error Counter - Hibás kiolvasás számláló törlése
+\end{itemize}
+
+A fenti parancsok közül a REC, CEC és a RDS parancsokat használom. Az RDS esetén a szögértékek kiolvasásra kerülnek és továbbítódnak UART porton, ahogy korábban említettem. A továbbítás egy nagy méretű byte tömben történik, aminek az első két érték amit továbbít egy "OK" és maga az RDS paranccsal megkapott üzenet a többi érték a szenzorokból kiolvasott és számított szögértékek. A REC és a CEC parancsot a szenzorok üzembe helyezésekor használtam. Egy egyszerű port terminál kezelését lehetővé tévő programmal csatlakoztam a mikrovezérlőre és elküldtem a RDS parancsot kétszer. A két kiadott parancs között megváltoztattam a telemanipulátor orientációját. A beüzemelés alatt, több szenzor se működött azonnal és a CEC és REC parancsokkal tudtam a hiba darabszám tárolókat kiolvasni és törölni. A továbbiakban szeretnék még offszet érték beállítására vonatkozó metódust implementálni, illetve jelrögzítést és offszet-be állásra vonatkozó parancsokat.
+
+A mikrovezérlő programmal kapcsolatban nagyon fontos még kitérni a RTOS (XYZ hivatkozás) rendszerre. Ez a STM32 vezérlőknél elérhető funkció a real-timehoz nagyon közeli működést tesz lehetővé. A program így előre megjósolható és determinisztikus módon válaszol az eseményekre, ugyanis realtime rendszerekben a feladatoknak szigorú időkorlátoknak kell megfelelniük, és az RTOS biztosítja a prioritáskezelést, időosztást és egyéb funkciókat a hatékony valós idejű működés érdekében.
+
+%TODO rtos kép
+
+A kritériumokban(XYZ) meghatározott $4[ms]$ vagy gyorsabb lefutás a robot vezérlés eléréséhez nagyban hozzájárul ez a lehetőség. A RTOS-sel elérhető párhuzamos lefutószerű működés és a szigorúan definiált feladatok a mikrovezérlő szögérték kiolvasási feladatát biztosítja, hogy megfelel a kritériumoknak.
 
 \section{Haptikus interfész}
 %----------------------------------------------------------------------------
+
+A mikrovezérlő a számítógéphez, amin ez az interface fut UART porton(XYZ fejezet) csatlakozik. A telemanipulátor csuklóiban mért szenzor jeleket a haptikus interface kéri el a mikrovezérlőtől. A haptikus jelző ebben az esetben azt jelenti, hogy visszajelzés is van építve a rendszerbe. A sikeres megfogás vagy ütközés esetén a haptikus interface képes a openmanipulátor (XYZ melléklet) vezérlő telemnanipulátorába épített rezgő motoroknak jelet adni. Az általam készített telemanipulátorba nincs ilyen típusú visszajelzés beépítve. Az interface ezt a visszajelzési visszacsatolást leszámítva tökéletesen megfelel az általam kitűzött célnak. Ezt a szoftveres megoldást annak ellenére, hogy nem egy az egyben a saját munkám fontosnak tartom bemutatni, hogy a tovább fejlesztési lehetőségeknél kitudjak arra térni, hogy miért lenne fontos ezt az eszköz interfacet tovább módosítani és fejleszteni.
+
+Az interface két részre bontható. Az első az, ami megvalósítja a kommunikációt a mikrovezérlővel a másik pedig egy ROS node, ami a telemanipulátorból kiolvasott szögjeleket publikálja. Az szerial kommunikáció egy egyszerű "USB"-s csatlakozásnak minősül, ami azt jelenti, hogy lehetőség van információt küldeni és kiolvasni a port-ról. A csatlakoztatott mikorvezérlő a fizikai porton jelenik meg a számítógép port listájában Linuxon ez a $tty*$ portok között van. Fontos megjegyezni, hogy a teljes dolgozatom Ubuntu vagy közimsertebb nevén Linux operációs rendszeren lett megvalósítva. Windows operációs rendszeren is van lehetőség futtatni, ebben az esetben viszont virtuális gépet\footnote{Olyan programok amelyek képesek Windows operációs rendszeren telepített programban valamilyen nem Windows környezetre készített programot futtatni} vagy Windows Subsystem for Linux\footnote{Microsoft által támogatott virtuális Linux operációs rendszer. A egyik legelterjedtebb megoldás arra, hogy Windows operációs rendszerrel rendelkező eszközökön Linux-ot futassunk} - rövidítve WSL - kell használni. Természetesen számos más megoldás van, mint például a dual-Boot\footnote{Linux és Windows operációs rendszerek ugyanazon eszközön egymás mellé a háttértárba fel vannak telepítve és a számítógép elindulásánál lehet megválasztani, hogy melyiket akarjuk indítani. Ebben az esetben sokkal kiegyensúlyozotabb hardver terhelést kapunk és teljes értékű operációs rendszerekkel dolgozunk, ami a stabilitást nagy mértékben javítja.}. Én a diploma dolgozatomban bemutatott telemanipulátor esetében teljesértű Linux operációs rendszerrel ellátott illetve dual-Bootos számítógépet használtam.
+
+A fizikai szerial kommunikáció létrejötte utána az interfacenek ugyanazok a kommunikációs paraméterek lettek beállítva, mint amit a mikorvezérlő is használ. Ez triviális ugyanis, ahogy a XYZ fejezetben bemutattam a UART prtokolt fontos, hogy a két eszköz szinkronban legyen. A beállított paraméterek:
+
+\begin{itemize}
+\item Baudrate (Kommunikáció sebessége) - $115200 [-]$
+\item Paritás Bit (Hibajelző bit) - Nincs
+\item Stop bit szám - $1 [db]$
+\item Byte méret - $8[db]$
+\end{itemize}
+
+Ezzel létrejött a programban is használható kommunikációs kapcsolat a számítógép és a mikrovezérlő között. Az interface ezt követően ciklikusan $8[ms]$-onként a kommunikációs porton az RDS parancs segítségével lekérdezi a csuklószögeket. A visszakapott választ ellenőrzi, hogy az előző fejezetben bemutatott sorrendben minden rendben megérkezik-e és így validálva az adatok helyességét. A megkapott csukló szögeket átváltja radiánba és a ROS topológián (XYZ melléklet ros top) is láthatóan publikálja őket.
+
 \section{Universal Robot kontroller}
 %----------------------------------------------------------------------------
 \section{Gazebo szimuláció}
