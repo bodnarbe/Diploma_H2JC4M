@@ -1,16 +1,26 @@
 %----------------------------------------------------------------------------
-\chapter{\osszefoglalas} % (Eredmények értékelése)
+\chapter{\osszefoglalas}
 %----------------------------------------------------------------------------
 
-
 \section{Eredmények}
-Az összefoglaló értékelés a három oldalt lehetőleg ne haladja meg! 
-Az elvégzett munka és eredményeinek bemutatása egyes szám első személyben fogalmazva.
+A diploma dolgozatom elején kitűzött feladatokat maradéktalanul sikerült elvégeznem. Sikeresen elkészítettem egy telemanipulátort, aminek a jelfeldolgozós rendszerével kinematikai számításokat alkalmazva vezérlési utasításokat tudtam adni egy szimulációs környezetben létrehozott és egy valós kollaboratív robotnak. Mindkét esetben a vezérlés stabilan fennállt, így folyamatosan tudtam vezérelni a robot és megfigyelni a jelenlegi összeállításom sajátosságait.
+
+Tanulmányaim alatt elsajátított készségek lehetővé tették, hogy a telemanipulátorral kezdeti fizikai világból gyűjtsek szenzorokkal információt a vezérlő mozgatási szándékáról. Ezt egy zárt szoftveres környezetben robot vezérlési paranccsá alakítsam és ezt továbbítva fizikai világban robot megvalósítsa ezt.
 
 
-\section{Javaslatok/Következtetések/Tanulságok} % Válassz egyet
-A feladat elkészítése során levont tanulságok összefoglalása. Javaslattétel, 
-továbbfejlesztési lehetősége bemutatása, előretekintés a jövőbe stb.
+\section{Tanulságok és tovább fejlesztési irány} 
+
+A telemanipulátor tovább fejlesztése gyakorlatilag minden egyes elemen amin a diplomamunkában beszámoltam van lehetőség tovább fejlesztésre.
+
+A telemanipulátor karjainak kialakítását a negyedik és ötödik csukló között át lehet alakítani annak érdekében, hogy a mozgás tartományt kilehessen használni rugós mechanizmus ellenére is.
+
+A szoftveres rendszerben a szöghibák egységnyi csökkentése vagy egy zajszűrő rendszer illesztése lehetne megfelelő irány, mivel az eredmények alapján nagyon nagy mértékben befolyásolja a szenzorok zaja a robot stabilitását. A további részekben a kontroller kialakítása funkcionális tekintetben is nagy mértékben javítható. Az egész kontroller pálya tervező motorja illetve a ROS egyes verziójáról a kettesre átállni lehet az egyik legfontosabb cél kitűzés ezzel számtalan új lehetőség kerülne fel a látószögbe és kezdődhetne meg tesztelésük. A szoftveres rendszer legnagyobb és elég általánosnak mondható tanulsága talán, hogy számtalan megoldási lehetőség közül lehet választani és iteratívan lehet csak előre haladni.
+
+Számomra a legnagyobb cél kitűzés az lenne, ha egy más gyártó által elérhető robotot is megtudnék vele mozgatni. Erre nem tértem ki a dolgozatomban, de egy KUKA robot mozgatása lehetne a következő mérföld kő, mivel sokkal zártabb vezérlő rendszere van, sokkal kevésbé rugalmas és megköveteli a valósidejű lefutást.
+
+Egy jövőbe mutató kiegészítés, ha mind ezek vezeték nélkül történnek. Azaz előkészítem a telemanipulátoromat vezeték nélküli vezérelhetőségre akár WiFi akár 5G hálózatokon keresztül.
+
+A felsoroltak mellett számtalan módon lehet még ezt a rendszert tovább fejleszteni vagy esetleg új funkciókat hozzáilleszteni.
 
 % Keltezés, aláírás
 \vspace{0.5cm}

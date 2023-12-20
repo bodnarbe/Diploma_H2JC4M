@@ -72,6 +72,14 @@ A mikrovezérlő programmal kapcsolatban nagyon fontos még kitérni a RTOS (XYZ
 
 A kritériumokban(XYZ) meghatározott $4[ms]$ vagy gyorsabb lefutás a robot vezérlés eléréséhez nagyban hozzájárul ez a lehetőség. A RTOS-sel elérhető párhuzamos lefutószerű működés és a szigorúan definiált feladatok a mikrovezérlő szögérték kiolvasási feladatát biztosítja, hogy megfelel a kritériumoknak.
 
+\subsection{UART port}
+%----------------------------------------------------------------------------
+Az "UART" rövidítés a "Universal Asynchronous Receiver/Transmitter" kifejezést takarja. Az UART egy soros kommunikációs protokoll, amely a digitális adatok átvitelét teszi lehetővé két eszköz között. Ez a protokoll olyan eszközök közötti soros kommunikációt biztosít, amelyek között nincs központi órajel (asynchronous), tehát az adatküldés és -fogadás időzítése a két eszköz között előre nem megállapodott.
+
+Az UART általában két vezetéken keresztül történik: TX (Transmitter) és RX (Receiver). Az adatok a TX vezetéken keresztül mennek egyik eszköztől a másikig, és a RX vezetéken keresztül az ellenkező irányban. A kommunikációt start és stop bitek, valamint adatbitek alkotják.
+
+A UART port vagy interfész tehát a hardver vagy a vezérlő, amely lehetővé teszi az UART protokollt támogató eszközök közötti kommunikációt. Az UART portok széles körben alkalmazottak például számítógépek, mikrovezérlők, beágyazott rendszerek és egyéb eszközök kapcsolódási pontjaiként. Az UART segítségével a különböző eszközök adatokat küldhetnek és fogadhatnak egymástól, amely lehetővé teszi a sokféle elektronikai eszköz közötti egyszerű és megbízható kommunikációt.
+
 \section{Haptikus interfész}
 %----------------------------------------------------------------------------
 
@@ -90,9 +98,113 @@ A fizikai szerial kommunikáció létrejötte utána az interfacenek ugyanazok a
 
 Ezzel létrejött a programban is használható kommunikációs kapcsolat a számítógép és a mikrovezérlő között. Az interface ezt követően ciklikusan $8[ms]$-onként a kommunikációs porton az RDS parancs segítségével lekérdezi a csuklószögeket. A visszakapott választ ellenőrzi, hogy az előző fejezetben bemutatott sorrendben minden rendben megérkezik-e és így validálva az adatok helyességét. A megkapott csukló szögeket átváltja radiánba és a ROS topológián (XYZ melléklet ros top) is láthatóan publikálja őket.
 
+\subsection{ROS}
+%----------------------------------------------------------------------------
+A Robot Operating System, röviden ROS, egy nyílt forráskódú, rugalmas és elosztott szoftverrendszer, amelyet a robotok fejlesztéséhez és irányításához használnak. Az alábbiakban összefoglalom a ROS rendszert, kitérve a node-okra, a topic-okra és a robotrendszerekben történő alkalmazásukra.
+
+A ROS egy gráfalapú rendszer, amelyben a különböző komponenseket, úgynevezett node-okat, összekapcsolják egymással, hogy információt és parancsokat cseréljenek. A node-ok önálló folyamatok, amelyek futnak és kommunikálnak egymással. Minden node specifikus feladatokat lát el, például szenzoradatok gyűjtése, adatfeldolgozás, irányítás vagy más műveletek végzése.
+
+A node-ok közötti kommunikáció a topic-okon keresztül történik. A topic egy adatcsatorna, amely lehetővé teszi a node-ok közötti aszinkron adatátvitelt. Egy node publikálhat adatokat egy topic-ra, és más node-ok feliratkozhatnak erre a topic-ra, hogy megkapják az adatokat. Ez a központi kommunikációs mechanizmus a ROS rendszerben. Például egy szenzor node adatokat publikálhat egy "lidar" nevű topic-ra, és egy navigációs node feliratkozhat erre a topic-ra, hogy megkapja a szenzoradatokat és használhassa őket a robot navigációjához.
+
+A ROS rendszer különösen népszerű a robotrendszerek fejlesztésében és irányításában. A robotok általában több szenzorral rendelkeznek, amelyek adatokat gyűjtenek a környezetről, például távolság, helyzet, kép vagy hanginformációk. Ezeket a szenzoradatokat a ROS node-ok gyűjtik és feldolgozzák. Emellett a robotoknak vezérlési parancsokat kell fogadniuk és végrehajtaniuk. A ROS lehetővé teszi a vezérlő node-ok létrehozását, amelyek az irányítást végzik, például a robot mozgását vagy más műveleteit vezérlik.
+
+A ROS rendszerben a node-ok és topic-ok rugalmasan konfigurálhatók és összekapcsolhatók, ami lehetővé teszi a fejlesztők számára a moduláris és újrafelhasználható szoftverkomponensek létrehozását a robotalkalmazásokhoz. Ez a moduláris szerkezet elősegíti a fejlesztés hatékonyságát, és lehetővé teszi a különböző csapatok számára, hogy párhuzamosan dolgozhassanak az egyes részegységeken.
+
+Összességében a ROS egy erőteljes és rugalmas szoftverrendszer, amely lehetővé teszi a fejlesztők számára a robotrendszerek fejlesztését és irányítását. A node-ok és topic-ok használata lehetővé teszi az adatok gyűjtését, feldolgozását és megosztását a rendszer komponensei között, ezáltal segítve a robotok működését és irányítását különböző feladatok végrehajtása során.
+
 \section{Universal Robot kontroller}
 %----------------------------------------------------------------------------
+
+A csukló szögekkel már elegendő információ van ahhoz, hogy megállapítsuk a telemanipulátor által felvett pillanatnyi TCP pontot. Ez a pont a telemanipulátor 0. koordináta rendszerének és az end effektorának távolsága és orientációja. Ez a egydimenziós tömb ami magába foglal hat paramétert, amelyek $x,y,z$ koordináta és $\alpha,\beta,\gamma$ orientációs szögeket tartalmazza. Az elméleti háttérről a XYZ. fejezetben részletesen kitértem.
+
+A TCP pontok pontos értékét a telemanipulátorra elkészített DH transzformációs mátrixxal tudom megadni. A paraméterek számítása folyamatosan az új csuklószög értékekkel folyamatosan történik. A program, ami ezt a számítást végzi nevezem a robot kontrollernek. Ennek a feladata az, hogy a telemanipulátorok szögértéke alapján meghatározza a TCP pontot és továbbítsa a robot felé, akár szimulációs környezetben, akár valós robot meghajtásáról van szó.
+
+A robot kontroller másik feladata a munkatér mozgatása. Indítása előtt meg lehet neki adni $[x,y,z] [mm]$ mátrixban, hogy a valós koordináta pontokat mennyivel és milyen irányba tolja el. Ezzel a lehetőséggel minden típusú robottal lehet használni, illetve a munka területet folyamatosan lehet válzotatni a robot számára, amihez idomítani lehet. Az orientációs paramétereket nem lehet befolyásolni.
+
+A kontroller fel van készítve biztonsági funkciók ellátására is. Objektumok formájában definiálni testeket a térben, amelyek kimetszhetnek területet a telemanipulátor és a elmozgatás által meghatározott munka területből.
+
+A fenti műveletek elvégzése utána a kontroller pozíció és orientációs paramétereket átadja egy $MoveGroupInterface$ objektumnak, ami a jelenlegi megoldás szerint kapcsolatot teremt a robot vezérlő rendszere és a kontroller között. Ez az objektum quaternion paraméter lista szerint dolgozza fel az adatokat, ami miatt az általam megadott hat darab paramétert át kell konvertálni ebben az értelmezésbe.
+
+A $MoveGroupInterface$ a kapott cél paraméterek és a robot jelenlegi pozíciója alapján, amit a következő szegmenstől kap kikalkulálja a robot következő orientációját, amivel megtudja valósítani a kívánt TCP pontot. Itt már megjegyezés kell tennem, hogy a legnagyobb gondot a robot vezérlésnél az okozza, hogy a telemanipulátor által felvett TCP pont és a megvalósítható robot orientációk megadás nagyon számítás igényes.
+
+\subsection{Robot mozgás pályatervezők}
+%----------------------------------------------------------------------------
+
+A diploma dolgozatom leadása pillanatában hasznát kontroller mellett számos más lehetőség is van arra, hogy a robotot a cél orientációba vezéreljük. Erre azért fontos kitérni, mert a valós robot mozgatásnál látható lesz, hogy a korábbi ROS verzió és az abban használt MoveIt kontroller nem a leggyorsabb pályatervezést eredményezi annak ellenére, hogy a hardver képes lenne nagyobb teljesítménnyel is működtetni a robotot. Annek érdekében, hogy személetesebb legyen az, hogy miért fontos ezeknek a rendszereknek a számítási kapacitácával foglalkozni rövid listában összefoglaltam mi a logikai sorrendje a robot vezérlőknek:
+
+\begin{enumerate}
+\item Célállapotot vagy trajektória meghatározása, amit a robotnak követnie kell
+\item Lekérdezi a robot aktuális orientációját, csukló szögeit
+\item Meghatározza a jelenlegi állapot és a cél állapot közti eltérést
+\item A különbség alapján vezérlő jelet ad ki a robotvezérlőnek
+\item Változás bekövetkezett-e és ha igen akkor a ciklus kezdődik elölről
+\end{enumerate}
+
+A legfontosabb arra kitérni, hogy mivel a diplomám célja nem a tökéletes kontroller létrehozása volt így egy általános megoldást használok jelenleg, ami a mindenre jó így igazán semmire elven nem a legoptimálisabb kontroller. Sokkal specifikusabb a telemanipulátor karakterisztikájára és a cél hardver tulajdonságaira optimalizált kontrollert is létre lehet hozni a MoveIt-tal, viszont ez a prototípus tervezésének ebben a szakaszában még nem prioritás.
+
+Egy másik aspektusból vizsgálva a MoveIt azon verziója, ami jelenleg hajtja a robotot program nyelv verzió szerint is régebbi megoldásokkal lett elkészítve. Ez egyenesen vezet ahhoz az eredményhez, hogy programozói nyelven szólva bottleneck \footnote{A "bottleneck" kifejezés olyan helyzetet vagy pontot jelent, ahol a rendszer vagy folyamat teljesítménye egy vagy több korlátozó tényező miatt korlátozott. Ez a korlátozó tényező olyan, mint egy szűk nyakú palack, ami lassítja vagy akadályozza a folyamatot vagy rendszert, és megakadályozza, hogy az az elvárt teljesítményt nyújtsa.}-kel, azaz a rendszer más elemei képesek lennének nagyobb teljesítményt elérni, de valamilyen program technikai megoldás miatt ez nem lehetséges.
+
+A fent leírt problémákra a ROS és a MoveIt fejlesztői is kínálnak már megoldást, ezek a megoldások ráadásul még a valós idejű működést is biztosíthatják. A ROS 2 önmagában több valós idejű támogatást kínál a kiterjesztett hardver interface illetve a dinamikus változás/változó kezelés, ami robot tekintetében kulcsfontosságú. Ez hasznosságát úgy lehet szemléltetni, hogy egy robot esetében a a pálya tervezés az egy folyamtatos idő kritikus metódus, ha valós időben szeretnénk vezérelni. A tervezés így szinkron metódusként lehet kezelni.
+
+%TODO Ez egy kicsit még vérszegény
+
+Konkrét megoldásként lehet a MoveIt2 servo kontrollere, ami pontosan a valósidejű robot vezérlésre lett kifejlesztve. Ez a kontroller differenciál kinematikai alapelven működik és teheti lehetővé a valósidejű vezérlést. Ez azt jelenti, hogy a kontollernek ugyan úgy cél koordinátákat és orientációs szögeket adunk meg viszont a robot vezérlő nem a pozíciót adja tovább a robotnak, hanem azt hogy a robot csuklóinak milyen sebességen és meddig kell működnie. Ez a számítási módszer megoldás lehet a telemanipulátoros vezérlésre is, de a diploma leadása pillanatában még, csak a Moveit servo alkalmazhatóságát ismerkedtem.
+
+\subsection{Quaternion}
+%----------------------------------------------------------------------------
+A quaternion egy speciális típusú matematikai objektum, amely gyakran használatos térbeli orientációk és rotációk reprezentálására, például robotika, grafika, és számítógépes játékok területén. Egy négydimenziós számsorozat, és a következőképpen írhatók le:
+
+\begin{equation}
+a + b \textbf{i} + c \textbf{j} + d \textbf{k} 
+\end{equation}
+
+ahol az $a$ skalár rész, $b$,$c$,$d$ pedig a vektori rész koordinátái, és $i$,$j$,$k$ a komplex egységvektorok, amelyek kielégítik a következőt: 
+
+A quaternionok előnye, hogy hatékonyan reprezentálhatnak rotációkat a háromdimenziós térben, és nem szenvednek a "gimbal lock" nevű problémától, amely bizonyos Euler-szögparamétereknél jelentkezik.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=70mm, keepaspectratio]{figures/Diagrammok/Quaterion}
+\caption{Quaterion térvektor által megvalósítható rotáció szemléltetése}
+\label{fig:Quaterion}
+\end{figure}
+
+Ezzel a módszerrel történő rotációk gyakran alkalmazhatók például térbeli orientációk számítására a robotika vagy számítógépes grafika területén. A rotációkat általában egy kezdeti orientáció és egy célorientáció közötti kvaternióként reprezentálják, majd ezeket a kvaterniókat alkalmazzák a térbeli objektumokon.
+
+Fontos megjegyezni, hogy a quaternionok bevezetése és használata egy speciális terület a matematikában, és gyakran igényel némi megértést a térgeometriában és lineáris algebrában.
+
+
 \section{Gazebo szimuláció}
 %----------------------------------------------------------------------------
+
+A célkitűzésem egyik az volt, hogy a telemanipulátorral szimulációs környezetben tudjak vezérelni egy robot kart. ezt azért tartom nagyon fontos lépcsőfoknak a valós robot vezérlést megelőzően, mert kvázi előellenőrzése az elkészített rendszernek. Bármilyen súlyos matematikai hiba vagy súlyos anomália, ami veszélyeztetné a robot épségét szimulációnál jelentkezni fog. A szimulációt Gazebo-val készítettem és teszteltem. Ugyanazt a hardvert használtam amin később a valós robot vezérlést is végeztem, így sikerült meggyőztem arról hogy a hardver és a szoftveres rendszer is megfelelően működik. A szimulációs robot vezérlés sikerült és egy Universal Robot 5-ös típusú robot az elvárásoknak megfelelően sikerült vezérelni szimulációs környezetben.
+
+A szimulációs rendszerek alapvető tulajdonsága, hogy az szimulálják le, ami fel van nekik programozva. Ezeket a szimulációs elemeket a teljesség igénye mellett se lehet egy az egyeben megfeleltetni a valós megfelelőjüknek és ebből fakadólag előfordulhatnak pálya tervezési hibák, zajok és olyan előre nem lekezelt program futásbeli hibák, amik a programok rossz időbeli sorrendje miatt keletkeznek. Ezeket a problémákat jellemzően a szimulációs rendszer korlátjainak tekintjük. Az általam futtatott szimulációnál, csak azokra a tapasztalatokra térek ki, amik közvetlenül a telemanipulátor, a kontroller és a robot vezérlő működésével kapcsolatos. Tapasztalatokat összegzem és a valós robot vezérlésénél össze is fogom hasonlítani.
+
+%TODO Kép a szimulációról
+
+Egy meghatározott cél koordináta és a jelenlegi között nincs nagy távolság akkor gyorsan végrehajtja a parancsot. Nagy távolság esetén a számítási idő szignifikánsan nagyobb. Ez akár egyértelmű is lehet viszont egy nagyon nagy hátrány, mert nem is feltétlen a TCP pontok távolsága számít hanem az az egyenlet rendszer, aminek eredménye ként a lehetséges orientációkat megkapjuk. Ezzel kapcsolatosan megfigyeltem még, hogy a nagyon összetett pályák esetén még a $5[s]$-os időtúlépést is elérheti kontroller, amikor is a számítás kiáll hibára és megszakítja a kalkulációt. Ezt követően vagy visszatér és egy következő orientációt kezd el számolni, vagy helytelen orientáció miatt beavatkozást igényel. Amit még a valós robot szimulációval való korrekt összehasonlítás miatt fontos volt megfigyelnem, hogy stabil egy adott pontban, nem érzékelhető se remegés se bizonytalan pozíciótartás.
+
+A szimulációs tesztelés sikeres volt. Ez a megközelítés a későbbiekben is hasznos lehet, ha új funkciók vagy modul cseretörténik a rendszerben. Így mindent nagy vonalakban lelehet tesztelni mielőtt valós roboton elindítanánk.
+
+
 \section{Valósrobot vezérlése}
 %----------------------------------------------------------------------------
+
+A diploma dolgozatom végcélja az volt, hogy egy valós robotot is vezéreljek a telemanipulátorommal. 
+
+A robot, amit valójában sikerült mozgatnom, ugyan az a robot amit a szimulációs környezetben is teszteltem. A robotot laboratóriumi összeállításban teszteltem ezért is látszik, hogy egy sakk tábla van a robot előtt és nem egy témába vágó műtő fatnom, mert a laboratóriumi körülmények között mások kollégák is használták. A laboratóriumban a szimuláció és a valós vezérlés közti alapvető különbségekre voltam kíváncsi.
+
+%TODO Kép a robot
+
+Az egyértelműen kijelenthető, hogy sikerült a robotot vezérelni és közel azonos tapasztalatokat gyűjtöttem, mint a szimuláció esetében. A tervezési idő erősen függ a kezdő és végpont távolságától, illetve ugyanúgy időtúllépéssel le áll mint a szimuláció esetében. Lényeges különbség viszont, hogy nagyon látványos megjelenik egy nyugvó pont körüli zaj. A robot kismértékben remeg/mozog olyankor amikor a telemanipulátor által a vezérlő nem ad direktben mozgás utasítást. Ez nagyon nagy gond, mivel a sebészeti szimulációk vagy későbbiekben műtő fantom operálására szeretném tovább fejleszteni, akkor ez mozgás megengedhetetlen, de ezt a következő fejezetben részletesebben bemutatom.
+
+A valós robot mozgatással sikeresnek tekintettem a fejlesztésnek ezt a szakaszát. Az elképzelésemet meglehet valósítani, ennek a pontosítását már további munkával lehet javítani. 
+
+\section{Koncepcionális hibák}
+
+Az előző fejezetben a robot mozgatásnál tapasztalt mozgásnak és remegésnek több oka lehet, amelyek közül néhány ismert a számomra.
+
+A mikrovezérlőtől indulva a szenzorok jele a feldolgozás során a gyártó által jelezve is $1^\circ$-os hibával működhet. Például ha ez az első csuklóban jelenik meg példa kedvéért pozitív irányban, akkor a end-effektor $x$ vagy $y$ irányban közel $6[mm]$ is lehet, ami elfogadatlan. Egyértelműen ilyen nagy mértékű hiba az nagyon szélsőséges esetben jelenhet meg. Viszont kisebb szöghibák a hat csuklón halmozottan okozhatnak bármelyik tengelyen hasonló nagyságrendű hibát. A szöghiba zajszűrésére lehetőség van, de nagyon körül tekintően kell csinálni, mivel a GMR szenzorok előnye pont abban van, hogy érzékenyek a kis mágneses tér változásra. A legegyszerűbb, de nem a legolcsóbb lehetőség, ha redundánsan csuklónkként egy pár szenzor párt használok ezzel akár átlagolás, akár felülbírálói megoldással tudom csökkenteni a hibát.
+
+A zajnak a másik oka szintén ebből a szöghibából adódik, de a kontrollerben nem elnyomódik, hanem felerősödik. Ennek nem fizikai, hanem matematikai oka van ugyanis a kinematikai számítások összetettsége, miatt kerekítés a számítások során. A kerekítések nem feltétlen a számítási kapacitás hiánya, hanem a vezérelni kívánt robot ismétlési pontossága miatt is lehetséges. A UR 5 ismétlési pontossága a gyár adatok alapján $0,1[mm]$ és $0,03[mm]$ között lehet. Azt, hogy a remegés emiatt lenne érezhető s robotkarban kevésbé tartom valószínűnek. Arra, hogy a remegés mi miatt jön létre a robotban mindenképpen szeretnék választ találni.

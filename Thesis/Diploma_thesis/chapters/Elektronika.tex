@@ -13,7 +13,12 @@ A komponensek bemutatása előtt a szögérésre felépített rendszer felépít
 
 A jelfeldolgozó rendszer elektronikai oldalról minimális mérnöki ismeretekkel is könnyen megérhető és a bemutatás is igen egyszerű. A összeállítást a csuklóban érzékelt szögtől indulva mutatom be lépésről lépésre. Egy adott csuklóból induló két kar egymással bezárt szögének mérésére GMR(Giant magnetoresistance) szenzort használtam. A szenzor összeállítás magából a szenzorból és a szenzorlapjával párhuzamba állított mágnesből áll. Ezzel a szenzor összeállítással a "jeladó" és a jelvevő között fizikai kontaktus nélkül tudok szöget mérni és ami még lényegesebb nincs végállása a szenzornak. Így a váz tervezése során csak azt kellett figyelembe vennem, hogy szenzor és a mágnes középtengelye egybe essen és a távolságuk ne legyen nagyobb mint $XYZ[mm]$. A szenzorhoz saját magam által tervezett és gyártott NyÁK lapot terveztem, mivel a szenzor SMD\footnote{•} kivitelű ezért szükséges volt megoldani a szenzor chip lábai és a drót közötti kapcsolatot.
 
-%TODO RENDSZER ÁBRA
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=125mm, keepaspectratio]{figures/Diagrammok/Telemanipulator_teljesrendszer}
+\caption{A jelfeldolgozó rendszert szemléltető ábrra}
+\label{fig:Telemanipulator_teljesrendszer}
+\end{figure}
 
 A következő fontos komponens a bypass kondenzátor. Ennek a kondenzátornak a célja a teljesítmény ingadozás kiküszöbölése ezzel a szenzor működése egyenletesebbé tehető. Ezt a javaslatot a bypass kondenzátor használatára még a szakdolgozatom bírálatánál kaptam, mint lehetséges teljesítmény javító komponens.
 
@@ -112,6 +117,22 @@ A Bluepill típusú mikrovezérlők kompakt kisméretű, de tág fejlesztési ha
 
 A felsorolt különbségek száma nem sok, de a fejleszthetőséget nagy mértékben megkönnyíti. A elkészült telemanipulátor jelfeldolgozó rendszer teljesítménye és a tesztelésközben tapasztalt könnyebbségek, illetve a mérete miatt abszolút előrelépésnek, jó döntésnek és sikeres fejlesztésnek állapítom meg a mikrovezérlő cserét.
 
+%TODO kell ez egyáltalán???
+
+\subsubsection{STM32 nucleo}
+%----------------------------------------------------------------------------
+A Cortex-M4 egy ARM architektúrájú processzormag, amelyet beágyazott rendszerekhez terveztek. A Cortex-M4 processzormagok nagy teljesítményt és alacsony energiafogyasztást kínálnak, és széles körben elterjedtek az ipari, gyártási és beágyazott alkalmazások területén.
+
+Az STM32 fejlesztőeszközök a Cortex-M4 processzormaggal rendelkező STM32 mikrovezérlők családjára épülnek. Az STM32 mikrovezérlők az STMicroelectronics által gyártott nagyon népszerű és széles körben használt beágyazott rendszerekre szánt eszközök. Az STM32 fejlesztőeszközök kiváló minőségű hardvereket és szoftvereszközöket kínálnak a fejlesztőknek a STM32 mikrovezérlők programozásához és teszteléséhez.
+
+A NUCLEO-F411RE board egy konkrét példa az STM32 fejlesztőeszközök közül. Ez a fejlesztői platform az STM32F411RE mikrovezérlőre épül, amely egy Cortex-M4 processzormaggal rendelkező mikrovezérlő. A NUCLEO-F411RE board kiváló választás azok számára, akik be szeretnének vezetődni az STM32 világába és megismerkedni az ARM Cortex-M4 alapú fejlesztéssel.
+
+A NUCLEO-F411RE board számos funkcióval és interfésszel rendelkezik, ideértve digitális és analóg bemeneteket, PWM kimeneteket, UART, I2C, SPI és USB interfészeket, valamint egy ST-Link programozó/debugger egységet. Ez a board könnyen használható és támogatja a fejlesztőket az alkalmazásaik prototípusolásában, fejlesztésében és tesztelésében.
+
+Az STM32 fejlesztőeszközökön általában kényelmesen használható fejlesztői környezet, például az STM32CubeIDE vagy az STM32CubeMX áll rendelkezésre. Ezek az eszközök számos fejlesztői funkciót és eszközt biztosítanak, például kódszerkesztőt, kódgenerátort, szimulációs lehetőségeket és debugger eszközöket, hogy segítsék a fejlesztőket a hatékony és könnyű fejlesztésben.
+
+Összefoglalva, a Cortex-M4 alapú rendszerek, mint az STM32 mikrovezérlők és az ehhez kapcsolódó fejlesztőeszközök, kiváló választásnak számítanak beágyazott rendszerek tervezéséhez és fejlesztéséhez. Az STM32 fejlesztőeszközök, például a NUCLEO-F411RE board, rugalmas és hatékony platformot kínálnak a Cortex-M4 alapú alkalmazások prototípusolásához és teszteléséhez, valamint a fejlesztői folyamat megkönnyítéséhez.
+
 
 %----------------------------------------------------------------------------
 \section{Összeállított rendszer tesztelése}
@@ -121,6 +142,8 @@ A bemutatott komponensekből összeállított rendszer jelen fejlesztési státu
 %TODO képek
 
 \subsection{GMR szenzorok tesztelése}
+
+%TODO képek
 
 \subsection{Vezeték ellenállás mérése}
 
