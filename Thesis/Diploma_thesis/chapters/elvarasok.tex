@@ -1,6 +1,6 @@
 %----------------------------------------------------------------------------
 \chapter{Tervezési kritériumok meghatározása}
-\label{sec:LatexTools}
+\label{sec:Tervezesi_kriteriumok}
 %----------------------------------------------------------------------------
 
 A diploma dolgozatomban, ahogy a bevezetőben is említettem egy telemanipulátor geometriai, elektronikai és szoftveres tervezését, ezeknek az elemeknek az elkészítését és működését fogom bemutatni. Az első lépés a felsorolt feladatok teljesítéséhez, hogy egy átfogó szempontrendszert hozzak létre. Ez abban segített nekem, hogy a tervezési lépéseknél figyelembe véve az produktum így egységes és a meghatározott funkciókkal van ellátva.  
@@ -27,7 +27,7 @@ A tervezési elvárások meghatározásának alapja az alapszintű képzésem Sz
 \centering
 \includegraphics[width=110mm, keepaspectratio]{figures/Szakdoga/0_v_4_csipeszes}
 \caption{Szakdolgozatomban elkészített telemanipulátor}
-\label{fig:Szakdoga_csipeszes}
+\label{fig:Szakdoga_telemanip_csipeszes}
 \end{figure}
 
 A telemanipulátort 3D nyomtatással lett készítettem el. Ez a prototípus készítési módszer manapság már a mérnöki munka alapjának tekinthető, főleg az megfizethető 3D nyomtató berendezések elterjedésével. Az általam használt nyomtatási technológia az alkatrészek nyomtatására ebben az esetben FDM\footnote{Fused Deposition Modeling - A nyomtatási technológia a hőre lágyuló polimerekkel képes 3D-s objektumokat nyomtatni. Az FDM nyomtatók azzal az alapelvvel működnek, hogy szobahőmérsékleten szilárd hőre lágyuló polimert 180$^{\circ}$- 300$^{\circ}$C-ra melegítve ömledék állapotba kerülnek és a kívánt helyre lehet juttatni lineáris vezetékrendszer segítségével.}, viszont néhány alkatrész, mint például a szenzortartók elkészítéséhez SLA\footnote{StereoLithography Apparatus - modellteret UV aktív gyantával tölti fel. A nyomtatási térben egy síklapra építi fel a tárgyat úgy, hogy az belemerül egy gyantával teli kádba, ahol a megfelelő rétegvastagságú folyékony gyanta réteget UV lézerrel térhálósítja és köti adhézióval az előző réteghez} technológiai alapon működő nyomtatót használtam. 
@@ -40,7 +40,7 @@ A mikrovezérlővel begyűjtött szögértékeket továbbítottam egy szimuláci
 \centering
 \includegraphics[width=110mm, keepaspectratio]{figures/Szakdoga/00_v_4_kar}
 \caption{Szakdolgozatomban elkészített telemanipulátor méreteinek bemutatása}
-\label{fig:Szakdoga_csipeszes}
+\label{fig:Szakdoga_telemanip_meret}
 \end{figure}
 
 Végeredményben a szakdolgozatomban elkészített telemanipulátor az akkor meghatározott elvárásoknak tökéletesen megfelelt, viszont sok helyen koncepcionális és egy igen komoly számítási hibát tartalmazott. Mesterképzésemen az itt felmerülő hibákat céloztam meg első körben kijavítani. A munka közben megfogalmazott és a diplomamunkám elkészítéshez szükséges elvárásokat a következő fejezetben bemutatom.
@@ -85,6 +85,11 @@ A korábban említett számítási hiba kijavítása egyértelmű cél volt a sz
 
 Röviden szeretnék kitérni arra, hogy a szakdolgozatomban látható ténylegesen modellezett sebészeti eszközöket a diploma dolgozatom esetében nem készítettem el. A cél ugyanaz, hogy egy olyan rendszert hozzak létre, ami sebészeti eszközök mozgatását tegye lehetővé robotkarok végén, viszont a rendszer elkészítéséhez nem szükséges már a tesztelésénél ezt használni. A szakdolgozatban látható telemanipulátor végén a csipesz és a szike modell megnehezítette a koordináták ellenőrzését. Emiatt azt detektálni nehéz volt, hogy mi következik szöghibákból és mi az egyedi end-effektor nem tökéletes ergonómiájából. Az sem elhanyagolható, hogy a dolgozatban a sebészeti eszköz tökéletesítése szerintem önmagában ki tudna tölteni egy teljes diplomamunkát.
 
-%TODO szakdoga megfogó
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=80mm, keepaspectratio]{figures/Szakdoga/csipesz}
+\caption{Szakdolgozatomban elkészített telemanipulátorhoz tartozó csipesz}
+\label{fig:Szakdoga_csipeszes}
+\end{figure}
 
 A diploma dolgozatom címében megfogalmazott sebészeti eszközök figyelembe vannak véve a bemutatásra kerülő telemanipulátor tervezése közben. A jelző a sebészeti eszközökre szakdolgozatomtól eltérően nem konkrétan a telemanipulátor end-effektorára vonatkozik, hanem a robotkar hatodik csuklójára helyezett eszközre, amit majd a későbbiekben könnyedén lehet ezzel az eszközzel vezérelni.

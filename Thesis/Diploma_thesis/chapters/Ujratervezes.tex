@@ -1,26 +1,34 @@
-\chapter{Telemanipulátor geometria tervezése}
+\chapter{Telemanipulátor geometriája}
 \label{sec:geometria}
 
-Az általam tervezett telemanipulátor egyesíti mindazt, amit a teljes képzés során elsajátítottam. 
+A szakdolgozatomban elkészített telemanipulátor koncepcionális újragondolását és a kompenzációs elvárásokat az előző fejezetben bemutattam. Az elvárás rendszer figyelembevételével megterveztem a telemanipulátor geometriai vázát.
+
+A diploma dolgozatomban bemutatásra kerülő telemanipulátor geometriájának megtervezése több féléves munka után nyerte el végső formáját. A tervezési lépéseket a kompenzáció miatt szükséges elvi felépítéstől indulva minden lényegesebb elemen áthaladva mutatom be. Végül a kinematikai felépítését és a TCP pont számításához szükséges elemzéssel zárnám a fejezetet.
 
 %----------------------------------------------------------------------------
 \section{Geometria kialakítása}
 %----------------------------------------------------------------------------
 
+A kompenzációnál megemlített paralelogramma elrendezés használata rendkívül hasznos megoldásnak bizonyult és az egyik legnagyobb fejlesztésnek tartam a szakdolgozatban dokumentált munkámhoz képest. A paralelogramma elrendezés
+miatt a kábel csatornák száma az ötödik csuklóig meg kétszereződött, mivel karonként kétszer annyi elem áll rendelkezésre. Ezen túl a rendszer stabilitását is növelte az által, hogy nehezebb csavaró vagy nyíró jellegű igénybe vétellel a csuklókat terhelni. Előnyként mutatkozott ez az elrendezés akkor is amikor a számításokat végeztem, mivel a paralelogramma elrendezés azt eredményezi, hogy a minden oldala a kinematikának párhuzamos marad a vele szemköztivel. Az ötödik csuklóig így csak szinusz koszinusz számításokat és egy darab transzformációt kellett elvégeznem. Az általam elképzelt telemanipulátor kinematikai elrendezése a következő lett. A rendszer egészében $6[db]$ csuklóban mérendő szögváltozó elmozdulása alapján tudja meghatározni a TCP pontot. A elvárások alapján két darab paralelogramma kinematikai összeállítást használok és ezt követően három csuklót az end-effektorral történő mind a hat szabadsági fokon történő mozgatáshoz.
+
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=120mm, keepaspectratio]{figures/Diploma_CAD/creo1.png}
-\caption{Telemnanipulátor}
-\label{fig:Telemnanipulátor}
+\includegraphics[width=70mm, keepaspectratio]{figures/Diagrammok/Diploma_kinematika}
+\caption{Diploma munka kinematika}
+\label{fig:Diploma_kinematika}
 \end{figure}
+
+A \ref{fig:Telemnanipulátor_kinematika}.ábrán láthatóan az elkészült telemanipulátor oldalról. A képen jól látható, hogy az meghatározott kinematikai lánc teljes egészében megvalósításra került. A megvalósításnál kifejezetten nagy kihívást jelentett az, hogy a karok vastagságát milyen méretűre válasszam meg. Kinematikai váz felrajzolásánál a geometriai elemek térbeli korlátjával érthető módon nem kellett foglalkozzak viszont megvalósításánál ez korlátozó tényező már nehézséget okozott.
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=120mm, keepaspectratio]{figures/Diploma_CAD/creo2.png}
-\caption{Telemnanipulátor oldalról}
-\label{fig:Telemnanipulátor}
+\caption{Telemnanipulátor kinematikai elrendezésének bemutatása}
+\label{fig:Telemnanipulátor_kinematika}
 \end{figure}
 
+A diploma dolgozatomban már korábban is említettem, de a továbbfejleszthetőséget nagyon fontosnak tartom. A karokat úgy terveztem meg, hogy a későbbiekben ne kelljen minden áron az egészet kicserélni, ha új koncepciós megvalósítást készítek. A következő \ref{fig:kar}.ábrán és a \ref{fig:Csuklo_egyedul}.ábrán a második és harmadik csukló közötti kar látható, illetve a kar két végén lecsatlakoztatható idom. Az idom illeszkedik a csapágyba illetve a kar keresztmetszetén található kábel csatornát fordítja be a tengely irányába.
 
 \begin{figure}[!ht]
 \centering
@@ -29,13 +37,47 @@ Az általam tervezett telemanipulátor egyesíti mindazt, amit a teljes képzés
 \label{fig:kar}
 \end{figure}
 
+Ez az idom csavarokkal van rögzítve a kar hosszanti testéhez. A karban réz inzerteket helyeztem így a csavart kellően feszesre meglehet húzni. A kar hosszanti elemén ovális kikönnyítéseket helyeztem el így kevesebb műanyagot használtam fel az elkészítésükhöz és könnyebbek lettek ezáltal, de a mechanikai tulajdonságaik megfelelnek az általam elvártaknak.
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=70mm, keepaspectratio]{figures/Diploma_CAD/creo4.png}
 \caption{Csuklo}
-\label{fig:Csuklo}
+\label{fig:Csuklo_egyedul}
 \end{figure}
+
+A telemanipulátor minden egyes elemének bemutatását nem tartom fontosnak, mivel minden esetben a megfelelő mennyiségű kábel elvezethetőségét, a kellően nagy méretet és a optimális anyag felhasználást tartottam szem előtt. A következőképen a látható a teljes telemanipulátor. Az end-effektorról még ejtek párszót, de előtte a geometriai méreteket ismertetném és ezzel érzékelhetővé válik a szakdolgozatomban és az itt bemutatásra kerülő telemanipulátor méretbeli különbsége. A következő táblázat gyűjti össze a geometriai paramétereket.
+\begin{table}[h!]
+\centering
+\begin{tabular}{ |c|c|c| }
+ \hline
+ Kar sorszám & Karhossza milliméterben  \\
+ \hline
+ Első kar & $290[mm]$  \\
+ \hline
+ Második kar & $200[mm]$  \\
+ \hline
+ Harmadik kar & $150[mm]$  \\
+ \hline
+ Negyedik kar & $87.5[mm]$  \\
+ \hline
+ Ötödik kar & $48[mm]$  \\
+ \hline
+ Hatodik kar & $30[mm]$  \\
+\hline
+\end{tabular}
+\caption{Telemanipulátor karjainak méretét megadó táblázat}
+\label{table:merettabla}
+\end{table}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=120mm, keepaspectratio]{figures/Diploma_CAD/creo1.png}
+\caption{Telemnanipulátor}
+\label{fig:Telemnanipulátor}
+\end{figure}
+
+\section{Diplomamunkámban használt end-effektor}
 
 
 \section{Kinematikai modell felépítése}
@@ -44,21 +86,14 @@ Az általam tervezett telemanipulátor egyesíti mindazt, amit a teljes képzés
 \centering
 \includegraphics[width=70mm, keepaspectratio]{figures/Szakdoga/kinematik_v_2}
 \caption{Szakdolgozat kinematika}
-\label{fig:Csuklo}
+\label{fig:Csuklo_2}
 \end{figure}
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=70mm, keepaspectratio]{figures/Szakdoga/v_2_dh}
 \caption{Szakdolgozat Denavit-Hartenberg felírás}
-\label{fig:Csuklo}
-\end{figure}
-
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=70mm, keepaspectratio]{figures/Diagrammok/Diploma_kinematika}
-\caption{Diploma munka kinematika}
-\label{fig:Csuklo}
+\label{fig:Csuklo_3}
 \end{figure}
 
 
@@ -66,7 +101,7 @@ Az általam tervezett telemanipulátor egyesíti mindazt, amit a teljes képzés
 \centering
 \includegraphics[width=70mm, keepaspectratio]{figures/Diagrammok/DH_feliras}
 \caption{Diploma munka Denavit-Hartenberg felírás}
-\label{fig:Csuklo}
+\label{fig:Csuklo_5}
 \end{figure}
 
 

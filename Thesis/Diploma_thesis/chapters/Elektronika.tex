@@ -1,5 +1,5 @@
 \chapter{Telemanipulátor jelfeldolgozó rendszere}
-\label{sec:LatexTools}
+\label{sec:elektronika}
 
 A bemutatott fizikai rendszerhez tartozó jelfeldolgozó rendszer hardveres elemei nem sokban térnek el a szakdolgozatomban használt megoldásoktól. Mégis jelentősen összetettebbé vált az elmúlt két évben azáltal, hogy mennyi mindent sajátítottam el a képzés végére. Kiegészítettem néhány biztonsági és jelminőséget javító funkcióval. Ebben a fejezetben igyekszem részletesen bemutatni a telemanipulátor aktuális pozíciójának meghatározására kiválasztott szenzorokat és a mikrovezérlőt.
 
@@ -7,6 +7,13 @@ A bemutatott fizikai rendszerhez tartozó jelfeldolgozó rendszer hardveres elem
 \section{Jelfeldolgozó rendszer koncepciója}
 
 A komponensek bemutatása előtt a szögmérésre felépített rendszer elvét szeretném bemutatni. A rendszernek hasonlóan a fizikai vázhoz a tervezés során meghatározott elvárásoknak kell megfelelnie. Ugyan a \ref{sec:ujratervezesi_szempontok} fejezetben felsorolt elvárások száma lényegesen kisebb mint a vázzal vagy a programmal szemben támasztottak, viszont legalább annyira lényegesek. Komolyabb teljesítmény elektronikát nem kellett tervezzek a rendszerhez, mert a kiválasztott mikrovezérlő DC kimenete bőven képes előállítani a szenzorok feltáplálásához szükséges áramot. Amit viszont már a fizikai rendszer tervezésénél figyelembe kellett vennem, hogy a kábelezés ne legyen túl nehézkes, hogy a kommunikációban a szenzor-mikrovezérlő távolságból származó ellenállás ne okozzon problémát. A szenzorok tesztelésénél foglalkoztam a maximálisan használható drót hossz megállapításával. A rendszert a lehető legegyszerűbben, a lehető legkevesebb egyedi alkatrész felhasználásával készítettem el. A hangsúlyt a \ref{sec:mikrovez_bemut}.fejezetben bemutatásra kerülő mikrovezérlő kiválasztására fektettem. Nem volt szükség méret vagy egy fizikai korlát használatára, így igyekeztem a lehető legnagyobb teljesítményű és legtöbb potenciális továbbfejlesztést lehetővé tévő megoldást választani. A következőkben a már megépített rendszert és a lehetséges továbbfejlesztési lehetőségeket bemutatni.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=100mm, keepaspectratio]{figures/Csuklo_szog_teszt/mikrovez_2}
+\caption{Az elkészült jelfeldolgozó rendszer}
+\label{fig:mikrovez_2}
+\end{figure}
 
 %----------------------------------------------------------------------------
 \section{Jelfeldolgozó rendszer összeállítása}
@@ -48,7 +55,12 @@ A komponensek kiválasztása egyes esetekben más és más szempontok alapján t
 
 A csukló szög megállapításához használt szenzor összeállításban a korongmágnes állását mértem egy mágneses térorientációt mérni képes szenzorral. A Giant Magnetoresistance (GMR) egy olyan érzékelő, amely az szenzorban található ellenállások elektromágneses tulajdonságaiknak változását méri egy mágneses mező hatására. Ez a technológia a mágneses rezisztivitás változását használja ki, amikor egy mágneses tér hatására az elemben levő részecskék mágneses állapota változik. A szenzor működése röviden úgy foglalható össze, hogy a szenzorok több réteg vékony filmrétegből állnak, amelyek között ferromágneses és nem-ferromágneses rétegek váltakoznak. A ferromágneses rétegek mágneses polarizációjukat megváltoztathatják a külső mágneses tér hatására, és ezáltal befolyásolják az elektromos ellenállást az érzékelőben. Ennek a változásnak a szenzorba mérőrendszer képes a mágneses pólusok orientációját megadni a szenzor tengelyeihez képest.
 
-%TODO képek
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=65mm, keepaspectratio]{figures/Csuklo_szog_teszt/szenzor}
+\caption{A NyÁK lapra helyezett GMR szenzor}
+\label{fig:csuklo_szenzor_pcb}
+\end{figure}
 
 Az általam használt szenzor az Infineon TLE5012B jelzésű GMR szenzor. Ez a szenzor egy $360[^\circ]$-os szögérzékelő. Ezt az érzékelést monolitikusan integrált\footnote{A monolitikus integrált áramkörben az áramkör valamennyi aktív és passzív elemét, valamint a hozzájuk tartozó összekötéseket egyetlen chip-ben alakítják ki. Ezt a kialakítást szokás félvezető alapú integrált áramkörnek is nevezni.} Giant Magneto Resistance (GMR) elemekkel mérik, melyek a szinusz és koszinusz szögkomponenseit érzékelik a mágneses pólusoknak. Ezeket a nyers jeleket belsőleg digitálisan feldolgozzák a mágneses tér orientációjának kiszámításához. Ami nagyon fontos, hogy ez az érzékelő egy előre-kalibrált érzékelő. A kalibrációs paramétereket belsőleg tárolják. A bekapcsoláskor ezekhez viszonyítva adja meg a szögértékeket a szenzor. A szögmérés pontosságát egy opcionális belső automatikus kalibrációs algoritmussal lehet javítani a hőmérséklettartomány  és élettartam függvényében. Én ezt a funkciót nem használtam, de a mikrovezérlő programjába integráltam ennek a lehetőségét, de erről majd a \ref{sec:Prog_nagy_fej}.fejezetben a szenzor programozása kapcsán említést teszek. Az adatkommunikációt egy kétirányú Szinkron Soros Kommunikációval\footnote{A \ref{sec:ssc_kom}.fejezetben részletesen bemuatatom} (SSC) valósítják meg, amely SPI-kompatibilis. Utóbbi azért fontos, mert legelterjedtebben a SPI protokoll elérhető a mikrovezérlőknél. A szenzor konfigurációja regiszterekben tárolódik, amelyek elérhetők az SSC interfésszel. Emellett négy másik interfész is rendelkezésre áll a TLE5012B-vel: Impulzus-Szélesség-Moduláció (PWM) Protokoll, Rövid PWM Kód (SPC) Protokoll, Hall Kapcsoló Mód (HSM) és Inkrementális Interfész (IIF). Ezeket az interfészeket az SSC-vel együtt vagy önállóan lehet használni. Előre konfigurált érzékelő változatok elérhetők különböző interfészbeállításokkal, de a telemanipulátornál én, csak a SSC kommunikációs megvalósítást használtam. Ez a legegyszerűbb és az általam használt program könyvtár is erre volt optimalizálva. Néhány fontosabb jellemzőt még felsorolok a szenzorról, amik fontosabbak:
 
@@ -65,6 +77,13 @@ Az általam használt szenzor az Infineon TLE5012B jelzésű GMR szenzor. Ez a s
 	\item Nem tartalmaz halogént
 \end{itemize}
 
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=100mm, keepaspectratio]{figures/Csuklo_szog_teszt/szumma}
+\caption{Az csuklóban található szenzorok működés közben}
+\label{fig:csuklo_teszt_szumma}
+\end{figure}
+
 Ez a szenzor kellő megbízhatóságú a tapasztalataim alapján, kézi forrasztás közben jól kezelhető és nem érzékeny a magas forrasztási hőmérsékletre. Kifejezetten pontos és rendkívül gyors számítással rendelkezik ezért ideális a telemanipulátorhoz tartozó karok szögértékének mérésére. A dolgozatomban még kitérek a szenzorok tesztelésére.
 
 %----------------------------------------------------------------------------
@@ -78,7 +97,12 @@ A szakdolgozatom bírálásában kaptam javaslatként, hogy egészítsem ki a sz
 \end{itemize}
 
 
-%TODO képek
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=70mm, keepaspectratio]{figures/Csuklo_szog_teszt/bypass}
+\caption{A szenzoron található bypass kondenzátor beépítve}
+\label{fig:bypass}
+\end{figure}
 
 A bypass kondenzátor elhelyezése kritikus a hatékony zajszűrés és kellő stabilitás szempontjából. A kondenzátort a szenzort tápláló lábak közvetlen közelébe kell elhelyezni. A képen is jól látható módon én a szenzor $3V3$-as lábának helye mellett helyeztem el a furatot, ennél közelebb nem-igen tudtam volna fúrni rögzítőfuratot. A $GND$ azaz föld a kondenzátor másik lába esetében annyira már nem fontos.
 
@@ -91,14 +115,24 @@ A kondenzátornak a paraméterei bőven túlméretezettek\footnote{Ennek a nyit�
 
 Korábban említettem és a kritériumok közt is szerepelt, hogy minél flexibilisebbre szerettem volna a rendszert megtervezni. Ennek céljából külön odafigyeltem a csatlakozókra, hogy milyet használjak. A legkézenfekvőbbnek a MOLEX gyártó által elérhető csatlakozók bizonyultak. Ezek széles körben használt elektromos csatlakozók, és számos előnyt kínálnak, amelyek miatt népszerűek az elektronikai és ipari alkalmazásokban. Legnagyobb előnye, hogy a csatlakozók moduláris kialakításúak, ami lehetővé teszi, hogy kialakíthassunk velük egyszerű vagy összetett csatlakozási rendszereket az adott alkalmazáshoz. Ez a típus gyorsan és könnyen csatlakoztatható és bontható. Ez gyors telepítést és karbantartást tesz lehetővé, ami különösen előnyös összeszerelési, hibakeresési vagy fejlesztési esetekben. Széles körben alkalmazhatók különböző területeken, ennek eredményeként viszonylag egyszerű beszerezni. A Molex a minőségi termékeiről ismert, és csatlakozói megfelelnek a szigorú minőségi szabványoknak, ennek eredményeként a csatlakozók megbízhatóak és hosszú élettartamúak. Átfogó termékválasztékkal rendelkezik, beleértve különböző típusú csatlakozókat, vezetékeket, illetve kiegészítő termékeket. A telemanipulátor esetében 6 pin-es csatlakozókat választottam azért, hogy minden szenzornak saját vezeték párjai legyenek. Ezek a csatlakozók magas teljesítményű és nagy sebességű adatátvitelre alkalmasak, ami fontos volt a eszköz szempontjából. Ezeken felül a csatlakozók kis eséllyel kontaktosak\footnote{Rövid pillanatszerű vagy mozgásra vagy rezgésre megjelenő folytonosság hiba}, illetve az élettartalom se utolsó, mivel ezt a rendszer a lehető leggazdaságosabban a legtovább működteti.
 
-%TODO képek
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=60mm, keepaspectratio]{figures/Csuklo_szog_teszt/molex_valos}
+\caption{A negyedik és ötödik kar között található szenzor csatlakozója}
+\label{fig:csuklo_csatlakozo}
+\end{figure}
 
 \subsection{Mikrovezérlő}
 \label{sec:mikrovez_bemut}
 
 Elérkeztünk a mikrovezérlőig, mivel strukturálisan a vezetéken megérkező jeleket érzékelni tudjuk és a mikrovezérlőre csatlakoztatva az ezen futó programmal fel is tudjuk dolgozni. A szakdolgozatomban összeállított telemanipulátorhoz képest itt egy nagyobb komplexitású mikrovezérlőt választottam. Ennek az az oka, hogy a korábban használt eszközben nincs beépített bootloader, a pinek száma lényegesen kisebb és az eszköz memóriája túl kicsi a továbbfejlesztéshez. Ezek alapján döntöttem úgy, hogy a STMicroelectronics által gyártott Nucleo típusú fejlesztő board-ot választom. Az előnye a fejlesztő board-oknak, hogy a gyártó által összeállított tesztelt eszközök. Túlságosan nagy a felhasználhatóságuk, így könnyen pazarló vagy felesleges funkciókat is vásárolhatunk velük, de a prototípus gyártás elengedhetetlen elemei.
 
-%TODO képek
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=60mm, keepaspectratio]{figures/Csuklo_szog_teszt/mikrovez}
+\caption{Az csuklóban található szenzorok működés közben. A kép eredete: \url{https://www.st.com/en/evaluation-tools/nucleo-f401re.html}}
+\label{fig:mikrovez}
+\end{figure}
 
 Az STM32 Nucleo boardok ezek alapján olyan fejlesztői platformok, amelyek kifejezetten az STMicroelectronics által gyártott STM32 mikroprocesszorokkal való alkalmazásfejlesztés támogatására szolgálnak. A board moduláris felépítésű, lehetővé téve a könnyű kibővítést és testreszabhatóságot. Érdekes előnyük, hogy a diákok körében elterjedt számtalan Arduino Uno és ST Morpho csatlakozók révén a felhasználók könnyen integrálhatnak kiegészítő modulokat, érzékelőket és egyéb hardvereszközöket az adott projekthez. Az STM32 Nucleo boardokat a STM32CubeIDE fejlesztői környezet támogatja, amely egyszerű és hatékony eszköztár a szoftverfejlesztéshez. Az STM32CubeMX grafikus konfigurációs eszköz segítségével könnyedén konfigurálhatók és beállíthatók a perifériák illetve a CubeMonitornak köszönhetően a grafikusan megjeleníthetőek a szenzor adatokhoz tartozó változók. Ennek az eszköznek nagy haszna volt amikor a szenzorok kalibrációját és tesztelését végeztem. A board beépített perifériákkal rendelkezik, mint például érzékelők, LED-ek és gombok, amelyek segítik a prototípusfejlesztést és a beágyazott rendszerek gyors tesztelését. Az én általam használt mikrovezérlő esetében $3[db]$ SPI (XYZ fejezet) kommunikációs port is található, amivel így a továbbfejlesztési lehetőségek száma nagyon megugrik. Az STM32 boardok nagyon jó minőségű és nagy terjedelmű dokumentációval rendelkeznek, beleértve az útmutatókat, példaprogramokat, fórumokat és alkalmazási jegyzeteket. Ennek a hasznosságát nem lehet kellőképpen nyomatékosítani, ugyanis pont a nagy terület lefedés miatt a boradoknál nagyon sok mindenre kell figyelni, hogy a lehető legjobb eredményt érjük el. Az utolsó általános szempont amivel a STM32 Nucleo boardaot vizsgálni lehet, hogy könnyen elérhetők a piacon, számos konfugurációban és a bekerülési költségük összevetve egy cél eszköz gyártásával is elég alacsony.
 
@@ -129,29 +163,82 @@ A felsorolt különbségek száma nem sok, de a fejleszthetőséget nagy mérté
 \subsection{STM32 nucleo}
 \label{sec:STM32_nucleo}
 %----------------------------------------------------------------------------
-A Cortex-M4 egy ARM architektúrájú processzormag, amelyet beágyazott rendszerekhez terveztek. A Cortex-M4 processzormagok nagy teljesítményt és alacsony energiafogyasztást kínálnak, és széles körben elterjedtek az ipari, gyártási és beágyazott alkalmazások területén.
+Az STM32 mikrovezérlők az STMicroelectronics által gyártott nagyon népszerű és széles körben használt beágyazott rendszerekre szánt eszközök. Az STM32 fejlesztőeszközök a Cortex-M4 processzormaggal rendelkező STM32 mikrovezérlők családjára épülnek. A Cortex-M4 egy ARM architektúrájú processzormag, amelyet beágyazott rendszerekhez terveztek. Nagy teljesítményt és alacsony energiafogyasztást tesz lehetővé.
 
-Az STM32 fejlesztőeszközök a Cortex-M4 processzormaggal rendelkező STM32 mikrovezérlők családjára épülnek. Az STM32 mikrovezérlők az STMicroelectronics által gyártott nagyon népszerű és széles körben használt beágyazott rendszerekre szánt eszközök. Az STM32 fejlesztőeszközök kiváló minőségű hardvereket és szoftvereszközöket kínálnak a fejlesztőknek a STM32 mikrovezérlők programozásához és teszteléséhez.
-
-A NUCLEO-F411RE board egy konkrét példa az STM32 fejlesztőeszközök közül. Ez a fejlesztői platform az STM32F411RE mikrovezérlőre épül, amely egy Cortex-M4 processzormaggal rendelkező mikrovezérlő. A NUCLEO-F411RE board kiváló választás azok számára, akik be szeretnének vezetődni az STM32 világába és megismerkedni az ARM Cortex-M4 alapú fejlesztéssel.
-
-A NUCLEO-F411RE board számos funkcióval és interfésszel rendelkezik, ideértve digitális és analóg bemeneteket, PWM kimeneteket, UART, I2C, SPI és USB interfészeket, valamint egy ST-Link programozó/debugger egységet. Ez a board könnyen használható és támogatja a fejlesztőket az alkalmazásaik prototípusolásában, fejlesztésében és tesztelésében.
+A NUCLEO-F411RE board egy fejlesztőeszköz az STM32 fejlesztőeszközök palettájáról. Ez a fejlesztői platform az STM32F411RE mikrovezérlőre épül, amely egy Cortex-M4 processzormaggal rendelkező mikrovezérlő. A NUCLEO-F411RE board kiváló mivel komplex fejelsztést tesz lehetővé, és nem kell a mikrovezérlőhöz tartozó hardvert megtervezni. A board számos funkcióval és interfésszel rendelkezik, ideértve digitális és analóg bemeneteket, PWM kimeneteket, UART, I2C, SPI és USB interfészeket, valamint egy ST-Link programozó/debugger egységet. Ez a board könnyen használható és támogatja az alkalmazások gyors prototípus készítésben és tesztelésében.
 
 Az STM32 fejlesztőeszközökön általában kényelmesen használható fejlesztői környezet, például az STM32CubeIDE vagy az STM32CubeMX áll rendelkezésre. Ezek az eszközök számos fejlesztői funkciót és eszközt biztosítanak, például kódszerkesztőt, kódgenerátort, szimulációs lehetőségeket és debugger eszközöket, hogy segítsék a fejlesztőket a hatékony és könnyű fejlesztésben.
 
-Összefoglalva, a Cortex-M4 alapú rendszerek, mint az STM32 mikrovezérlők és az ehhez kapcsolódó fejlesztőeszközök, kiváló választásnak számítanak beágyazott rendszerek tervezéséhez és fejlesztéséhez. Az STM32 fejlesztőeszközök, például a NUCLEO-F411RE board, rugalmas és hatékony platformot kínálnak a Cortex-M4 alapú alkalmazások prototípusolásához és teszteléséhez, valamint a fejlesztői folyamat megkönnyítéséhez.
-
-
+\newpage
 %----------------------------------------------------------------------------
 \section{Összeállított rendszer tesztelése}
 
 A bemutatott komponensekből összeállított rendszer jelen fejlesztési státuszban $7[db]$ GMR szenzorból, $2[db]$ USB csatlakozóból és a STM32-es Nucleo boardból áll. A két USB csatlakozó közül az egyik a STM32-es board tápellátásáért és a mikrovezérlő program felügyeletéért, a másik pedig a adatok továbbításáért felel. A szenzorok a PCB-hez forrasztással lettek rögzítve, csakúgy ahogy a bypass kondenzátor is. A vezetékek a PCB-hez furatokba szintúgy forrasztással lettek bekötve. A MOLEX csatlakozókba a vezetékek alakkal zárással lettek rögzítve, illetve a mikrovezérlőre a SSC kommunikációs protokolhoz (\ref{sec:ssc_kom} fejezet) tartozó $SCK$ és $DATA$ vezeték a szenzortápok pozitív és negatív pólusával egyetemben funkciónként közösítve lettek. Minden a mikrovezérlőre közvetlenül csatlakozó vezeték dupont\footnote{Fejlesztésnél előszeretettel használt pin-re könnyen rögzíthető akárcsak 1-1 vezeték rögzítésére alkalmas csatlakozó.} csatlakozóval lett a megfelelő helyre kötve.
 
-%TODO képek
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=100mm, keepaspectratio]{figures/Csuklo_szog_teszt/mikrovez_2}
+\caption{Az összeállított rendszer}
+\label{fig:szummarendszer}
+\end{figure}
 
+
+\newpage
 \subsection{GMR szenzorok tesztelése}
 
-%TODO képek
+A következő képeken dokumentáltam a szenzorok egyenkénti működését.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=100mm, keepaspectratio]{figures/Csuklo_szog_teszt/1}
+\caption{Az első csuklóban található szenzor tesztje}
+\label{fig:csuklo_teszt_1}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=100mm, keepaspectratio]{figures/Csuklo_szog_teszt/2_3}
+\caption{Az második csuklóban található szenzor tesztje}
+\label{fig:csuklo_teszt_2_3}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=100mm, keepaspectratio]{figures/Csuklo_szog_teszt/4}
+\caption{Az harmadik csuklóban található szenzor tesztje}
+\label{fig:csuklo_teszt_4}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=100mm, keepaspectratio]{figures/Csuklo_szog_teszt/5}
+\caption{Az negyedik csuklóban található szenzor tesztje}
+\label{fig:csuklo_teszt_5}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=100mm, keepaspectratio]{figures/Csuklo_szog_teszt/6}
+\caption{Az ötödik csuklóban található szenzor tesztje}
+\label{fig:csuklo_teszt_6}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=100mm, keepaspectratio]{figures/Csuklo_szog_teszt/7}
+\caption{Az hatodik csuklóban található szenzor tesztje}
+\label{fig:csuklo_teszt_7}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=100mm, keepaspectratio]{figures/Csuklo_szog_teszt/1}
+\caption{Az első csuklóban}
+\label{fig:csuklo_teszt_1}
+\end{figure}
+
+Minden szenzor tökéletesen működik. A csukló szöge néhol azért léphetik át a negatív félsíkre, mert a szenzor üzembe helyezés pillanatában, még az offeszetelés nem volt tökéletesen implementálva. Az offszetelést némiképpen pontosabban is lehetne végezni, de ez még a robot használatának szempontjából nem fatális hiba.
+
 
 \subsection{Vezeték ellenállás mérése}
 

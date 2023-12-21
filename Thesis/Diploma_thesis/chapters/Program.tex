@@ -11,7 +11,12 @@ A GMR szenzor a mikrovezérlővel az úgynevezett Synchronous Serial Communicati
 
 A protokollon közös órajele biztosítja, hogy az adat transzferálás esetén mindkét eszköz azonos sebességgel és időzítéssel küldje és fogadja az üzenetet. Ez az információ küldés során bitek sorozataként továbbítódik, és a kommunikációban résztvevő fogadó és küldő egységek egyeztetik az adatok kezdőpontját és végpontját az órajelet és a protokoll definícióit használva. Ennek következtében mindkét eszköz tudja, hogy mikortól kell és meddig értelmeznie az érkező biteket.
 
-%TODO kép a GMR bitekről
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=120mm, keepaspectratio]{figures/Szenzor/tle5012b_bitek}
+\caption{TLE5012B dokumentációban szemléltető GMR szenzor bit üzenet}
+\label{fig:szenzor_bitek}
+\end{figure}
 
 A protokoll lehetővé teszi a teljes és a half-duplex kommunikációt. Teljes-duplex esetén mindkét eszköz képes egyszerre küldeni és fogadni adatokat, míg half-duplex esetén a kommunikáció váltakozva történik, azaz egyik eszköz küld, majd vált, és a másik eszközről fogad.
 
@@ -43,7 +48,12 @@ A mikrovezérlő programba implementált funkciók a következők:
 
 A szögértékeket szekvenciálisan az $1.$ csukló szenzortól a $7.$ csukló szenzorig egymás után olvassa ki. A szenzor kommunikáció már a bemutatott SSC kommunikáción történik és minden szenzor saját chipselect pin-jének a jelváltozására\footnote{A TLE 5012B GMR szenzor esetében alacsony jelről magas jelre vált a kommunikáció alatt} történik. A kiolvasott szögérték a szenzor meghatározott egyik tengelye és a mágnes kétpólusa által megadott póluspárok egymással bezárt szöge.
 
-%TODO Kép a szenzor szögről.
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=90mm, keepaspectratio]{figures/Szenzor/szenzor_szog}
+\caption{TLE5012B dokumentációban szemléltető GMR szenzor tengelyei}
+\label{fig:szenzor_szogek}
+\end{figure}
 
 Ez a megkapott szögérték $-180^\circ$ és $180^\circ$ állású közötti lehet. Ezt az értéket én átkonvertáltam $0^\circ$ és $360^\circ$-os skálára ugyan is így sokkal könnyebben beállítható az offset és a forgás irány is egyértelműbb számomra. Az offszet paraméterek beállítása a program indulása után is változtatható, de az alapparaméterek be vannak égetve. Az oka ennek, hogy így nem kellett minden tesztelési ciklus elején offszetelnem csuklóban lévő szenzorokat. Az offszet értékeket a következőképpen állapítottam meg.
 
@@ -69,7 +79,6 @@ A fenti parancsok közül a REC, CEC és a RDS parancsokat használom. Az RDS es
 
 A mikrovezérlő programmal kapcsolatban nagyon fontos még kitérni a RTOS rendszerre. Ez a STM32 vezérlőknél elérhető funkció a valós idejű lefutáshoz nagyon közeli működést tesz lehetővé. A program így előre megjósolható és determinisztikus módon válaszol az eseményekre, ugyanis realtime rendszerekben a feladatoknak szigorú időkorlátoknak kell megfelelniük, és az RTOS biztosítja a prioritáskezelést, időosztást és egyéb funkciókat a hatékony valós idejű működés érdekében.
 
-%TODO rtos kép
 %TODO RTOS HOL?????
 
 A kritériumokban(\ref{sec:ujratervezesi_szempontok}.fejezet) meghatározott $4[ms]$ vagy gyorsabb lefutás a robot vezérlés eléréséhez nagyban hozzájárul ez a lehetőség. A RTOS-sel elérhető párhuzamos lefutószerű működés és a szigorúan definiált feladatok, a mikrovezérlő szögérték kiolvasási feladatát biztosítja, hogy megfeleljen a kritériumoknak.
@@ -77,7 +86,6 @@ A kritériumokban(\ref{sec:ujratervezesi_szempontok}.fejezet) meghatározott $4[
 \subsection{UART port}
 \label{sec:uart_port}
 
-%TODO UART port
 %----------------------------------------------------------------------------
 Az "UART" rövidítés a "Universal Asynchronous Receiver/Transmitter" kifejezést takarja. Ez a port egy soros kommunikációs protokoll, amely a digitális adatok átvitelét teszi lehetővé két eszköz között. Ez a protokoll olyan eszközök közötti soros kommunikációt biztosít, amelyek között nincs központi órajel (asynchronous), tehát az adatküldés és fogadás időzítése a két eszköz között előre nem definiált.
 
@@ -85,16 +93,17 @@ Az UART általában két vezetéken keresztül történik, amiket TX (Transmitte
 
 Ez az interfész  vagy kommunikációs port a hardver vagy a vezérlő, amely lehetővé teszi az UART protokollt támogató eszközök közötti kommunikációt. Az UART portok széles körben alkalmazottak, például számítógépek, mikrovezérlők, beágyazott rendszerek és egyéb eszközök kapcsolódási pontjaiként. Segítségével a különböző eszközök adatokat küldhetnek és fogadhatnak egymástól.
 
+
 \section{Haptikus interfész}
 %----------------------------------------------------------------------------
 
-A mikrovezérlő a számítógéphez, amin ez az interface fut UART porton(\ref{sec:uart_port}.fejezet) csatlakozik. A telemanipulátor csuklóiban mért szenzor jeleket a haptikus interface kéri el a mikrovezérlőtől. A haptikus jelző ebben az esetben azt jelenti, hogy visszajelzés is van építve a rendszerbe. A robotkar sikeres megfogás vagy ütközés esetén a haptikus interface képes az openmanipulátor (\ref{sec:melleklet}.melléklet) vezérlő telemnanipulátorába épített rezgő motoroknak jelet adni. Az általam készített telemanipulátorban nincs ilyen típusú visszajelzés beépítve. Az interface ezt a visszajelzési visszacsatolást leszámítva tökéletesen megfelel az általam kitűzött célnak. Ezt a szoftveres megoldást annak ellenére, hogy nem egy az egyben a saját munkám fontosnak tartom bemutatni, hogy a továbbfejlesztési lehetőségeknél ki tudjak arra térni, hogy miért lenne fontos ezt az eszköz interfacet tovább módosítani és fejleszteni.
+A mikrovezérlő a számítógéphez, amin ez az interface fut UART porton(\ref{sec:uart_port}.fejezet) csatlakozik. A telemanipulátor csuklóiban mért szenzor jeleket a haptikus interface kéri el a mikrovezérlőtől. A haptikus jelző ebben az esetben azt jelenti, hogy visszajelzés is van építve a rendszerbe. A robotkar sikeres megfogás vagy ütközés esetén a haptikus interface képes az openmanipulátor (\ref{sec:melleklet}.melléklet) vezérlő telemnanipulátorába épített rezgő motoroknak jelet adni. Az általam készített telemanipulátorban nincs ilyen típusú visszajelzés beépítve. Az interface ezt a visszajelzési visszacsatolást leszámítva tökéletesen megfelel az általam kitűzött célnak. Ezt a szoftveres megoldást annak ellenére, hogy nem egy az egyben a saját munkám fontosnak tartom bemutatni, hogy a továbbfejlesztési lehetőségeknél ki tudjak arra térni, hogy miért lenne fontos ezt az eszköz interfacet tovább módosítani és fejleszteni.\cite{MogiHapticDevice}
 
-Az interface két részre bontható. Az első az, ami megvalósítja a kommunikációt a mikrovezérlővel, a másik pedig egy ROS node, ami a telemanipulátorból kiolvasott szögjeleket publikálja.
+Az interface két részre bontható. Az első az, ami megvalósítja a kommunikációt a mikrovezérlővel, a másik pedig egy ROS node, ami a telemanipulátorból kiolvasott szögjeleket publikálja.\cite{MogiHapticDevice}
 
-Fontos megjegyezni, hogy a teljes dolgozatom Ubuntu vagy közismertebb nevén Linux operációs rendszeren lett megvalósítva. Windows operációs rendszeren is van lehetőség futtatni a programokat, de ebben az esetben viszont virtuális gépet\footnote{Olyan programok amelyek képesek Windows operációs rendszeren telepített programban valamilyen nem Windows környezetre készített programot futtatni} vagy Windows Subsystem for Linux\footnote{Microsoft által támogatott virtuális Linux operációs rendszer. Az egyik legelterjedtebb megoldás arra, hogy a Windows operációs rendszerrel rendelkező eszközökön a Linux-ot futassunk} - rövidítve WSL - kell használni. Természetesen számos más megoldás is van, mint például a dual-Boot\footnote{Linux és Windows operációs rendszerek ugyanazon eszközön egymás mellé a háttértárba fel vannak telepítve, és a számítógép elindulásánál lehet megválasztani, hogy melyiket akarjuk indítani. Ebben az esetben sokkal kiegyensúlyozottabb hardver terhelést kapunk és teljes értékű operációs rendszerekkel dolgozunk.}. Én a diploma dolgozatomban bemutatott telemanipulátor esetében teljes értékű Linux operációs rendszerrel ellátott, illetve dual-Bootos számítógépet használtam.
+Fontos megjegyezni, hogy a teljes dolgozatom Ubuntu vagy közismertebb nevén Linux operációs rendszeren lett megvalósítva. Windows operációs rendszeren is van lehetőség futtatni a programokat, de ebben az esetben viszont virtuális gépet\footnote{Olyan programok amelyek képesek Windows operációs rendszeren telepített programban valamilyen nem Windows környezetre készített programot futtatni} vagy Windows Subsystem for Linux\footnote{Microsoft által támogatott virtuális Linux operációs rendszer. Az egyik legelterjedtebb megoldás arra, hogy a Windows operációs rendszerrel rendelkező eszközökön a Linux-ot futassunk} - rövidítve WSL - kell használni. Természetesen számos más megoldás is van, mint például a dual-Boot\footnote{Linux és Windows operációs rendszerek ugyanazon eszközön egymás mellé a háttértárba fel vannak telepítve, és a számítógép elindulásánál lehet megválasztani, hogy melyiket akarjuk indítani. Ebben az esetben sokkal kiegyensúlyozottabb hardver terhelést kapunk és teljes értékű operációs rendszerekkel dolgozunk.}. Én a diploma dolgozatomban bemutatott telemanipulátor esetében teljes értékű Linux operációs rendszerrel ellátott, illetve dual-Bootos számítógépet használtam.\cite{MogiHapticDevice}
 
-Az mikrovezérlővel a kommunikáció szerial kommunikáció, egy egyszerű USB-s csatlakozásnak minősül, ami azt jelenti, hogy lehetőség van információt küldeni és kiolvasni a port-ról. A csatlakoztatott mikrovezérlő a fizikai porton jelenik meg a számítógép port listájában (Linuxon ez a $tty*$ portok között van). A fizikai szerial kommunikáció létrejötte utána az interfacenek ugyanazok a kommunikációs paraméterek lettek beállítva, mint amit a mikrovezérlő is használ. Ez triviális ugyanis, ahogy a \ref{sec:MCU_program}.fejezetben bemutattam a UART protokollt fontos, hogy a két eszköz szinkronban legyen. A beállított paraméterek:
+Az mikrovezérlővel a kommunikáció szerial kommunikáció, egy egyszerű USB-s csatlakozásnak minősül, ami azt jelenti, hogy lehetőség van információt küldeni és kiolvasni a port-ról. A csatlakoztatott mikrovezérlő a fizikai porton jelenik meg a számítógép port listájában (Linuxon ez a $tty*$ portok között van). A fizikai szerial kommunikáció létrejötte utána az interfacenek ugyanazok a kommunikációs paraméterek lettek beállítva, mint amit a mikrovezérlő is használ. Ez triviális ugyanis, ahogy a \ref{sec:MCU_program}.fejezetben bemutattam a UART protokollt fontos, hogy a két eszköz szinkronban legyen. A beállított paraméterek:\cite{MogiHapticDevice}
 
 \begin{itemize}
 \item Baudrate (Kommunikáció sebessége) - $115200 [-]$
@@ -103,7 +112,7 @@ Az mikrovezérlővel a kommunikáció szerial kommunikáció, egy egyszerű USB-
 \item Byte méret - $8[db]$
 \end{itemize}
 
-Ezzel létrejött a programban is használható kommunikációs kapcsolat a számítógép és a mikrovezérlő között. Az interface ezt követően ciklikusan $8[ms]$-onként a kommunikációs porton az RDS parancs segítségével lekérdezi a csuklószögeket. A visszakapott választ ellenőrzi, hogy az előző fejezetben bemutatott sorrendben minden rendben megérkezik-e és így validálva az adatok helyességét. A megkapott csukló szögeket átváltja radiánba és a ROS topológián (\ref{sec:melleklet}.melléklet) is láthatóan publikálja őket.
+Ezzel létrejött a programban is használható kommunikációs kapcsolat a számítógép és a mikrovezérlő között. Az interface ezt követően ciklikusan $8[ms]$-onként a kommunikációs porton az RDS parancs segítségével lekérdezi a csuklószögeket. A visszakapott választ ellenőrzi, hogy az előző fejezetben bemutatott sorrendben minden rendben megérkezik-e és így validálva az adatok helyességét. A megkapott csukló szögeket átváltja radiánba és a ROS topológián (\ref{sec:melleklet}.melléklet) is láthatóan publikálja őket.\cite{MogiHapticDevice}
 
 \subsection{Robot Operating System - ROS}
 %----------------------------------------------------------------------------
@@ -114,6 +123,7 @@ Jobban megfogalmazhatóan a ROS egy gráfalapú rendszer, amelyben a különböz
 A node-ok közötti kommunikáció a már említett topic-okon keresztül történik. A topic egy adatcsatornának tekinthető, amely lehetővé az aszinkron adat közlést. Egy node publikálhat adatokat egy topic-ra, és más node-ok feliratkozhatnak erre, hogy megkapják és ismerjék az adatokat. Ez a központi kommunikációs mechanizmus a ROS rendszerben. Mint például az én diploma dolgozatomban egy node a szenzor adatokat publikálja egy $haptic_joint_angles$ nevű topic-ra, és egy robotoknak mozgásutasítást kiadni képes node feliratkozik erre, hogy megkapja a szenzoradatokat és így aktuális adatokkal számításokat tud végezni és parancsot adni a robot navigációjához.
 
 A ROS rendszer különösen népszerű a robotrendszerek fejlesztésében, ezért számtalan megoldás és példa elérhető az interneten. A KUKA robot vezérléséek lehetősége is így fogalmazódott meg bennem. Mivel a ROS rendszerben a node-ok és topic-ok rugalmasan konfigurálhatóak és összekapcsolhatók - ami a modularitásból és újrafelhasználható szoftverkomponensek létrehozásából adódik - különösebb módosítás nélkül a KUKA robot vezérlése megvalósítható lesz a Universal Robot vezérlője alapján. Így látható, hogy a moduláris szerkezet elősegíti a fejlesztés hatékonyságot, és lehetővé teszi a különböző rendszerek összehangolását. Összességében a ROS egy sokrétű, rugalmas szoftverrendszer, amely lehetővé teszi a legmerészebb fejlesztői ötletek megvalósítását.
+
 
 \section{Universal Robot kontroller}
 %----------------------------------------------------------------------------
@@ -177,6 +187,7 @@ A quaternionok előnye, hogy hatékonyan reprezentálhatnak rotációkat a háro
 
 Ezzel a módszerrel történő rotációk gyakran alkalmazhatók például térbeli orientációk számítására a robotika területén. A rotációkat általában egy kezdeti orientáció és egy célorientáció közötti kvaternióként reprezentálják, majd ezeket a kvaterniókat alkalmazzák a térbeli objektumokon. Fontos megjegyezni, hogy a quaternionok bevezetése és használata egy speciális terület a matematikában, és gyakran igényel némi megértést a térgeometriában és lineáris algebrában.
 
+
 \section{Gazebo szimuláció}
 %----------------------------------------------------------------------------
 
@@ -184,7 +195,12 @@ A célkitűzésem egyike az volt, hogy a telemanipulátorral szimulációs körn
 
 A szimulációs rendszerek alapvető tulajdonsága, hogy azt szimulálják le, ami fel van nekik programozva. Ezeket a szimulációs elemeket a teljesség igénye mellett se lehet egy az egyeben megfeleltetni a valós életben megtalálható igazinak. Ebből fakadólag előfordulhatnak pálya tervezési hibák, zajok és olyan előre nem lekezelt program futásbeli hibák, amik a programok rossz időbeli sorrendje miatt keletkeznek. Ezeket a problémákat jellemzően a szimulációs rendszer korlátainak tekintjük. Az általam futtatott szimulációnál, csak azokra a tapasztalatokra térek ki, amik közvetlenül a telemanipulátor, a kontroller és a robotvezérlő működésével kapcsolatos. A tapasztalatokat összegzem és a valós robot vezérlésénél össze is fogom hasonlítani.
 
-%TODO Kép a szimulációról
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=100mm, keepaspectratio]{figures/Robot/szimu}
+\caption{Az robot szimulációs rendszerben mozgatása}
+\label{fig:szimu_robot_mozgatas}
+\end{figure}
 
 Egy meghatározott cél koordináta és a jelenlegi között nincs nagy távolság, akkor gyorsan végrehajtja a parancsot. Nagy távolság esetén a számítási idő szignifikánsan nagyobb. Ez akár egyértelmű is lehet viszont, egy nagyon nagy hátrány, mert nem is feltétlen a TCP pontok távolsága számít, hanem az az egyenlet rendszer, aminek eredményeként a lehetséges orientációkat megkapjuk. Ezzel kapcsolatosan megfigyeltem még, hogy a nagyon összetett pályák esetén még a $5[s]$-os időtúllépést is elérheti kontroller, amikor is a számítás kiáll hibára és megszakítja a kalkulációt. Ezt követően vagy visszatér és egy következő orientációt kezd el számolni, vagy helytelen orientáció miatt beavatkozást igényel a szimulátor. Amit még a valós robot szimulációval való korrekt összehasonlítás miatt fontos volt megfigyelnem, hogy stabil egy adott pontban, nem érzékelhető se remegés se bizonytalan pozíciótartás.
 
@@ -198,7 +214,12 @@ A diploma dolgozatom végcélja az volt, hogy egy valós robotot is vezéreljek 
 
 A robot, amit valójában sikerült mozgatnom, ugyanaz a robot amit a szimulációs környezetben is teszteltem. A robotot laboratóriumi összeállításban teszteltem ezért is látszik, hogy egy sakk tábla van a robot előtt és nem egy témába vágó tárgy (például műtő fatnom), mert a laboratóriumi körülmények között más kollégák is használták. A laboratóriumban a szimuláció és a valós vezérlés közti alapvető különbségekre voltam kíváncsi.
 
-%TODO Kép a robot
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=100mm, keepaspectratio]{figures/Robot/Valosrobotszimulacio}
+\caption{Az valós robot mozgatása}
+\label{fig:valos_robot_mozgatas}
+\end{figure}
 
 Az egyértelműen kijelenthető, hogy sikerült a robotot vezérelni és közel azonos tapasztalatokat gyűjtöttem, mint a szimuláció esetében. A tervezési idő erősen függ a kezdő és végpont távolságától, illetve ugyanúgy időtúllépéssel leáll mint a szimuláció esetében. Lényeges különbség viszont, hogy nagyon látványosan megjelenik egy nyugvó pont körüli zaj. A robot kismértékben remeg/mozog olyankor amikor a telemanipulátor által a vezérlő nem ad direktben mozgásutasítást. Ez nagyon nagy rendszer hiba, mivel a sebészeti szimulációk vagy későbbiekben műtő fantom operálására szeretném tovább fejleszteni, akkor ez mozgás megengedhetetlen, de ezt a következő fejezetben részletesebben bemutatom.
 
