@@ -21,25 +21,25 @@ A telemanipulátor rendszerek különböző szenzorokat (erő, távolság vagy s
 \section{Szakdolgozatomban elkészített telemanipulátor}
 %----------------------------------------------------------------------------
 
-A tervezési elvárások meghatározásának alapja az alapszintű képzésem Szakdolgozatában dokumentált hat szabadsági fokú telemanipulátor. Az eszköz tervezése volt az első önálló mérnöki munkám, amelynek eredményeképpen sikerült egy átfogó projektet bemutatnom. Ez a telemanipulátor egy egyszerű egytagú karokból és csuklókból összeállított kinematikai eszköz. Az eszköz elkészítésének koncepciója az volt, hogy a hatodik csuklóba helyezhető legyen egy tetszőleges geometria, amelynek a Tool Counter Point (rövidítve TCP)\footnote{Tool counter point, ami egy definiált pontja az end-effektornak egy viszonyítási koordináta rendszerben.}-jának térben való elmozdulását mérni tudjam a karok egymáshoz viszonyított csuklószögeinek mérésével. Az \ref{fig:Szakdoga_csipeszes}.ábrán az elkészült eszköz látható.
+A tervezési elvárások meghatározásának alapja az alapszintű képzésem Szakdolgozatában dokumentált hat szabadsági fokú telemanipulátor. Az eszköz tervezése volt az első önálló mérnöki munkám, amelynek eredményeképpen sikerült egy átfogó projektet bemutatnom. Ez a telemanipulátor egy egyszerű egytagú karokból és csuklókból összeállított kinematikai eszköz. Az eszköz elkészítésének koncepciója az volt, hogy a hatodik csuklóba helyezhető legyen egy tetszőleges geometria, amelynek a Tool Center Point (rövidítve TCP)\footnote{Tool Center point, ami egy definiált pontja az end-effektornak egy viszonyítási koordináta rendszerben.}-jának térben való elmozdulását mérni tudjam a karok egymáshoz viszonyított csuklószögeinek mérésével. Az \ref{fig:Szakdoga_csipeszes}.ábrán az elkészült eszköz látható.\cite{szakdoga}
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=110mm, keepaspectratio]{figures/Szakdoga/0_v_4_csipeszes}
-\caption{Szakdolgozatomban elkészített telemanipulátor}
+\includegraphics[width=120mm, keepaspectratio]{figures/Szakdoga/0_v_4_csipeszes}
+\caption{Szakdolgozatomban elkészített telemanipulátor\cite{szakdoga}}
 \label{fig:Szakdoga_telemanip_csipeszes}
 \end{figure}
 
-A telemanipulátort 3D nyomtatással lett készítettem el. Ez a prototípus készítési módszer manapság már a mérnöki munka alapjának tekinthető, főleg az megfizethető 3D nyomtató berendezések elterjedésével. Az általam használt nyomtatási technológia az alkatrészek nyomtatására ebben az esetben FDM\footnote{Fused Deposition Modeling - A nyomtatási technológia a hőre lágyuló polimerekkel képes 3D-s objektumokat nyomtatni. Az FDM nyomtatók azzal az alapelvvel működnek, hogy szobahőmérsékleten szilárd hőre lágyuló polimert 180$^{\circ}$- 300$^{\circ}$C-ra melegítve ömledék állapotba kerülnek és a kívánt helyre lehet juttatni lineáris vezetékrendszer segítségével.}, viszont néhány alkatrész, mint például a szenzortartók elkészítéséhez SLA\footnote{StereoLithography Apparatus - modellteret UV aktív gyantával tölti fel. A nyomtatási térben egy síklapra építi fel a tárgyat úgy, hogy az belemerül egy gyantával teli kádba, ahol a megfelelő rétegvastagságú folyékony gyanta réteget UV lézerrel térhálósítja és köti adhézióval az előző réteghez} technológiai alapon működő nyomtatót használtam. 
+A telemanipulátort 3D nyomtatással lett készítettem el. Ez a prototípus készítési módszer manapság már a mérnöki munka alapjának tekinthető, főleg az megfizethető 3D nyomtató berendezések elterjedésével. Az általam használt nyomtatási technológia az alkatrészek nyomtatására ebben az esetben FDM\footnote{Fused Deposition Modeling - A nyomtatási technológia a hőre lágyuló polimerekkel képes 3D-s objektumokat nyomtatni. Az FDM nyomtatók azzal az alapelvvel működnek, hogy szobahőmérsékleten szilárd hőre lágyuló polimert 180$^{\circ}$- 300$^{\circ}$C-ra melegítve ömledék állapotba kerülnek és a kívánt helyre lehet juttatni lineáris vezetékrendszer segítségével.\cite{noorani20173d}}, viszont néhány alkatrész, mint például a szenzortartók elkészítéséhez SLA\footnote{StereoLithography Apparatus - modellteret UV aktív gyantával tölti fel. A nyomtatási térben egy síklapra építi fel a tárgyat úgy, hogy az belemerül egy gyantával teli kádba, ahol a megfelelő rétegvastagságú folyékony gyanta réteget UV lézerrel térhálósítja és köti adhézióval az előző réteghez\cite{noorani20173d}} technológiai alapon működő nyomtatót használtam. \cite{szakdoga}
 
-A telemanipulátor karok csatlakozásánál mindenhol csapágyakat használtam, ezzel biztosítva az egytengelyűséget és az ellenállás mentes elfordulást. A vezetékezésben igyekeztem mindenhol tengelyen átlépő vezetékpályát tervezni, ami nem akadályozza a rendszer mozgatását.
+A telemanipulátor karok csatlakozásánál mindenhol csapágyakat használtam, ezzel biztosítva az egytengelyűséget és az ellenállás mentes elfordulást. A vezetékezésben igyekeztem mindenhol tengelyen átlépő vezetékpályát tervezni, ami nem akadályozza a rendszer mozgatását.\cite{szakdoga}
 
-A mikrovezérlővel begyűjtött szögértékeket továbbítottam egy szimulációs rendszernek, amiben igyekeztem megfelelő számításokkal egy virtuális robotkart mozgatni. Végeredményben az adatokkal végzett számításokat nem sikerült maradéktalanul hibamentesen elvégezni. A szakdolgozat megírásának pillanatában nem voltam kellően felkészülve kinematikai számítások terén. Egy hibás egyenlet rendszert írtam fel, aminek az eredményeként a kiszámított koordináták amiket a robotnak követnie kellett volna helytelenek voltak. Ezt később a Mesterképzésemen projekt feladatom kapcsán korrigáltam.
+A mikrovezérlővel begyűjtött szögértékeket továbbítottam egy szimulációs rendszernek, amiben igyekeztem megfelelő számításokkal egy virtuális robotkart mozgatni. Végeredményben az adatokkal végzett számításokat nem sikerült maradéktalanul hibamentesen elvégezni. A szakdolgozat megírásának pillanatában nem voltam kellően felkészülve kinematikai számítások terén. Egy hibás egyenlet rendszert írtam fel, aminek az eredményeként a kiszámított koordináták amiket a robotnak követnie kellett volna helytelenek voltak. Ezt később a Mesterképzésemen projekt feladatom kapcsán korrigáltam.\cite{szakdoga}
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=110mm, keepaspectratio]{figures/Szakdoga/00_v_4_kar}
-\caption{Szakdolgozatomban elkészített telemanipulátor méreteinek bemutatása}
+\includegraphics[width=120mm, keepaspectratio]{figures/Szakdoga/00_v_4_kar}
+\caption{Szakdolgozatomban elkészített telemanipulátor méreteinek bemutatása\cite{szakdoga}}
 \label{fig:Szakdoga_telemanip_meret}
 \end{figure}
 
@@ -52,12 +52,12 @@ Végeredményben a szakdolgozatomban elkészített telemanipulátor az akkor meg
 A szakdolgozatomban az újratervezési szempontokat csoportosítás nélkül fogalmaztam meg, ami kissé általánosított megfogalmazást eredményezett. Az elvárások pontosan a következők voltak:
 
 \begin{enumerate}
-\item A manipulátor minél többféle eszköznek a rögzítését és mozgatását tegye lehetővé
-\item Az eszközök a munkatere: $200[mm]x200[mm]x200[mm]$
-\item Az end-effektorra illesztett szerszámok használatát ne nehezítse a manipulátor súlya
-\item Az eszköz geometriáját úgy kell kialakítani, hogy 3D nyomtatási technológiákkal legyártható legyen
-\item A csuklóknál csapágyazást kell alkalmazni
-\item Az eszköz kábelezését minél inkább el kell rejteni
+\item A manipulátor minél többféle eszköznek a rögzítését és mozgatását tegye lehetővé\cite{szakdoga}
+\item Az eszközök a munkatere: $200[mm]x200[mm]x200[mm]$ \cite{szakdoga}
+\item Az end-effektorra illesztett szerszámok használatát ne nehezítse a manipulátor súlya\cite{szakdoga}
+\item Az eszköz geometriáját úgy kell kialakítani, hogy 3D nyomtatási technológiákkal legyártható legyen\cite{szakdoga}
+\item A csuklóknál csapágyazást kell alkalmazni\cite{szakdoga}
+\item Az eszköz kábelezését minél inkább el kell rejteni\cite{szakdoga}
 \end{enumerate}
 
 A diploma dolgozatom esetében is fontosnak éreztem ilyen pontokat megfogalmazni, de ezt csoportosítva teszem meg a következő alfejezetek alapján. A szakdolgozatban megtervezett és részletesen bemutatott telemanipulátor számomra legnagyobb hibája, hogy minden értelemben túl kicsi. Méretet és tömeget általában utolsóként szokás racionalizálni. Nincs elég hely az esetleges új funkcióknak és ha az egyik szenzor meghibásodik vagy másikat kell felhelyezni szinte a teljes eszközt újra kell kábelezni. Programozási tekintettben már az említett hiba mellett a mikrovezérlő memóriájában extra tárhely nincs, így itt se lehetséges az új funkciók implementálása. Így sokkal célzottabban lehetséges vizsgálni már a különböző problémákat a későbbiekben. Ezt követően egy funkcionális módosítást mutatok be, mielőtt a következő fejezetben a már új telemanipulátor tervezési lépéseit tárgyalnám.
@@ -80,6 +80,7 @@ A jelfeldolgozó rendszertől kapott csuklószögeket felhasználó programmal s
 
 A korábban említett számítási hiba kijavítása egyértelmű cél volt a szakdolgozatomat alapul véve, de ezt nem közvetlenül a diplomamunkám keretein belül végeztem el.
 
+\newpage
 \subsection{Sebészeti eszközök vezérlése}
 %----------------------------------------------------------------------------
 
@@ -88,8 +89,15 @@ Röviden szeretnék kitérni arra, hogy a szakdolgozatomban látható tényleges
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=80mm, keepaspectratio]{figures/Szakdoga/csipesz}
-\caption{Szakdolgozatomban elkészített telemanipulátorhoz tartozó csipesz}
+\caption{Szakdolgozatomban elkészített telemanipulátorhoz tartozó csipesz\cite{szakdoga}}
 \label{fig:Szakdoga_csipeszes}
 \end{figure}
 
 A diploma dolgozatom címében megfogalmazott sebészeti eszközök figyelembe vannak véve a bemutatásra kerülő telemanipulátor tervezése közben. A jelző a sebészeti eszközökre szakdolgozatomtól eltérően nem konkrétan a telemanipulátor end-effektorára vonatkozik, hanem a robotkar hatodik csuklójára helyezett eszközre, amit majd a későbbiekben könnyedén lehet ezzel az eszközzel vezérelni.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=80mm, keepaspectratio]{figures/Szumma/Megfogott_megfogo}
+\caption{Diploma dolgozatomban elkészített telemanipulátorhoz tartozó megfogó}
+\label{fig:Diploma_EE}
+\end{figure}

@@ -181,7 +181,7 @@ class MoveGroupPythonInteface(object):
         plan = self.move_group.go(wait=True)
         # Calling `stop()` ensures that there is no residual movement
         self.move_group.stop()
-        # It is always good to clear your targets after planning with poses.
+        # It is always good to clear your targets after planning with poses.\
         # Note: there is no equivalent function for clear_joint_value_targets()
         self.move_group.clear_pose_targets()
  

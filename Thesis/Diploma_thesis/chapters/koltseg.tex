@@ -1,0 +1,102 @@
+\chapter{Költség összesítés}
+\label{sec:kolt_elem}
+%----------------------------------------------------------------------------
+
+A költségek összesítését azért tartom fontosnak, mert egy prototípus legyártásnak az eredményesség szempontjából az is célja, hogy reprodukálható legyen. A költéség elemek túlzott mérete miatt egy prototípus lehet megoldás bármilyen komplex problémára, ha finanszírozhatatlan akkor végtermék nem lesz belőle. Az én általam tervezett telemanipulátor az Orvostechnika Szakosztály tulajdonába fog kerülni a későbbiekben ezzel együtt szeretnék egy, olyan komplett dokumentációt csinálni, ahol az előállítási költségeket is összegzem és javaslatot teszek ezek csökkentésére. A költség tételeket listaszerűen felsorolom, összegzem a felhasznált mennyiséget és ezt követően elemzem a végösszeget.
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{ |c|c| }
+ \hline
+ Tétel megnevezése & Bekerülési érték  \\
+ \hline
+   \hline
+ STM32 nucleo fejlesztő board & $12750[Ft$/$db]$  \\
+ \hline
+ GMR szenzor (TLE5012B) & $2210[Ft$/$db]$  \\
+ \hline
+ Kondenzátor & $15[Ft$/$db]$  \\
+ \hline
+ Mágnes & $770[Ft$/$db]$  \\
+ \hline
+ Vezeték & $3500[Ft$/$tekercs$/$szín$/$36[m]]$  \\
+ \hline
+ 3D nyomtató filament & $8935[Ft$/$tekercs,1000[g]]$  \\
+ \hline
+ 3D nyomtató üzemóra & $70[Ft$/$óra]$ \\
+ \hline
+ Rögzítő fa tábla & $4590[Ft$/$db]$  \\
+ \hline
+ USB csatlakozó & $1750[Ft$/$db]$  \\
+ \hline
+ Molex csatlakozó (6 pin komplett) & $357[Ft$/$db]$  \\  
+ \hline
+ Dunplot csatlakozó (komplett) & $75[Ft$/$db]$  \\
+ \hline
+ M4-es belső kulcsnyílású csavar & $54[Ft$/$db]$  \\
+ \hline
+ M4-es rézinzert & $60[Ft$/$db]$  \\
+ \hline
+ 16014*KBS csapágy & $1678[Ft$/$db]$  \\
+ \hline
+ 61805 2Z*KBS csapágy & $329[Ft$/$db]$  \\
+ \hline
+ 61800 2Z csapágy & $474[Ft$/$db]$  \\
+\hline
+\end{tabular}
+\caption{Telemanipulátor hoz köthető költségek}
+\label{table:Koltsegek}
+\end{table}
+
+A komplett költségek mindent tételt a valós felhasznált mennyiséghez igazítva. A szereléshez szükséges eszközöket és a fogyóeszközök, mint például a forrasztóónt általános költségként számolom fel.
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{ |c|c|c| }
+ \hline
+ Tétel megnevezése & Felhasznált mennyiség & Bekerülési érték  \\
+ \hline
+   \hline
+ STM32 nucleo fejlesztő board & 1[db] & $12750[Ft]$  \\
+ \hline
+ GMR szenzor (TLE5012B) & 7[db] & $15370[Ft]$  \\
+ \hline
+ Kondenzátor & 7[db] & $105[Ft]$  \\
+ \hline
+ Mágnes & 7[db] & $5390[Ft]$  \\
+ \hline
+ Vezeték & 28,29[m] egy színből 4,716[m] & $2751[Ft]$  \\
+ \hline
+ 3D nyomtató filament & 3560[g] & $31809[Ft]$  \\
+ \hline
+ 3D nyomtató üzemóra & 189[óra] & $13230[Ft]$ \\
+ \hline
+ Rögzítő fa tábla & 1[db] & $4590[Ft]$  \\
+ \hline
+ USB csatlakozó & 1[db] & $1750[Ft]$  \\
+ \hline
+ Molex csatlakozó (6 pin komplett)& 7[db] & $2499[Ft]$  \\  
+ \hline
+ Dunplot csatlakozó (komplett) & 16[db] & $1200[Ft]$  \\
+ \hline
+ M4-es belső kulcsnyílású csavar & 55[db] & $2970[Ft]$  \\
+ \hline
+ M4-es rézinzert & 55[db] & $3240[Ft]$  \\
+ \hline
+ 16014*KBS csapágy & 2[db] & $3355[Ft]$  \\
+ \hline
+ 61805 2Z*KBS csapágy & 20[db] & $6579[Ft]$  \\
+ \hline
+ 61800 2Z csapágy & 2[db] & $948[Ft]$  \\
+\hline
+Általános költségek & [-] & $5000[Ft]$ \\
+\hline
+\end{tabular}
+\caption{Telemanipulátor hoz köthető költségek}
+\label{table:Koltsegek}
+\end{table}
+
+A prototípus legyártásának teljes költsége: $113536[Ft]$.
+
+Az összeg nem elhanyagolható mértékű, de egy ilyen diploma dolgozathoz, ahol fizikai robot mozgatását valósítottam meg elvárható szerintem, hogy jó minőségű anyagok felhasználásával építsem meg. Az összeg csökkentésére a funkcionalitás megőrzése mellett nincs lehetőség.
+

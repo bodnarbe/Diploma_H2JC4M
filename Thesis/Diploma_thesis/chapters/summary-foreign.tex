@@ -4,9 +4,15 @@
 
 \selectforeignlanguage % angol (magyar) nyelvi beállítások
 
-Az elvégzett munka rövid, másfél oldalt meg nem haladó, de legalább 2/3 
-oldalnyi terjedelmű angol nyelvű összefoglalása.
+I designed and implemented a six-degree-of-freedom telemanipulator. The telemanipulator incorporates gravity and mass compensatory kinematic solutions.
 
+I also designed an end-effector to attach to the device, and throughout the entire design process, I kept in mind that any tool could be connected to it.
+
+My main goal was to use angle signals collected on the telemanipulator for robot control with the help of an STM32 microcontroller. I successfully achieved this set goal. I created a telemanipulator and, utilizing the signal processing system, applied kinematic calculations to provide control commands to a simulated environment and a real collaborative robot. In both cases, the control remained stable, allowing me to continuously operate the robot and observe the characteristics of my current setup.
+
+During control, some technical issues arose, as the robot exhibited vibrations around a stable point. Towards the end of my thesis, my objective was to find a solution to this oscillation issue.
+
+I acquired during my studies enabled me to gather information from the initial physical world using sensors on the telemanipulator about the operator's movement intentions. I transformed this information into control commands in a closed software environment, and by transmitting this, the robot implemented it in the physical world.
 
 \vspace{0.5cm}
 \paragraph{Keywords} \emph{\keywords}  % A kulcsszavak a fő tex fájlban vannak definiálva
