@@ -1,0 +1,10 @@
+../Core/Src/main.c:752:6:StartMotorTask	24	static
+../Core/Src/main.c:467:6:StartDefaultTask	8	static
+../Core/Src/main.c:597:6:StartSensorTask	32	static
+../Core/Src/main.c:227:6:SystemClock_Config	96	static
+../Core/Src/main.c:140:5:main	136	static
+../Core/Src/main.c:417:6:HAL_GPIO_EXTI_Callback	8	static
+../Core/Src/main.c:446:10:SizeofCharArray	0	static
+../Core/Src/main.c:488:6:StartCommTask	64	static,ignoring_inline_asm
+../Core/Src/main.c:785:6:HAL_TIM_PeriodElapsedCallback	0	static
+../Core/Src/main.c:802:6:Error_Handler	0	static

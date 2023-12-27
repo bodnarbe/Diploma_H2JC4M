@@ -1,0 +1,5 @@
+2023-11-28 01:12:48,953 [INFO] Gpio:273 - dependency for GPIO [RCC, SPI2, SYS, TIM1, USB_OTG_FS]
+2023-11-28 01:13:12,318 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,2,27,453x473,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-28 01:13:12,342 [INFO] Gpio:273 - dependency for GPIO [RCC, SPI2, SYS, TIM1, USB_OTG_FS]
+2023-11-28 01:15:00,839 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 895651648 Bytes (1073741824)
+2023-11-28 01:15:04,256 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 632603912 Bytes (1073741824)
